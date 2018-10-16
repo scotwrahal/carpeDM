@@ -5,8 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CPSC_SocialNetwork"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="720" Width="1280">
+    <DockPanel LastChildFill="True">
+        <Grid DockPanel.Dock="Top" Height="40" Background="Red">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="240"/>
+                <ColumnDefinition Width="*"  />
+                <ColumnDefinition Width="240"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="Logo" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid DockPanel.Dock="Left" Width="240" Background="Blue">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="64"/>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Grid.Column="0">
+                <TextBlock Margin="10" FontSize="20">Characters</TextBlock>
+                <Button Margin="10">Me</Button>
+                <Button Margin="10">Myself</Button>
+                <Button Margin="10" Content="I"/>
+            </StackPanel>
+        </Grid>
+        <Grid DockPanel.Dock="Right" Width="240" Background="Green">
+            
+        </Grid>
+        <Canvas Background="Yellow">
+            
+        </Canvas>
+    </DockPanel>
 </Window>
