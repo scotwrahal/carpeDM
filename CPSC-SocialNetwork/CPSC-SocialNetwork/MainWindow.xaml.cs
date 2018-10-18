@@ -24,5 +24,29 @@ namespace CPSC_SocialNetwork
         {
             InitializeComponent();
         }
+
+        private void ButtonOpenLeftSidebar_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonOpenLeftSidebar.Visibility = Visibility.Collapsed;
+            ButtonCloseLeftSidebar.Visibility = Visibility.Visible;
+        }
+
+        private void ButtonCloseLeftSidebar_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonOpenLeftSidebar.Visibility = Visibility.Visible;
+            ButtonCloseLeftSidebar.Visibility = Visibility.Collapsed;
+        }
+
+        private void ButtonOpenRightSidebar_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonOpenRightSidebar.Visibility = Visibility.Collapsed;
+            ButtonCloseRightSidebar.Visibility = Visibility.Visible;
+        }
+
+        private void ButtonCloseRightSidebar_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonOpenRightSidebar.Visibility = Visibility.Visible;
+            ButtonCloseRightSidebar.Visibility = Visibility.Collapsed;
+        }
     }
 }

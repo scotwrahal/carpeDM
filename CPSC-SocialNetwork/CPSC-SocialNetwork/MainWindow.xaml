@@ -4,35 +4,249 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CPSC_SocialNetwork"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280">
+
+    <Window.Resources>
+        <!--#region Sidebar Animations-->
+        <Storyboard x:Key="LeftSidebarOpen">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="LeftSidebar">
+                <EasingDoubleKeyFrame KeyTime="0" Value="32"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="240"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        
+        <Storyboard x:Key="LeftSidebarClose">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="LeftSidebar">
+                <EasingDoubleKeyFrame KeyTime="0" Value="240"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="32"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="RightSidebarOpen">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="RightSidebar">
+                <EasingDoubleKeyFrame KeyTime="0" Value="32"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="240"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="RightSidebarClose">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="RightSidebar">
+                <EasingDoubleKeyFrame KeyTime="0" Value="240"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="32"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <!--#endregion-->
+    </Window.Resources>
+        
+    <Window.Triggers>
+        <!--#region Sidebar Event Triggers-->
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenLeftSidebar">
+            <BeginStoryboard Storyboard="{StaticResource LeftSidebarOpen}"/>
+        </EventTrigger>
+        
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseLeftSidebar">
+            <BeginStoryboard Storyboard="{StaticResource LeftSidebarClose}"/>
+        </EventTrigger>
+
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenRightSidebar">
+            <BeginStoryboard Storyboard="{StaticResource RightSidebarOpen}"/>
+        </EventTrigger>
+
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseRightSidebar">
+            <BeginStoryboard Storyboard="{StaticResource RightSidebarClose}"/>
+        </EventTrigger>
+        <!--#endregion-->
+    </Window.Triggers>
+    
     <DockPanel LastChildFill="True">
-        <Grid DockPanel.Dock="Top" Height="40" Background="Red">
+        <!--#region Top Menu-->
+        <Grid x:Name="TopMenu" DockPanel.Dock="Top" Height="64" Background="#FF004852">
+            <!--#region Grid Dimensions-->
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="240"/>
+                <ColumnDefinition Width="280"/>
                 <ColumnDefinition Width="*"  />
-                <ColumnDefinition Width="240"/>
+                <ColumnDefinition Width="280"/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Row="0" Grid.Column="0" Content="Logo" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <!--#endregion-->
+            
+            <!--#region Logo Box-->
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Logo" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <!--#endregion-->
+            
+            <!--#region Search Bar-->
+            <TextBox Grid.Row="0" Grid.Column="1" Margin="16" FontSize="16">
+                
+            </TextBox>
+            <!--#endregion-->
+            
+            <!--#region Profile Buttons-->
+            <Grid Grid.Row="0" Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="64"/>
+                    <ColumnDefinition Width="64"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="0" Grid.Column="1" Margin="4" Content="Ding" FontFamily="Montserrat"/>
+                <Button Grid.Row="0" Grid.Column="2" Margin="4" Content="Logout" FontFamily="Montserrat"/>
+            </Grid>
+            <!--#endregion-->
         </Grid>
-        <Grid DockPanel.Dock="Left" Width="240" Background="Blue">
+        <!--#endregion-->
+        
+        <!--#region Left Sidebar-->
+        <Grid x:Name="LeftSidebar" DockPanel.Dock="Left" Width="240" Background="#FF2D7182">
+            <!--#region Grid Dimensions-->
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="64"/>
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <StackPanel Grid.Row="0" Grid.Column="0">
-                <TextBlock Margin="10" FontSize="20">Characters</TextBlock>
-                <Button Margin="10">Me</Button>
-                <Button Margin="10">Myself</Button>
-                <Button Margin="10" Content="I"/>
-            </StackPanel>
-        </Grid>
-        <Grid DockPanel.Dock="Right" Width="240" Background="Green">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="32"/>
+            </Grid.ColumnDefinitions>
+            <!--#endregion-->
+
+            <!--#region Sidebar Expand/Collapse Buttons-->
+            <Button x:Name="ButtonOpenLeftSidebar" 
+                    Grid.Row="1" 
+                    Grid.Column="0" 
+                    Margin="4" 
+                    Height="48" 
+                    Width="48" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center"
+                    Background="{x:Null}"
+                    BorderBrush="{x:Null}"
+                    Click="ButtonOpenLeftSidebar_Click">
+                <materialDesign:PackIcon Foreground="White" Height="32" Width="32" HorizontalAlignment="Center" Kind="ArrowRight"/>
+            </Button>
+
+            <Button x:Name="ButtonCloseLeftSidebar" 
+                    Grid.Row="1" 
+                    Grid.Column="0" 
+                    Margin="4" 
+                    Height="48" 
+                    Width="48" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center"
+                    Background="{x:Null}"
+                    BorderBrush="{x:Null}"
+                    Visibility="Collapsed"
+                    Click="ButtonCloseLeftSidebar_Click">
+                <materialDesign:PackIcon Kind="ArrowLeft" HorizontalAlignment="Center" Foreground="White" Height="32" Width="32"/>
+            </Button>
+            <!--#endregion-->
             
+            <!--#region Character Sidebar-->
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="Characters" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock.LayoutTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="90"/>
+                    </TransformGroup>
+                </TextBlock.LayoutTransform>
+            </TextBlock>
+            <ListBox Grid.Row="0" Grid.Column="0" Margin="4">
+
+            </ListBox>
+            <!--#endregion-->
+            
+            <!--#region Campaign Sidebar-->
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="Campaigns" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock.LayoutTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="90"/>
+                    </TransformGroup>
+                </TextBlock.LayoutTransform>
+            </TextBlock>
+            <ListBox Grid.Row="2" Grid.Column="0" Margin="4">
+
+            </ListBox>
+            <!--#endregion-->
         </Grid>
-        <Canvas Background="Yellow">
+        <!--#endregion-->
+        
+        <!--#region Right Sidebar-->
+        <Grid x:Name="RightSidebar" DockPanel.Dock="Right" Width="240" Background="#FF2D7182">
+            <!--#region Grid Dimensions-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="64"/>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="32"/>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <!--#endregion-->
+
+            <!--#region Sidebar Expand/Collapse Buttons-->
+            <Button x:Name="ButtonOpenRightSidebar" 
+                    Grid.Row="1" 
+                    Grid.Column="1" 
+                    Margin="4" 
+                    Height="48" 
+                    Width="48" 
+                    HorizontalAlignment="Right" 
+                    VerticalAlignment="Center"
+                    Background="{x:Null}"
+                    BorderBrush="{x:Null}"
+                    Click="ButtonOpenRightSidebar_Click">
+                <materialDesign:PackIcon Foreground="White" Height="32" Width="32" HorizontalAlignment="Center" Kind="ArrowLeft"/>
+            </Button>
+
+            <Button x:Name="ButtonCloseRightSidebar" 
+                    Grid.Row="1" 
+                    Grid.Column="1" 
+                    Margin="4" 
+                    Height="48" 
+                    Width="48" 
+                    HorizontalAlignment="Right" 
+                    VerticalAlignment="Center"
+                    Background="{x:Null}"
+                    BorderBrush="{x:Null}"
+                    Visibility="Collapsed"
+                    Click="ButtonCloseRightSidebar_Click">
+                <materialDesign:PackIcon Kind="ArrowRight" HorizontalAlignment="Center" Foreground="White" Height="32" Width="32"/>
+            </Button>
+            <!--#endregion-->
+            
+            <!--#region Friends Sidebar-->
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Friends" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock.LayoutTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="270"/>
+                    </TransformGroup>
+                </TextBlock.LayoutTransform>
+            </TextBlock>
+            <ListBox Grid.Row="0" Grid.Column="1" Margin="4">
+
+            </ListBox>
+            <!--#endregion-->
+
+            <!--#region Groups Sidebar-->
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Groups" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock.LayoutTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="270"/>
+                    </TransformGroup>
+                </TextBlock.LayoutTransform>
+            </TextBlock>
+            <ListBox Grid.Row="2" Grid.Column="1" Margin="4">
+
+            </ListBox>
+            <!--#endregion-->
+        </Grid>
+        <!--#endregion-->
+        
+        <!--#region Current Page-->
+        <Canvas>
             
         </Canvas>
+        <!--#endregion-->
     </DockPanel>
 </Window>
