@@ -15,25 +15,56 @@ using System.Windows.Shapes;
 
 namespace CPSC_SocialNetwork
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
 
-            for (int i = 0; i < 30; i++)
+            BrushConverter bc = new BrushConverter();
+            Color myColor = Color.FromRgb(0, 0, 0);
+            SolidColorBrush brush = new SolidColorBrush(myColor);
+
+            for (int i = 0; i < 25; i++)
             {
                 UserControl1 email = new UserControl1();
+                email.image.Fill = brush;
                 Characters.List.Children.Add(email);
-                email = new UserControl1();
-                Campaigns.List.Children.Add(email);
-                email = new UserControl1();
-                Friends.List.Children.Add(email);
-                email = new UserControl1();
+                myColor = Color.Add(myColor, Color.FromRgb(30, 0, 0));
+                brush = new SolidColorBrush(myColor);
+            }
+
+            myColor = Color.FromRgb(0, 0, 0);
+            brush = new SolidColorBrush(myColor);
+            for (int i = 0; i < 25; i++)
+            {
+                UserControl1 email = new UserControl1();
+                email.image.Fill = brush;
                 Groups.List.Children.Add(email);
+                myColor = Color.Add(myColor, Color.FromRgb(0, 30, 0));
+                brush = new SolidColorBrush(myColor);
+            }
+
+            myColor = Color.FromRgb(0, 0, 0);
+            brush = new SolidColorBrush(myColor);
+            for (int i = 0; i < 25; i++)
+            {
+                UserControl1 email = new UserControl1();
+                email.image.Fill = brush;
+                Friends.List.Children.Add(email);
+                myColor = Color.Add(myColor, Color.FromRgb(0, 0, 30));
+                brush = new SolidColorBrush(myColor);
+            }
+
+            myColor = Color.FromRgb(0, 0, 0);
+            brush = new SolidColorBrush(myColor);
+            for (int i = 0; i < 25; i++)
+            {
+                UserControl1 email = new UserControl1();
+                email.image.Fill = brush;
+                Campaigns.List.Children.Add(email);
+                myColor = Color.Add(myColor, Color.FromRgb(30, 30, 30));
+                brush = new SolidColorBrush(myColor);
             }
         }
     }

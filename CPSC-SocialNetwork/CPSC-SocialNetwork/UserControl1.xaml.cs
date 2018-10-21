@@ -17,6 +17,11 @@ namespace CPSC_SocialNetwork
 {
     public partial class UserControl1 : UserControl {
 
-        public UserControl1() { InitializeComponent(); }
+        public UserControl1()
+        {
+            InitializeComponent();
+
+            this.Height = 50;
+        }
     }
 }
