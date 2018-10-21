@@ -23,30 +23,18 @@ namespace CPSC_SocialNetwork
         public MainWindow()
         {
             InitializeComponent();
-        }
 
-        private void ButtonOpenLeftSidebar_Click(object sender, RoutedEventArgs e)
-        {
-            ButtonOpenLeftSidebar.Visibility = Visibility.Collapsed;
-            ButtonCloseLeftSidebar.Visibility = Visibility.Visible;
-        }
-
-        private void ButtonCloseLeftSidebar_Click(object sender, RoutedEventArgs e)
-        {
-            ButtonOpenLeftSidebar.Visibility = Visibility.Visible;
-            ButtonCloseLeftSidebar.Visibility = Visibility.Collapsed;
-        }
-
-        private void ButtonOpenRightSidebar_Click(object sender, RoutedEventArgs e)
-        {
-            ButtonOpenRightSidebar.Visibility = Visibility.Collapsed;
-            ButtonCloseRightSidebar.Visibility = Visibility.Visible;
-        }
-
-        private void ButtonCloseRightSidebar_Click(object sender, RoutedEventArgs e)
-        {
-            ButtonOpenRightSidebar.Visibility = Visibility.Visible;
-            ButtonCloseRightSidebar.Visibility = Visibility.Collapsed;
+            for (int i = 0; i < 30; i++)
+            {
+                UserControl1 email = new UserControl1();
+                Characters.List.Children.Add(email);
+                email = new UserControl1();
+                Campaigns.List.Children.Add(email);
+                email = new UserControl1();
+                Friends.List.Children.Add(email);
+                email = new UserControl1();
+                Groups.List.Children.Add(email);
+            }
         }
     }
 }
