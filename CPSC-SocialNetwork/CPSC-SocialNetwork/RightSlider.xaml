@@ -13,14 +13,22 @@
         </Grid.ColumnDefinitions>
         
         <ScrollViewer Grid.Column="0"
+                      Name="Viewer"
                       VerticalScrollBarVisibility="Hidden"
                       Background="#3f48cc">
             <StackPanel Name="List"
                         Background="#3f48cc"/>
         </ScrollViewer>
+        <Button Grid.Column="0"
+                Name="OpenButton"
+                Visibility="Hidden"
+                HorizontalAlignment="Left"
+                Width="20" Height="auto"
+                Background="#3f48cc" Click="OpenButton_Click"/>
 
         <Button Grid.Column="1"
+                Name="CloseButton"
                 Width="20" Height="auto"
-                Background="#3f48cc"/>
+                Background="#3f48cc" Click="CloseButton_Click"/>
     </Grid>
 </UserControl>
