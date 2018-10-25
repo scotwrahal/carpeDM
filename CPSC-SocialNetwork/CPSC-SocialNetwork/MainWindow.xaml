@@ -7,75 +7,79 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280">
-    
-    <Grid>
-        <Grid.RowDefinitions>
-            <!--Top Bar, Rest of screen-->
-            <RowDefinition Height ="40"/> 
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Background="#3f48cc">
-            <!--make the top bar here-->
-        </Grid>
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <!--LeftBar, CenterArea, RightBar-->
-                <ColumnDefinition Width="250"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="250"/>
-            </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="0"  Background="LightGray">
+    <DockPanel LastChildFill="True">
+        <!--#region Top Menu-->
+        <Grid DockPanel.Dock="Top" Height="64" Background="#3f48cc">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="320"/>
+                <ColumnDefinition Width="*"  />
+                <ColumnDefinition Width="320"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <!--#endregion-->
+        
+        <!--#region Left Sidebar-->
+        <Grid DockPanel.Dock="Left" Width="240">
+            <Grid Background="LightGray">
                 <Grid.RowDefinitions>
                     <!--Characters, Campaigns-->
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="64"/>
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                
-                <local:RightSlider x:Name="Characters" Grid.Row="0"/>
-                <local:RightSlider x:Name="Campaigns" Grid.Row="1"/>
-            </Grid>
 
-            <Grid Grid.Column="1">
-                <!--Make Center Area Here-->
-                <Grid>
-                    <!--this is the "Page area" This should be loaded and unloaded as an page-->
-                    <Grid.RowDefinitions>
-                        <!--Banner, Navigation Buttons, fillable space-->
-                        <RowDefinition Height="3*"/>
-                        <RowDefinition Height="40"/>
-                        <RowDefinition Height="7*"/>
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="0" Background="DarkKhaki"/>
-                    <StackPanel Grid.Row="1" Background="DarkBlue" Orientation="Horizontal">
-                        <Button VerticalAlignment="Bottom" Margin="3,0">
-                            1st thing
-                        </Button>
-                        <Button VerticalAlignment="Bottom" Margin="3,0">
-                            2nd Thing
-                        </Button>
-                        <Button VerticalAlignment="Bottom" Margin="3,0">
-                            3rd Thing
-                        </Button>
-                    </StackPanel>
-                    <Grid Grid.Row="2" Background="DarkGray">
-                        <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
-                            
-                            
-                        </ScrollViewer>
-                    </Grid>
-                </Grid>
+                <local:RightSlider x:Name="Characters" Grid.Row="0"/>
+                <local:RightSlider x:Name="Campaigns" Grid.Row="2"/>
             </Grid>
-            
-            <Grid Grid.Column="2" Background="LightGray">
+        </Grid>
+        <!--#endregion-->
+        
+        <!--#region Right Sidebar-->
+        <Grid DockPanel.Dock="Right" Width="240">
+            <Grid Background="LightGray">
                 <Grid.RowDefinitions>
-                    <!--Friends, Groups-->
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="64"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <local:LeftSlider x:Name="Friends" Grid.Row="0"/>
-                <local:LeftSlider x:Name="Groups" Grid.Row="1"/>
+                <local:LeftSlider x:Name="Groups" Grid.Row="2"/>
             </Grid>
         </Grid>
-    </Grid>
+        <!--#endregion-->
+        
+        <!--#region Current Page-->
+        <Grid>
+            <!--Make Center Area Here-->
+            <Grid>
+                <!--this is the "Page area" This should be loaded and unloaded as an page-->
+                <Grid.RowDefinitions>
+                    <!--Banner, Navigation Buttons, fillable space-->
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="7*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Background="DarkKhaki"/>
+                <StackPanel Grid.Row="1" Background="DarkBlue" Orientation="Horizontal">
+                    <Button VerticalAlignment="Bottom" Margin="3,0">
+                        1st thing
+                    </Button>
+                    <Button VerticalAlignment="Bottom" Margin="3,0">
+                        2nd Thing
+                    </Button>
+                    <Button VerticalAlignment="Bottom" Margin="3,0">
+                        3rd Thing
+                    </Button>
+                </StackPanel>
+                <Grid Grid.Row="2" Background="DarkGray">
+                    <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
+
+
+                    </ScrollViewer>
+                </Grid>
+            </Grid>
+        </Grid>
+        <!--#endregion-->
+    </DockPanel>
 </Window>
