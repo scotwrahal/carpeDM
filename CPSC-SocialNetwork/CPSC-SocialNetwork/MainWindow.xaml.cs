@@ -29,7 +29,7 @@ namespace CPSC_SocialNetwork
             {
                 UserControl1 email = new UserControl1();
                 email.image.Fill = brush;
-                Characters.List.Children.Add(email);
+                Left.List.Children.Add(email);
                 myColor = Color.Add(myColor, Color.FromRgb(30, 0, 0));
                 brush = new SolidColorBrush(myColor);
             }
@@ -40,7 +40,7 @@ namespace CPSC_SocialNetwork
             {
                 UserControl1 email = new UserControl1();
                 email.image.Fill = brush;
-                Groups.List.Children.Add(email);
+                Left.List2.Children.Add(email);
                 myColor = Color.Add(myColor, Color.FromRgb(0, 30, 0));
                 brush = new SolidColorBrush(myColor);
             }
@@ -51,7 +51,7 @@ namespace CPSC_SocialNetwork
             {
                 UserControl1 email = new UserControl1();
                 email.image.Fill = brush;
-                Friends.List.Children.Add(email);
+                Right.List.Children.Add(email);
                 myColor = Color.Add(myColor, Color.FromRgb(0, 0, 30));
                 brush = new SolidColorBrush(myColor);
             }
@@ -62,7 +62,7 @@ namespace CPSC_SocialNetwork
             {
                 UserControl1 email = new UserControl1();
                 email.image.Fill = brush;
-                Campaigns.List.Children.Add(email);
+                Right.List2.Children.Add(email);
                 myColor = Color.Add(myColor, Color.FromRgb(30, 30, 30));
                 brush = new SolidColorBrush(myColor);
             }

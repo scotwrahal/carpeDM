@@ -11,14 +11,28 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
-        
-        <ScrollViewer Grid.Column="0"
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <ScrollViewer Grid.Row="0"
                       Name="Viewer"
                       VerticalScrollBarVisibility="Hidden"
                       Background="#3f48cc">
-            <StackPanel Name="List"
+                <StackPanel Name="List"
                         Background="#3f48cc"/>
-        </ScrollViewer>
+            </ScrollViewer>
+
+            <ScrollViewer Grid.Row="1"
+                      Name="Viewer2"
+                      VerticalScrollBarVisibility="Hidden"
+                      Background="#3f48cc">
+                <StackPanel Name="List2"
+                        Background="#3f48cc"/>
+            </ScrollViewer>
+        </Grid>
         <Button Grid.Column="0"
                 Name="OpenButton"
                 Visibility="Hidden"

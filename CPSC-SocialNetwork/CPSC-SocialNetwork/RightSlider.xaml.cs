@@ -28,6 +28,7 @@ namespace CPSC_SocialNetwork
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Viewer.Visibility = Visibility.Hidden;
+            Viewer2.Visibility = Visibility.Hidden;
             CloseButton.Visibility = Visibility.Hidden;
             OpenButton.Visibility = Visibility.Visible;
         }
@@ -35,6 +36,7 @@ namespace CPSC_SocialNetwork
         private void OpenButton_Click(object sender, RoutedEventArgs e)
         {
             Viewer.Visibility = Visibility.Visible;
+            Viewer2.Visibility = Visibility.Visible;
             CloseButton.Visibility = Visibility.Visible;
             OpenButton.Visibility = Visibility.Hidden;
         }

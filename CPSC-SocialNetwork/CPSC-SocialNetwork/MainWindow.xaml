@@ -24,31 +24,17 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="250"/>
             </Grid.ColumnDefinitions>
-            
-            <Grid Grid.Column="0">
-                <Grid.RowDefinitions>
-                    <!--Characters, Campaigns-->
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                
-                <local:RightSlider x:Name="Characters" Grid.Row="0"/>
-                <local:RightSlider x:Name="Campaigns" Grid.Row="1"/>
+
+            <Grid Grid.Column="0" Background="LightGray">
+                <local:RightSlider x:Name="Left" Grid.Row="0"/>
             </Grid>
 
             <Grid Grid.Column="1">
                 <!--Make Center Area Here-->
             </Grid>
-            
-            <Grid Grid.Column="2">
-                <Grid.RowDefinitions>
-                    <!--Friends, Groups-->
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                
-                <local:LeftSlider x:Name="Friends" Grid.Row="0"/>
-                <local:LeftSlider x:Name="Groups" Grid.Row="1"/>
+
+            <Grid Grid.Column="2" Background="LightGray">
+                <local:LeftSlider x:Name="Right" Grid.Row="1"/>
             </Grid>
         </Grid>
     </Grid>
