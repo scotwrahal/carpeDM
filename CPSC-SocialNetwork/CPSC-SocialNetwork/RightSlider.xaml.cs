@@ -40,5 +40,10 @@ namespace CPSC_SocialNetwork
             CloseButton.Visibility = Visibility.Visible;
             OpenButton.Visibility = Visibility.Hidden;
         }
+
+        private void Label_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

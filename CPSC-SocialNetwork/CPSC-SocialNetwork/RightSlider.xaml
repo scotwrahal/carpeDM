@@ -14,6 +14,7 @@
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="20"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
@@ -25,7 +26,7 @@
                         Background="#3f48cc"/>
             </ScrollViewer>
 
-            <ScrollViewer Grid.Row="1"
+            <ScrollViewer Grid.Row="2"
                       Name="Viewer2"
                       VerticalScrollBarVisibility="Hidden"
                       Background="#3f48cc">
@@ -38,11 +39,13 @@
                 Visibility="Hidden"
                 HorizontalAlignment="Left"
                 Width="20" Height="auto"
-                Background="#3f48cc" Click="OpenButton_Click"/>
+                Background="#3f48cc" Click="OpenButton_Click">
+        </Button>
 
         <Button Grid.Column="1"
                 Name="CloseButton"
-                Width="20" Height="auto"
-                Background="#3f48cc" Click="CloseButton_Click"/>
+                Width="auto" Height="auto"
+                Background="#3f48cc" Click="CloseButton_Click">
+        </Button>
     </Grid>
 </UserControl>

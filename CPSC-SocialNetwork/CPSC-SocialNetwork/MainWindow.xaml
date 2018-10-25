@@ -21,31 +21,13 @@
         
         <!--#region Left Sidebar-->
         <Grid DockPanel.Dock="Left" Width="240">
-            <Grid Background="LightGray">
-                <Grid.RowDefinitions>
-                    <!--Characters, Campaigns-->
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="64"/>
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-
-                <local:RightSlider x:Name="Characters" Grid.Row="0"/>
-                <local:RightSlider x:Name="Campaigns" Grid.Row="2"/>
-            </Grid>
+            <local:RightSlider x:Name="Left" Grid.Row="0"/>
         </Grid>
         <!--#endregion-->
         
         <!--#region Right Sidebar-->
         <Grid DockPanel.Dock="Right" Width="240">
-            <Grid Background="LightGray">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="64"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <local:LeftSlider x:Name="Friends" Grid.Row="0"/>
-                <local:LeftSlider x:Name="Groups" Grid.Row="2"/>
-            </Grid>
+            <local:LeftSlider x:Name="Right" Grid.Row="0"/>
         </Grid>
         <!--#endregion-->
         
