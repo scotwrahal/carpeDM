@@ -10,57 +10,62 @@
 
     <DockPanel LastChildFill="True">
         <!--#region Top Menu-->
-        <Grid DockPanel.Dock="Top" Height="64" Background="#3f48cc">
+        <Grid DockPanel.Dock="Top" Height="64" Background="#FF004C5F">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="320"/>
                 <ColumnDefinition Width="*"  />
                 <ColumnDefinition Width="320"/>
             </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" Background="White" Margin="12,12,92,12"/>
+            <TextBox Grid.Column="1" Background="White" Margin="12,16,12,16">
+
+            </TextBox>
+            <Grid Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="64"/>
+                    <ColumnDefinition Width="64"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="ProfilePageButton" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4" Width="56" Height="56" Background="Transparent" Click="ProfilePageButton_Click">
+                    <Image Name="ProfileImage" Stretch="UniformToFill" Source="IMG-0336.JPG" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Image.LayoutTransform>
+                            <TransformGroup>
+                                <RotateTransform Angle="90"/>
+                            </TransformGroup>
+                        </Image.LayoutTransform>
+                    </Image>
+                </Button>
+                <Button Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8" Background="White"/>
+                <Button Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8" Background="White"/>
+            </Grid>
         </Grid>
         <!--#endregion-->
-        
+
+        <!--#region Bottom Tabs-->
+        <Grid DockPanel.Dock="Bottom" Height="16" Background="#FF004C5F">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="240"/>
+                <ColumnDefinition Width="*"  />
+                <ColumnDefinition Width="240"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <!--#endregion-->
+
         <!--#region Left Sidebar-->
         <Grid DockPanel.Dock="Left" Width="240">
             <local:RightSlider x:Name="Left" Grid.Row="0"/>
         </Grid>
         <!--#endregion-->
-        
+
         <!--#region Right Sidebar-->
         <Grid DockPanel.Dock="Right" Width="240">
             <local:LeftSlider x:Name="Right" Grid.Row="0"/>
         </Grid>
         <!--#endregion-->
-        
+
         <!--#region Current Page-->
-        <Grid>
-            <!--Make Center Area Here-->
-            <Grid>
-                <!--this is the "Page area" This should be loaded and unloaded as an page-->
-                <Grid.RowDefinitions>
-                    <!--Banner, Navigation Buttons, fillable space-->
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="7*"/>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0" Background="DarkKhaki"/>
-                <StackPanel Grid.Row="1" Background="DarkBlue" Orientation="Horizontal">
-                    <Button VerticalAlignment="Bottom" Margin="3,0">
-                        1st thing
-                    </Button>
-                    <Button VerticalAlignment="Bottom" Margin="3,0">
-                        2nd Thing
-                    </Button>
-                    <Button VerticalAlignment="Bottom" Margin="3,0">
-                        3rd Thing
-                    </Button>
-                </StackPanel>
-                <Grid Grid.Row="2" Background="DarkGray">
-                    <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
+        <Grid x:Name="CurrentPage" Background="#FFFFF7C5">
 
-
-                    </ScrollViewer>
-                </Grid>
-            </Grid>
         </Grid>
         <!--#endregion-->
     </DockPanel>

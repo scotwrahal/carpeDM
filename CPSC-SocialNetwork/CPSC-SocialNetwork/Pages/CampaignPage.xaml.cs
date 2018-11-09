@@ -13,15 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CPSC_SocialNetwork
+namespace CPSC_SocialNetwork.Pages
 {
-    public partial class UserControl1 : UserControl {
-
-        public UserControl1()
+    /// <summary>
+    /// Interaction logic for CampaignPage.xaml
+    /// </summary>
+    public partial class CampaignPage : UserControl
+    {
+        public CampaignPage()
         {
             InitializeComponent();
-
-            this.Height = 50;
         }
     }
 }

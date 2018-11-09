@@ -1,0 +1,99 @@
+﻿<UserControl x:Class="CPSC_SocialNetwork.RightSlider"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CPSC_SocialNetwork"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="240">
+    <Grid Background="#FFDDD5A2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="24"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="36"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <ScrollViewer Grid.Row="0"
+                      Name="CharacterViewer"
+                      VerticalScrollBarVisibility="Hidden"
+                      Background="#FF005F77">
+                <StackPanel Name="CharacterList" Background="#FF005F77" Margin="4"/>
+            </ScrollViewer>
+
+            <Grid Grid.Row="1" Name="MiddleTab" Background="#FF005F77">
+                <TextBlock Text="GAMES" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"></TextBlock>
+            </Grid>
+
+            <ScrollViewer Grid.Row="2"
+                      Name="CampaignViewer"
+                      VerticalScrollBarVisibility="Hidden"
+                      Background="#FF005F77">
+                <StackPanel Name="CampaignList" Background="#FF005F77" Margin="4"/>
+            </ScrollViewer>
+        </Grid>
+        <Button Grid.Column="0"
+                Name="OpenButton"
+                Visibility="Hidden"
+                HorizontalAlignment="Left"
+                Width="24" Height="auto"
+                Background="#FF005F77" Click="OpenButton_Click">
+          
+        </Button>
+
+        <Button Grid.Column="1"
+                Name="CloseButton"
+                Width="auto" Height="auto"
+                Background="#FF005F77" Click="CloseButton_Click">
+        
+        </Button>
+        
+        <Grid Grid.Column="0" x:Name="OpenButtonLabels" Visibility="Hidden" HorizontalAlignment="Left" Width="24">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="36"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Characters" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14">
+                <TextBlock.LayoutTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="90"/>
+                    </TransformGroup>
+                </TextBlock.LayoutTransform>
+            </TextBlock>
+            <TextBlock Grid.Row="2" Text="Campaigns" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14">
+                <TextBlock.LayoutTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="90"/>
+                    </TransformGroup>
+                </TextBlock.LayoutTransform>
+            </TextBlock>
+        </Grid>
+        
+        <Grid Grid.Column="1" x:Name="CloseButtonLabels">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="36"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Characters" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14">
+                <TextBlock.LayoutTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="90"/>
+                    </TransformGroup>
+                </TextBlock.LayoutTransform>
+            </TextBlock>
+            <TextBlock Grid.Row="2" Text="Campaigns" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14">
+                <TextBlock.LayoutTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="90"/>
+                    </TransformGroup>
+                </TextBlock.LayoutTransform>
+            </TextBlock>
+        </Grid>
+    </Grid>
+</UserControl>
