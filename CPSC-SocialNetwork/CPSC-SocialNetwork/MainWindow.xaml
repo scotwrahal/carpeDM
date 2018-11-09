@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CPSC_SocialNetwork"
+        xmlns:userDisplay="clr-namespace:CPSC_SocialNetwork.UserDisplay"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280">
@@ -27,7 +28,7 @@
                     <ColumnDefinition Width="64"/>
                 </Grid.ColumnDefinitions>
                 <Button x:Name="ProfilePageButton" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4" Width="56" Height="56" Background="Transparent" Click="ProfilePageButton_Click">
-                    <Image Name="ProfileImage" Stretch="UniformToFill" Source="IMG-0336.JPG" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Name="ProfileImage" Stretch="UniformToFill" Source="Images/IMG-0336.JPG" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Image.LayoutTransform>
                             <TransformGroup>
                                 <RotateTransform Angle="90"/>
@@ -53,13 +54,13 @@
 
         <!--#region Left Sidebar-->
         <Grid DockPanel.Dock="Left" Width="240">
-            <local:RightSlider x:Name="Left" Grid.Row="0"/>
+            <userDisplay:RightSlider x:Name="LeftSidebar" Grid.Row="0"/>
         </Grid>
         <!--#endregion-->
 
         <!--#region Right Sidebar-->
         <Grid DockPanel.Dock="Right" Width="240">
-            <local:LeftSlider x:Name="Right" Grid.Row="0"/>
+            <userDisplay:LeftSlider x:Name="RightSidebar" Grid.Row="0"/>
         </Grid>
         <!--#endregion-->
 

@@ -15,7 +15,6 @@ using System.Windows.Shapes;
 using CPSC_SocialNetwork.Pages;
 using CPSC_SocialNetwork.UserDisplay;
 
-
 namespace CPSC_SocialNetwork
 {
     public partial class MainWindow : Window
@@ -38,8 +37,8 @@ namespace CPSC_SocialNetwork
             for (int i = 0; i < 25; i++)
             {
                 SidebarButton email = new SidebarButton();
-                email.image.Fill = brush;
-                Left.CharacterList.Children.Add(email);
+                email.Image.Fill = brush;
+                LeftSidebar.CharacterList.Children.Add(email);
                 myColor = Color.Add(myColor, Color.FromRgb(30, 0, 0));
                 brush = new SolidColorBrush(myColor);
             }
@@ -49,8 +48,8 @@ namespace CPSC_SocialNetwork
             for (int i = 0; i < 25; i++)
             {
                 SidebarButton email = new SidebarButton();
-                email.image.Fill = brush;
-                Left.CampaignList.Children.Add(email);
+                email.Image.Fill = brush;
+                LeftSidebar.CampaignList.Children.Add(email);
                 myColor = Color.Add(myColor, Color.FromRgb(0, 30, 0));
                 brush = new SolidColorBrush(myColor);
             }
@@ -60,8 +59,8 @@ namespace CPSC_SocialNetwork
             for (int i = 0; i < 25; i++)
             {
                 SidebarButton email = new SidebarButton();
-                email.image.Fill = brush;
-                Right.FriendList.Children.Add(email);
+                email.Image.Fill = brush;
+                RightSidebar.FriendList.Children.Add(email);
                 myColor = Color.Add(myColor, Color.FromRgb(0, 0, 30));
                 brush = new SolidColorBrush(myColor);
             }
@@ -71,8 +70,8 @@ namespace CPSC_SocialNetwork
             for (int i = 0; i < 25; i++)
             {
                 SidebarButton email = new SidebarButton();
-                email.image.Fill = brush;
-                Right.GroupList.Children.Add(email);
+                email.Image.Fill = brush;
+                RightSidebar.GroupList.Children.Add(email);
                 myColor = Color.Add(myColor, Color.FromRgb(30, 30, 30));
                 brush = new SolidColorBrush(myColor);
             }

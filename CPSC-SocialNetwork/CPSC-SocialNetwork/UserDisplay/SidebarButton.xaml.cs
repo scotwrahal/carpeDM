@@ -13,12 +13,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CPSC_SocialNetwork
+namespace CPSC_SocialNetwork.UserDisplay
 {
     public partial class SidebarButton : UserControl {
 
         private string name;
-        public string Name
+        public string ButtonName
         {
             get { return name; }
             set
@@ -36,6 +36,17 @@ namespace CPSC_SocialNetwork
             {
                 description = value;
                 this.Body.Text = this.description;
+            }
+        }
+
+        private Image picture;
+        public Image Picture
+        {
+            get { return picture; }
+            set
+            {
+                picture = value;
+                this.Picture.Source = this.picture.Source;
             }
         }
 

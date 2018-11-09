@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CPSC_SocialNetwork
+namespace CPSC_SocialNetwork.UserDisplay
 {
     /// <summary>
     /// Interaction logic for LeftSlider.xaml
