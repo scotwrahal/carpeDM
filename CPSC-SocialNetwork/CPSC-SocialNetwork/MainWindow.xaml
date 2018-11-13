@@ -11,22 +11,30 @@
 
     <DockPanel LastChildFill="True">
         <!--#region Top Menu-->
-        <Grid DockPanel.Dock="Top" Height="64" Background="#FF004C5F">
+        <Grid DockPanel.Dock="Top" Height="64" Background="#003B4C">
+            <!--#region Grid Dimensions-->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="320"/>
                 <ColumnDefinition Width="*"  />
                 <ColumnDefinition Width="320"/>
             </Grid.ColumnDefinitions>
+            <!--#endregion-->
+            
             <Border Grid.Column="0" Background="White" Margin="12,12,92,12"/>
+            
             <TextBox Grid.Column="1" Background="White" Margin="12,16,12,16">
 
             </TextBox>
+            
             <Grid Grid.Column="2">
+                <!--#region Grid Dimensions-->
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="64"/>
                     <ColumnDefinition Width="64"/>
                 </Grid.ColumnDefinitions>
+                <!--#endregion-->
+                
                 <Button x:Name="ProfilePageButton" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4" Width="56" Height="56" Background="Transparent" Click="ProfilePageButton_Click">
                     <Image Name="ProfileImage" Stretch="UniformToFill" Source="Images/IMG-0336.JPG" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Image.LayoutTransform>
@@ -36,19 +44,27 @@
                         </Image.LayoutTransform>
                     </Image>
                 </Button>
-                <Button Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8" Background="White"/>
-                <Button Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8" Background="White"/>
+
+                <Button Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8" Background="White">
+                    
+                </Button>
+
+                <Button Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8" Background="White">
+                    
+                </Button>
             </Grid>
         </Grid>
         <!--#endregion-->
 
         <!--#region Bottom Tabs-->
-        <Grid DockPanel.Dock="Bottom" Height="16" Background="#FF004C5F">
+        <Grid DockPanel.Dock="Bottom" Height="16" Background="#004C4C">
+            <!--#region Grid Dimensions-->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="240"/>
                 <ColumnDefinition Width="*"  />
                 <ColumnDefinition Width="240"/>
             </Grid.ColumnDefinitions>
+            <!--#endregion-->
         </Grid>
         <!--#endregion-->
 
@@ -65,7 +81,7 @@
         <!--#endregion-->
 
         <!--#region Current Page-->
-        <Grid x:Name="CurrentPage" Background="#FFFFF7C5">
+        <Grid x:Name="CurrentPage" Background="White">
 
         </Grid>
         <!--#endregion-->

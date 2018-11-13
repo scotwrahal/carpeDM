@@ -32,7 +32,6 @@ namespace CPSC_SocialNetwork.UserDisplay
             MiddleTab.Visibility = Visibility.Hidden;
 
             CloseButton.Visibility = Visibility.Hidden;
-            CloseButtonLabels.Visibility = Visibility.Hidden;
 
             OpenButton.Visibility = Visibility.Visible;
             OpenButtonLabels.Visibility = Visibility.Visible;
@@ -45,7 +44,6 @@ namespace CPSC_SocialNetwork.UserDisplay
             MiddleTab.Visibility = Visibility.Visible;
 
             CloseButton.Visibility = Visibility.Visible;
-            CloseButtonLabels.Visibility = Visibility.Visible;
 
             OpenButton.Visibility = Visibility.Hidden;
             OpenButtonLabels.Visibility = Visibility.Hidden;
