@@ -61,34 +61,45 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Pages\CampaignPage.xaml.cs">
+    <Compile Include="Campaigns\Campaign.cs" />
+    <Compile Include="Campaigns\CampaignPage.xaml.cs">
       <DependentUpon>CampaignPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\CharacterPage.xaml.cs">
+    <Compile Include="Campaigns\CampaignSidebarButton.xaml.cs">
+      <DependentUpon>CampaignSidebarButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Characters\Character.cs" />
+    <Compile Include="Characters\CharacterPage.xaml.cs">
       <DependentUpon>CharacterPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ProfilePage.xaml.cs">
+    <Compile Include="Users\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Switcher.cs" />
-    <Compile Include="UserDisplay\LeftSlider.xaml.cs">
-      <DependentUpon>LeftSlider.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="User.cs" />
     <Compile Include="UserDisplay\RightSlider.xaml.cs">
       <DependentUpon>RightSlider.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserDisplay\LeftSlider.xaml.cs">
+      <DependentUpon>LeftSlider.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserDisplay\SidebarButton.xaml.cs">
       <DependentUpon>SidebarButton.xaml</DependentUpon>
     </Compile>
-    <Page Include="Pages\CampaignPage.xaml">
+    <Compile Include="Users\User.cs" />
+    <Page Include="Campaigns\CampaignPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\CharacterPage.xaml">
+    <Page Include="Campaigns\CampaignSidebarButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserDisplay\LeftSlider.xaml">
+    <Page Include="Characters\CharacterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserDisplay\RightSlider.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -104,11 +115,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Pages\ProfilePage.xaml">
+    <Page Include="Users\ProfilePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserDisplay\RightSlider.xaml">
+    <Page Include="UserDisplay\LeftSlider.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -147,6 +158,14 @@
   <ItemGroup>
     <Resource Include="Images\IMG-0336.JPG" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Authentication\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\fast-forward-double-right-arrows.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\rewind-double-arrows-angles.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

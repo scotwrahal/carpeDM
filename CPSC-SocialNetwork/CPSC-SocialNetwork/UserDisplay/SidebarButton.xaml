@@ -5,34 +5,56 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CPSC_SocialNetwork.UserDisplay"
              mc:Ignorable="d" 
-             d:DesignWidth="240" d:DesignHeight="48">
-
-        <Border Background="White" CornerRadius="6,6,6,6">
-            <Grid>
-                <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="240">
+             d:DesignWidth="240" d:DesignHeight="48" Template="{DynamicResource SidebarButtonTemplate}">
+    <UserControl.Resources>
+        <ControlTemplate x:Key="SidebarButtonTemplate" TargetType="{x:Type UserControl}">
+            <Border Background="White" CornerRadius="8">
+                <Border.Effect>
+                    <DropShadowEffect Color="#FF333333" ShadowDepth="0" Direction="0" Opacity="0.5"/>
+                </Border.Effect>
+                <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="48"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                
-                    <Ellipse Name="Image" Fill="red" Height="40" Width="40" Grid.RowSpan="2" Margin="4"/>
-                
-                    <Grid Grid.Column="1" Margin="4">
+                    <Grid Grid.Column="1">
                         <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
                             <RowDefinition Height="2*"/>
-                            <RowDefinition Height="3*"/>
                         </Grid.RowDefinitions>
-
-                        <TextBlock x:Name="Title" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Text="Unassigned Name">
-                            
-                        </TextBlock>
-                    
-                        <TextBlock x:Name="Body" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10" TextTrimming="CharacterEllipsis" Margin="0,0.2,0,-0.4">
-                            This is the important information about thing that is titled above
-                        </TextBlock>
+                        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0,0,0" FontFamily="Century Gothic" FontSize="14"/>
                     </Grid>
                 </Grid>
+            </Border>
+        </ControlTemplate>
+    </UserControl.Resources>
+
+    <Border Background="White" CornerRadius="6,6,6,6">
+        <Grid>
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="240">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Ellipse Name="Image" Fill="red" Height="40" Width="40" Grid.RowSpan="2" Margin="4"/>
+
+                <Grid Grid.Column="1" Margin="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="3*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock x:Name="Title" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Text="Unassigned Name">
+
+                    </TextBlock>
+
+                    <TextBlock x:Name="Body" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10" TextTrimming="CharacterEllipsis" Margin="0,0.2,0,-0.4">
+                            This is the important information about thing that is titled above
+                    </TextBlock>
+                </Grid>
             </Grid>
-        </Border>
+        </Grid>
+    </Border>
 
 </UserControl>

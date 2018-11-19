@@ -16,19 +16,19 @@ using System.Windows.Shapes;
 namespace CPSC_SocialNetwork.UserDisplay
 {
     /// <summary>
-    /// Interaction logic for RightSlider.xaml
+    /// Interaction logic for LeftSlider.xaml
     /// </summary>
-    public partial class RightSlider : UserControl
+    public partial class LeftSlider : UserControl
     {
-        public RightSlider()
+        public LeftSlider()
         {
             InitializeComponent();
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            CharacterViewer.Visibility = Visibility.Hidden;
-            CampaignViewer.Visibility = Visibility.Hidden;
+            FriendViewer.Visibility = Visibility.Hidden;
+            GroupViewer.Visibility = Visibility.Hidden;
             MiddleTab.Visibility = Visibility.Hidden;
 
             CloseButton.Visibility = Visibility.Hidden;
@@ -39,20 +39,14 @@ namespace CPSC_SocialNetwork.UserDisplay
 
         private void OpenButton_Click(object sender, RoutedEventArgs e)
         {
-            CharacterViewer.Visibility = Visibility.Visible;
-            CampaignViewer.Visibility = Visibility.Visible;
+            FriendViewer.Visibility = Visibility.Visible;
+            GroupViewer.Visibility = Visibility.Visible;
             MiddleTab.Visibility = Visibility.Visible;
 
             CloseButton.Visibility = Visibility.Visible;
 
             OpenButton.Visibility = Visibility.Hidden;
             OpenButtonLabels.Visibility = Visibility.Hidden;
-
-        }
-
-        private void Label_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-
         }
     }
 }

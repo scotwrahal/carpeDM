@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CPSC_SocialNetwork.Pages
+namespace CPSC_SocialNetwork.Campaigns
 {
     /// <summary>
-    /// Interaction logic for ProfilePage.xaml
+    /// Interaction logic for CampaignSidebarButton.xaml
     /// </summary>
-    public partial class ProfilePage : UserControl
+    public partial class CampaignSidebarButton : UserControl
     {
-        public ProfilePage()
+        public CampaignSidebarButton()
         {
             InitializeComponent();
         }

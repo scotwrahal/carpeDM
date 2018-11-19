@@ -11,53 +11,67 @@
 
     <DockPanel LastChildFill="True">
         <!--#region Top Menu-->
-        <Grid DockPanel.Dock="Top" Height="64" Background="#003B4C">
-            <!--#region Grid Dimensions-->
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="320"/>
-                <ColumnDefinition Width="*"  />
-                <ColumnDefinition Width="320"/>
-            </Grid.ColumnDefinitions>
-            <!--#endregion-->
-            
-            <Border Grid.Column="0" Background="White" Margin="12,12,92,12"/>
-            
-            <TextBox Grid.Column="1" Background="White" Margin="12,16,12,16">
-
-            </TextBox>
-            
-            <Grid Grid.Column="2">
+        <Border DockPanel.Dock="Top" Height="64" Background="#003B4C" Panel.ZIndex="5">
+            <Border.Effect>
+                <DropShadowEffect Direction="270" Color="#FF333333" BlurRadius="10" Opacity="0.5"/>
+            </Border.Effect>
+            <Grid>
                 <!--#region Grid Dimensions-->
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="64"/>
-                    <ColumnDefinition Width="64"/>
+                    <ColumnDefinition Width="320"/>
+                    <ColumnDefinition Width="*"  />
+                    <ColumnDefinition Width="320"/>
                 </Grid.ColumnDefinitions>
                 <!--#endregion-->
-                
-                <Button x:Name="ProfilePageButton" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4" Width="56" Height="56" Background="Transparent" Click="ProfilePageButton_Click">
-                    <Image Name="ProfileImage" Stretch="UniformToFill" Source="Images/IMG-0336.JPG" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Image.LayoutTransform>
-                            <TransformGroup>
-                                <RotateTransform Angle="90"/>
-                            </TransformGroup>
-                        </Image.LayoutTransform>
-                    </Image>
-                </Button>
 
-                <Button Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8" Background="White">
-                    
-                </Button>
+                <Border Grid.Column="0" Background="White" Margin="12,12,92,12"/>
 
-                <Button Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8" Background="White">
-                    
-                </Button>
+                <TextBox x:Name="SearchBar" Grid.Column="1" Background="White" Margin="12,16,12,16">
+
+                </TextBox>
+
+                <Grid Grid.Column="2">
+                    <!--#region Grid Dimensions-->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="64"/>
+                        <ColumnDefinition Width="64"/>
+                    </Grid.ColumnDefinitions>
+                    <!--#endregion-->
+
+                    <Button x:Name="ProfilePageButton" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,10,0,10" Background="Transparent" Click="ProfilePageButton_Click" Width="172" Height="44">
+                        <Button.Content>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="44"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image x:Name="ProfileImage" Stretch="UniformToFill" Source="Images/IMG-0336.JPG" Height="49" Width="56" VerticalAlignment="Center" StretchDirection="DownOnly" RenderTransformOrigin="0.632,1.493" HorizontalAlignment="Left" UseLayoutRounding="False">
+                                    <Image.LayoutTransform>
+                                        <TransformGroup>
+                                            <RotateTransform Angle="90"/>
+                                        </TransformGroup>
+                                    </Image.LayoutTransform>
+                                </Image>
+                                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" FontFamily="Century Gothic" Foreground="White" Text="Micah"/>
+                            </Grid>
+                        </Button.Content>
+                    </Button>
+
+                    <Button x:Name="NotificationButton" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8" Background="White">
+
+                    </Button>
+
+                    <Button x:Name="LogoutButton" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8" Background="White" Click="LogoutButton_Click">
+
+                    </Button>
+                </Grid>
             </Grid>
-        </Grid>
+        </Border>
         <!--#endregion-->
 
         <!--#region Bottom Tabs-->
-        <Grid DockPanel.Dock="Bottom" Height="16" Background="#004C4C">
+        <Grid DockPanel.Dock="Bottom" Height="8" Background="#003B4C">
             <!--#region Grid Dimensions-->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="240"/>
@@ -70,18 +84,22 @@
 
         <!--#region Left Sidebar-->
         <Grid DockPanel.Dock="Left" Width="240">
-            <userDisplay:RightSlider x:Name="LeftSidebar" Grid.Row="0"/>
+            <userDisplay:RightSlider x:Name="LeftSidebar" Grid.Row="0" Panel.ZIndex="4"/>
         </Grid>
         <!--#endregion-->
 
         <!--#region Right Sidebar-->
         <Grid DockPanel.Dock="Right" Width="240">
-            <userDisplay:LeftSlider x:Name="RightSidebar" Grid.Row="0"/>
+            <userDisplay:LeftSlider x:Name="RightSidebar" Grid.Row="0" Panel.ZIndex="4"/>
         </Grid>
         <!--#endregion-->
 
         <!--#region Current Page-->
-        <Grid x:Name="CurrentPage" Background="White">
+        <Grid x:Name="CurrentPage" Background="White" Panel.ZIndex="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="314*"/>
+                <RowDefinition Height="305*"/>
+            </Grid.RowDefinitions>
 
         </Grid>
         <!--#endregion-->

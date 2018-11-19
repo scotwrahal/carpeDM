@@ -12,84 +12,75 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using CPSC_SocialNetwork.Pages;
+
 using CPSC_SocialNetwork.UserDisplay;
+using CPSC_SocialNetwork.Characters;
+using CPSC_SocialNetwork.Campaigns;
+using CPSC_SocialNetwork.Users;
 
 namespace CPSC_SocialNetwork
 {
     public partial class MainWindow : Window
     {
-        ProfilePage profilePage = new ProfilePage();
-        CampaignPage campaignPage = new CampaignPage();
-        CharacterPage characterPage = new CharacterPage();
+        ProfilePage profilePage; 
+        CampaignPage campaignPage; 
+        CharacterPage characterPage; 
 
+        List<Character> characters; 
+        List<Campaign> campaigns; 
+        List<User> friends; 
+            
         public MainWindow()
         {
             InitializeComponent();
 
+            profilePage = new ProfilePage();
+            campaignPage = new CampaignPage();
+            characterPage = new CharacterPage();
+
+            characters = new List<Character>();
+            campaigns = new List<Campaign>();
+            friends = new List<User>();
+
             Switcher.pageSwitcher = this;
             Switcher.Switch(profilePage);
 
-            BrushConverter bc = new BrushConverter();
-            Color myColor = Color.FromRgb(0, 0, 0);
-            SolidColorBrush brush = new SolidColorBrush(myColor);
-
-            for (int i = 0; i < 25; i++)
+            foreach(Character character in characters)
             {
-                SidebarButton email = new SidebarButton();
-                email.Image.Fill = brush;
-                LeftSidebar.CharacterList.Children.Add(email);
-                myColor = Color.Add(myColor, Color.FromRgb(30, 0, 0));
-                brush = new SolidColorBrush(myColor);
+                SidebarButton button = new SidebarButton();
+                this.LeftSidebar.CharacterList.Children.Add(button);
             }
 
-            myColor = Color.FromRgb(0, 0, 0);
-            brush = new SolidColorBrush(myColor);
-            for (int i = 0; i < 25; i++)
+            foreach(Campaign campaign in campaigns)
             {
-                SidebarButton email = new SidebarButton();
-                email.Image.Fill = brush;
-                LeftSidebar.CampaignList.Children.Add(email);
-                myColor = Color.Add(myColor, Color.FromRgb(0, 30, 0));
-                brush = new SolidColorBrush(myColor);
+                SidebarButton button = new SidebarButton();
+                this.LeftSidebar.CampaignList.Children.Add(button);
             }
 
-            myColor = Color.FromRgb(0, 0, 0);
-            brush = new SolidColorBrush(myColor);
-            for (int i = 0; i < 25; i++)
+            foreach(User friend in friends)
             {
-                SidebarButton email = new SidebarButton();
-                email.Image.Fill = brush;
-                RightSidebar.FriendList.Children.Add(email);
-                myColor = Color.Add(myColor, Color.FromRgb(0, 0, 30));
-                brush = new SolidColorBrush(myColor);
-            }
-
-            myColor = Color.FromRgb(0, 0, 0);
-            brush = new SolidColorBrush(myColor);
-            for (int i = 0; i < 25; i++)
-            {
-                SidebarButton email = new SidebarButton();
-                email.Image.Fill = brush;
-                RightSidebar.GroupList.Children.Add(email);
-                myColor = Color.Add(myColor, Color.FromRgb(30, 30, 30));
-                brush = new SolidColorBrush(myColor);
+                SidebarButton button = new SidebarButton();
+                this.RightSidebar.FriendList.Children.Add(button);
             }
         }
 
 
         public void Navigate(UserControl nextPage)
         {
-            if (!this.CurrentPage.Children.Equals(nextPage))
-            {
-                this.CurrentPage.Children.Add(nextPage);
-            }
+            this.CurrentPage.Children.Remove(nextPage);
+            this.CurrentPage.Children.Add(nextPage);
         }
 
 
         private void ProfilePageButton_Click(object sender, RoutedEventArgs e)
         {
             this.Navigate(campaignPage);
+        }
+
+
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }
