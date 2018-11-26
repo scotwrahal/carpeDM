@@ -17,26 +17,10 @@ namespace CPSC_SocialNetwork.UserDisplay
 {
     public partial class SidebarButton : UserControl {
 
-        private string name;
-        public string ButtonName
+        private UserControl link;
+        public UserControl Link
         {
-            get { return name; }
-            set
-            {
-                name = value;
-                this.Title.Text = this.name;
-            }
-        }
-
-        private string description;
-        public string Description
-        {
-            get { return description; }
-            set
-            {
-                description = value;
-                this.Body.Text = this.description;
-            }
+            get { return link; }
         }
 
         private Image picture;
@@ -50,10 +34,25 @@ namespace CPSC_SocialNetwork.UserDisplay
             }
         }
 
+        private int index;
+        public int Index
+        {
+            get { return index; }
+            set { index = value; }
+        }
+
 
         public SidebarButton()
         {
             InitializeComponent();
+        }
+
+        public SidebarButton(string title, string description, UserControl linkedControl)
+        {
+            InitializeComponent();
+            Title.Text = title;
+            Description.Text = description;
+            link = linkedControl;
         }
     }
 }
