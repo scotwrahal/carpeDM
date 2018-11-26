@@ -45,6 +45,12 @@ namespace CPSC_SocialNetwork
             Switcher.pageSwitcher = this;
             Switcher.Switch(profilePage);
 
+            for(int i = 0; i < 10; i++)
+            {
+                SidebarButton button = new SidebarButton("New Button", "Let's hope this works!");
+                this.LeftSidebar.CharacterList.Children.Add(button);
+            }
+
             foreach(Character character in characters)
             {
                 SidebarButton button = new SidebarButton();

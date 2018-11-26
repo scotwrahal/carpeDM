@@ -162,10 +162,10 @@
     <Folder Include="Authentication\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\fast-forward-double-right-arrows.png" />
+    <Resource Include="Images\RightDoubleArrow.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\rewind-double-arrows-angles.png" />
+    <Resource Include="Images\LeftDoubleArrow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
