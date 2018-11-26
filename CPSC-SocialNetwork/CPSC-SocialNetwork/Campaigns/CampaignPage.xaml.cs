@@ -24,5 +24,10 @@ namespace CPSC_SocialNetwork.Campaigns
         {
             InitializeComponent();
         }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
