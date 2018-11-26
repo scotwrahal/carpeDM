@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,15 +46,12 @@ namespace CPSC_SocialNetwork
             Switcher.pageSwitcher = this;
             Switcher.Switch(profilePage);
 
-            for(int i = 0; i < 10; i++)
+            UserControl temp = new UserControl();
+            for (int x = 0; x < 3; x++) // (Character character in characters)
             {
-                SidebarButton button = new SidebarButton("New Button", "Let's hope this works!");
-                this.LeftSidebar.CharacterList.Children.Add(button);
-            }
-
-            foreach(Character character in characters)
-            {
-                SidebarButton button = new SidebarButton();
+                SidebarButton button = new SidebarButton("hello", "This is the desc", temp);
+                button.Name = "SidebarButton" + x.ToString();
+                button.MouseLeftButtonDown += SidebarButtonHandler; 
                 this.LeftSidebar.CharacterList.Children.Add(button);
             }
 
@@ -70,6 +68,14 @@ namespace CPSC_SocialNetwork
             }
         }
 
+        private void SidebarButtonHandler(object sender, MouseButtonEventArgs e)
+        {
+            SidebarButton Sender = (SidebarButton)sender;
+            if (Sender.Name == "SidebarButton1")
+            {
+                Close();
+            }
+        }
 
         public void Navigate(UserControl nextPage)
         {

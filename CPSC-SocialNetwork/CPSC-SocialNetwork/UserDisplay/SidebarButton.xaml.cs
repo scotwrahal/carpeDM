@@ -15,37 +15,44 @@ using System.Windows.Shapes;
 
 namespace CPSC_SocialNetwork.UserDisplay
 {
-    public partial class SidebarButton : UserControl
-    {
+    public partial class SidebarButton : UserControl {
+
+        private UserControl link;
+        public UserControl Link
+        {
+            get { return link; }
+        }
+
+        private Image picture;
+        public Image Picture
+        {
+            get { return picture; }
+            set
+            {
+                picture = value;
+                this.Picture.Source = this.picture.Source;
+            }
+        }
+
+        private int index;
+        public int Index
+        {
+            get { return index; }
+            set { index = value; }
+        }
+
 
         public SidebarButton()
         {
-            this.ButtonName = "No name";
-            this.ButtonDescription = "No description";
+            InitializeComponent();
         }
 
-        public SidebarButton(string name, string description)
+        public SidebarButton(string title, string description, UserControl linkedControl)
         {
-            this.ButtonName = name;
-            this.ButtonDescription = description;
+            InitializeComponent();
+            Title.Text = title;
+            Description.Text = description;
+            link = linkedControl;
         }
-
-        public string ButtonName
-        {
-            get { return (string)GetValue(ButtonNameProperty); }
-            set { SetValue(ButtonNameProperty, value); }
-        }
-
-        public string ButtonDescription
-        {
-            get { return (string)GetValue(ButtonDescriptionProperty); }
-            set { SetValue(ButtonDescriptionProperty, value); }
-        }
-
-        public static readonly DependencyProperty ButtonNameProperty =
-            DependencyProperty.Register("Title", typeof(string), typeof(SidebarButton));
-
-        public static readonly DependencyProperty ButtonDescriptionProperty =
-            DependencyProperty.Register("Description", typeof(string), typeof(SidebarButton));
     }
 }

@@ -5,31 +5,27 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CPSC_SocialNetwork.UserDisplay"
              mc:Ignorable="d" 
-             d:DesignWidth="240" d:DesignHeight="48" Height="48">
-    <Border Background="White" CornerRadius="6">
+             d:DesignWidth="240" d:DesignHeight="48">
+    <Border Background="White" CornerRadius="8" Height="48">
         <Border.Effect>
-            <DropShadowEffect ShadowDepth="0" Direction="0" Color="#FF333333"/>
+            <DropShadowEffect Color="#FF333333" ShadowDepth="0" Direction="0" Opacity="0.5"/>
         </Border.Effect>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="48"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0" Margin="6">
-                <Image x:Name="Image">
-                    
-                </Image>
-            </Grid>
+            <Image Name="Image" Grid.Column="0" Margin="6">
+
+            </Image>
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
-                <TextBlock x:Name="Title" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" FontFamily="Century Gothic" FontWeight="Bold" Margin="8,3.416,0,3.416" Width="174"/>
-                <TextBlock x:Name="Description" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10" FontFamily="Century Gothic" Margin="8,5.87,0,5.87" Width="174"/>
+                <TextBlock x:Name="Title" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0,0,0" FontFamily="Century Gothic" FontSize="14" Grid.Row="0"/>
+                <TextBlock x:Name="Description" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0,0,0" FontFamily="Century Gothic" FontSize="10" Grid.Row="1"/>
             </Grid>
         </Grid>
-
     </Border>
-
 </UserControl>

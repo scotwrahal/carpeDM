@@ -24,6 +24,13 @@
             <TabItem Header="Characters">
                 
             </TabItem>
+            <TabItem Header="Players">
+                
+            </TabItem>
+            <TabItem Header="Extras">
+                
+            </TabItem>
+            
         </TabControl>
     </Grid>
 </UserControl>
