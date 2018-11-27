@@ -72,11 +72,11 @@
     <Compile Include="Characters\CharacterPage.xaml.cs">
       <DependentUpon>CharacterPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Database\Database.cs" />
     <Compile Include="Users\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Switcher.cs" />
-    <Compile Include="User.cs" />
     <Compile Include="UserDisplay\RightSlider.xaml.cs">
       <DependentUpon>RightSlider.xaml</DependentUpon>
     </Compile>

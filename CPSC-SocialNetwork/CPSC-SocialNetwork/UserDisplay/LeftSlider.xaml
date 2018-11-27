@@ -57,15 +57,6 @@
                 </Ellipse>
             </Grid>
         </ControlTemplate>
-        <Storyboard x:Key="LeftSidebarResourcesClose">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grid">
-                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-            <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.IsEnabled)" Storyboard.TargetName="CloseButton">
-                <DiscreteBooleanKeyFrame KeyTime="0:0:0.3" Value="False"/>
-            </BooleanAnimationUsingKeyFrames>
-        </Storyboard>
     </UserControl.Resources>
   
     <Border Background="#F2F2F2">
