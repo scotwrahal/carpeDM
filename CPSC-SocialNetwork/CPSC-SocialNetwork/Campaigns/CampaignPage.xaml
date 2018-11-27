@@ -11,26 +11,35 @@
             <RowDefinition Height="128"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Border Grid.Row="0" Background="#CCCCCC" Margin="4" CornerRadius="12">
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Row="0" Width="auto" Background="#CCCCCC" Margin="4" CornerRadius="12">
+
         </Border>
-        <TabControl Grid.Row="1">
-            <TabItem Header="About">
-                
+        <UniformGrid Grid.Row="1" Columns="5" Margin="3,0">
+            <FrameworkElement x:Name="tabFramework"/>
+        </UniformGrid>
+        <TabControl Grid.Row="1" SelectionChanged="TabControl_SelectionChanged">
+            <TabItem Header="About" Width="{Binding ElementName=tabFramework, Path=ActualWidth}" FontFamily="Century Gothic" FontSize="22">
+                <Grid Background="AliceBlue" Height="auto">
+
+                </Grid>
             </TabItem>
-            <TabItem Header="Story">
-                
+            <TabItem Header="Story" Width="{Binding ElementName=tabFramework, Path=ActualWidth}" FontFamily="Century Gothic" FontSize="22">
+
             </TabItem>
-            <TabItem Header="Characters">
-                
+            <TabItem Header="Characters" Width="{Binding ElementName=tabFramework, Path=ActualWidth}" FontFamily="Century Gothic" FontSize="22">
+
             </TabItem>
-            <TabItem Header="Players">
-                
+            <TabItem Header="Players" Width="{Binding ElementName=tabFramework, Path=ActualWidth}" FontFamily="Century Gothic" FontSize="22">
+
             </TabItem>
-            <TabItem Header="Extras">
-                
+            <TabItem Header="Extras" Width="{Binding ElementName=tabFramework, Path=ActualWidth}" FontFamily="Century Gothic" FontSize="22">
+                <Grid Background="#004b60">
+
+                </Grid>
             </TabItem>
-            
         </TabControl>
     </Grid>
 </UserControl>
