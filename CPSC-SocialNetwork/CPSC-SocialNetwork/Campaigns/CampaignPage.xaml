@@ -21,39 +21,25 @@
             <FrameworkElement x:Name="tabFramework"/>
         </UniformGrid>
         <TabControl Grid.Row="1" SelectionChanged="TabControl_SelectionChanged">
-            <!--#region About Tabs-->
             <TabItem Header="About" Width="{Binding ElementName=tabFramework, Path=ActualWidth}" FontFamily="Century Gothic" FontSize="22">
                 <Grid Background="AliceBlue" Height="auto">
 
                 </Grid>
             </TabItem>
-            <!--#endregion-->
-            <!--#region Story Tab-->
             <TabItem Header="Story" Width="{Binding ElementName=tabFramework, Path=ActualWidth}" FontFamily="Century Gothic" FontSize="22">
-                <ScrollViewer>
-                
-                </ScrollViewer>
+
             </TabItem>
-            <!--#endregion-->
-            <!--#region Character Tab-->
             <TabItem Header="Characters" Width="{Binding ElementName=tabFramework, Path=ActualWidth}" FontFamily="Century Gothic" FontSize="22">
-                <ScrollViewer PanningMode="VerticalOnly">
-                    
-                </ScrollViewer>
+
             </TabItem>
-            <!--#endregion-->
-            <!--#region Players Tab-->
             <TabItem Header="Players" Width="{Binding ElementName=tabFramework, Path=ActualWidth}" FontFamily="Century Gothic" FontSize="22">
 
             </TabItem>
-            <!--#endregion-->
-            <!--#region Extras Tab-->
             <TabItem Header="Extras" Width="{Binding ElementName=tabFramework, Path=ActualWidth}" FontFamily="Century Gothic" FontSize="22">
                 <Grid Background="#004b60">
 
                 </Grid>
             </TabItem>
-            <!--#endregion-->
         </TabControl>
     </Grid>
 </UserControl>

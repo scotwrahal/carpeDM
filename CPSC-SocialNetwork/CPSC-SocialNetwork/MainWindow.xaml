@@ -96,7 +96,11 @@
 
         <!--#region Current Page-->
         <Grid x:Name="CurrentPage" Background="White" Panel.ZIndex="1">
-            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="314*"/>
+                <RowDefinition Height="305*"/>
+            </Grid.RowDefinitions>
+
         </Grid>
         <!--#endregion-->
     </DockPanel>
