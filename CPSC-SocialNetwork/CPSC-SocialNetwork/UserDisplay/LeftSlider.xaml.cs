@@ -18,9 +18,9 @@ namespace CPSC_SocialNetwork.UserDisplay
     /// <summary>
     /// Interaction logic for RightSlider.xaml
     /// </summary>
-    public partial class RightSlider : UserControl
+    public partial class LeftSlider : UserControl
     {
-        public RightSlider()
+        public LeftSlider()
         {
             InitializeComponent();
         }
@@ -50,9 +50,9 @@ namespace CPSC_SocialNetwork.UserDisplay
 
         }
 
-        private void Label_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void MiddleTab_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            MiddleLabel.Text = "Clicked it!";
         }
     }
 }

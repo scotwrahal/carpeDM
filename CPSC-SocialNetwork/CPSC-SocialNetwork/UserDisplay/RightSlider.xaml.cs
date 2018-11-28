@@ -18,9 +18,9 @@ namespace CPSC_SocialNetwork.UserDisplay
     /// <summary>
     /// Interaction logic for LeftSlider.xaml
     /// </summary>
-    public partial class LeftSlider : UserControl
+    public partial class RightSlider : UserControl
     {
-        public LeftSlider()
+        public RightSlider()
         {
             InitializeComponent();
         }

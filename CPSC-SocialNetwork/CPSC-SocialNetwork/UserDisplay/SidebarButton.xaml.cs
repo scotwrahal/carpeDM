@@ -47,7 +47,7 @@ namespace CPSC_SocialNetwork.UserDisplay
             InitializeComponent();
         }
 
-        public SidebarButton(string title, string description, UserControl linkedControl)
+        public SidebarButton(string title, UserControl linkedControl, string description = "")
         {
             InitializeComponent();
             Title.Text = title;

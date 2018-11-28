@@ -84,22 +84,18 @@
 
         <!--#region Left Sidebar-->
         <Grid DockPanel.Dock="Left" Width="240">
-            <userDisplay:RightSlider x:Name="LeftSidebar" Grid.Row="0" Panel.ZIndex="4"/>
+            <userDisplay:LeftSlider x:Name="LeftSidebar" Grid.Row="0" Panel.ZIndex="4"/>
         </Grid>
         <!--#endregion-->
 
         <!--#region Right Sidebar-->
         <Grid DockPanel.Dock="Right" Width="240">
-            <userDisplay:LeftSlider x:Name="RightSidebar" Grid.Row="0" Panel.ZIndex="4"/>
+            <userDisplay:RightSlider x:Name="RightSidebar" Grid.Row="0" Panel.ZIndex="4"/>
         </Grid>
         <!--#endregion-->
 
         <!--#region Current Page-->
         <Grid x:Name="CurrentPage" Background="White" Panel.ZIndex="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="314*"/>
-                <RowDefinition Height="305*"/>
-            </Grid.RowDefinitions>
 
         </Grid>
         <!--#endregion-->
