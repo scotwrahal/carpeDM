@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CPSC_SocialNetwork.Characters
 {
-    class Character
+    public class Character
     {
         private string characterName;
         public string CharacterName

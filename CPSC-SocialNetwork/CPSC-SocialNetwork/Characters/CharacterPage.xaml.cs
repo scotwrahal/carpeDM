@@ -29,5 +29,10 @@ namespace CPSC_SocialNetwork.Characters
         {
             InitializeComponent();
         }
+
+        public CharacterPage(Character character)
+        {
+            InitializeComponent();
+        }
     }
 }
