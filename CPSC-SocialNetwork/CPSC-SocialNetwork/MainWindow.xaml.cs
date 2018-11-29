@@ -25,44 +25,48 @@ namespace CPSC_SocialNetwork
 {
     public partial class MainWindow : Window
     {
-        ProfilePage profilePage; 
-        CampaignPage campaignPage; 
-        CharacterPage characterPage;
-
         SocialNetworkDatabase database;
+
+        User mainUser;
+        ProfilePage profile;
         
         public MainWindow()
         {
             InitializeComponent();
 
-            profilePage = new ProfilePage();
-            campaignPage = new CampaignPage();
-            characterPage = new CharacterPage();
+            database = new SocialNetworkDatabase();
+
+            this.mainUser = database.Users["HardworkingIdiot"];
+            this.profile = new ProfilePage(mainUser);
 
             Switcher.pageSwitcher = this;
-            Switcher.Switch(profilePage);
-
-            database = new SocialNetworkDatabase();
+            Switcher.Switch(profile);
 
             foreach(Character character in database.Characters["HardworkingIdiot"].Values)
             {
-                SidebarButton button = new SidebarButton(title: character.CharacterName, description: character.ToString(), linkedControl: characterPage);
+                CharacterPage page = new CharacterPage(character);
+                SidebarButton button = new SidebarButton(title: character.CharacterName, description: character.ToString(), linkedControl: page);
                 button.MouseLeftButtonDown += SidebarButtonHandler;
                 this.LeftSidebar.CharacterList.Children.Add(button);
             }
 
             foreach(Campaign campaign in database.Campaigns["HardworkingIdiot"].Values)
             {
-                SidebarButton button = new SidebarButton(title: campaign.Name, description: campaign.Description, linkedControl: campaignPage);
+                CampaignPage page = new CampaignPage(campaign);
+                SidebarButton button = new SidebarButton(title: campaign.Name, description: campaign.Description, linkedControl: page);
                 button.MouseLeftButtonDown += SidebarButtonHandler;
                 this.LeftSidebar.CampaignList.Children.Add(button);
             }
 
             foreach(User friend in database.Users.Values)
             {
-                SidebarButton button = new SidebarButton(title: friend.DisplayName, linkedControl: profilePage);
-                button.MouseLeftButtonDown += SidebarButtonHandler;
-                this.RightSidebar.FriendList.Children.Add(button);
+                if(friend.Username != this.mainUser.Username)
+                {
+                    ProfilePage page = new ProfilePage(friend);
+                    SidebarButton button = new SidebarButton(title: friend.DisplayName, linkedControl: page);
+                    button.MouseLeftButtonDown += SidebarButtonHandler;
+                    this.RightSidebar.FriendList.Children.Add(button);
+                }
             }
         }
 
@@ -81,7 +85,7 @@ namespace CPSC_SocialNetwork
 
         private void ProfilePageButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Navigate(profilePage);
+            this.Navigate(profile);
         }
 
 
