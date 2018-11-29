@@ -79,8 +79,8 @@ namespace CPSC_SocialNetwork.Database
             {
                 { "HardworkingIdiot", new Dictionary<string, Campaign>
                     {
-                        { "Red Hand of Doom", new Campaign(name: "Red Hand of Doom", description: "An old 3e campaign.") },
-                        { "Kingmaker", new Campaign(name: "Kingmaker", description: "A politically based campaign with the goal of building a kingdom.") }
+                        { "Red Hand of Doom", new Campaign(name: "Red Hand of Doom", description: "An old 3e campaign.", owner: users["HardworkingIdiot"]) },
+                        { "Kingmaker", new Campaign(name: "Kingmaker", description: "A politically based campaign with the goal of building a kingdom.", owner: users["HardworkingIdiot"]) }
                     }
                 },
                 { "ToolboxMoron", new Dictionary<string, Campaign>
