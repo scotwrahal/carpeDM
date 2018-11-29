@@ -103,7 +103,7 @@
             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
             <Setter Property="VerticalContentAlignment" Value="Stretch"/>
             <Setter Property="FontFamily" Value="Century Gothic"/>
-            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="FontSize" Value="18"/>
             <Setter Property="Foreground" Value="#FF4C4C4C"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -205,6 +205,7 @@
                                     <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
                                 </MultiDataTrigger.Conditions>
                                 <Setter Property="Foreground" Value="Black"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
                             </MultiDataTrigger>
 
                             <MultiDataTrigger>

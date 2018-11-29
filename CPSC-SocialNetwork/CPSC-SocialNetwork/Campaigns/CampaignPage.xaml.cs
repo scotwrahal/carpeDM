@@ -20,10 +20,35 @@ namespace CPSC_SocialNetwork.Campaigns
     /// </summary>
     public partial class CampaignPage : UserControl
     {
+        private List<StoryEntry> storyEntries;
+        public List<StoryEntry> StoryEntries
+        {
+            get => this.storyEntries;
+            set {
+                this.storyEntries = value;
+                this.StoryList.DataContext = storyEntries;
+            }
+        }
+
         public CampaignPage()
         {
             InitializeComponent();
         }
+
+        public CampaignPage(Campaign campaign)
+        {
+            InitializeComponent();
+            storyEntries = new List<StoryEntry>
+            {
+                { new StoryEntry("Test", "This is a test!") },
+                { new StoryEntry("Also a test!", "Another Test for the testings") }
+            };
+
+            foreach(StoryEntry entry in this.storyEntries)
+                this.StoryList.Children.Add(entry);
+
+        }
+
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
