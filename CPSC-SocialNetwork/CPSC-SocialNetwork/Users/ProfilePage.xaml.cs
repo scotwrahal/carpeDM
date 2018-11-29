@@ -24,5 +24,10 @@ namespace CPSC_SocialNetwork.Users
         {
             InitializeComponent();
         }
+
+        public ProfilePage(User user)
+        {
+            InitializeComponent();
+        }
     }
 }
