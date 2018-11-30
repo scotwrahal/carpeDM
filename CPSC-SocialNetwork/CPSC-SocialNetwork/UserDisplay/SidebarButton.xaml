@@ -5,27 +5,31 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CPSC_SocialNetwork.UserDisplay"
              mc:Ignorable="d" 
-             d:DesignWidth="240" d:DesignHeight="48">
-    <Border Background="White" CornerRadius="8" Height="48">
-        <Border.Effect>
-            <DropShadowEffect Color="#FF333333" ShadowDepth="0" Direction="0" Opacity="0.5"/>
-        </Border.Effect>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="48"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Image Name="Image" Grid.Column="0" Margin="6">
-
-            </Image>
-            <Grid Grid.Column="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="2*"/>
-                </Grid.RowDefinitions>
-                <TextBlock x:Name="Title" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0,0,0" FontFamily="Century Gothic" FontSize="14" Grid.Row="0"/>
-                <TextBlock x:Name="Description" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0,0,0" FontFamily="Century Gothic" FontSize="10" Grid.Row="1"/>
+             d:DesignWidth="240" d:DesignHeight="54">
+    <Grid Height="54">
+        <Border Background="White" CornerRadius="8" Margin="0,2,0,4">
+            <Border.Effect>
+                <DropShadowEffect Color="#FF333333" ShadowDepth="0" Direction="0" Opacity="0.5"/>
+            </Border.Effect>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Name="Image" Grid.Column="0" Margin="6">
+                    <Image.Clip>
+                        <EllipseGeometry Center="18,18" RadiusX="18" RadiusY="18"/>
+                    </Image.Clip>
+                </Image>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="Title" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8,4,0,0" FontFamily="Century Gothic" FontSize="14" Grid.Row="0"/>
+                    <TextBlock x:Name="Description" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8,0,8,8" FontFamily="Century Gothic" FontSize="10" Grid.Row="1" TextTrimming="CharacterEllipsis"/>
+                </Grid>
             </Grid>
-        </Grid>
-    </Border>
+        </Border>
+    </Grid>
 </UserControl>

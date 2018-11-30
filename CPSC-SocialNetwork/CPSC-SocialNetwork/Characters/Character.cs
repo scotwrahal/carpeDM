@@ -36,6 +36,14 @@ namespace CPSC_SocialNetwork.Characters
             set { this.characterLevel = value; }
         }
 
+        private string picture;
+        public string Picture
+        {
+            get => this.picture;
+            set => this.picture = value;
+        }
+
+
 
         public Character()
         {
@@ -43,15 +51,17 @@ namespace CPSC_SocialNetwork.Characters
             characterRace = "";
             characterClass = "";
             characterLevel = 0;
+            picture = "";
         }
 
 
-        public Character(string characterName = "", string characterRace = "", string characterClass = "", int characterLevel = 0)
+        public Character(string characterName = "", string characterRace = "", string characterClass = "", int characterLevel = 0, string picture = "")
         {
             this.characterName = characterName;
             this.characterRace = characterRace;
             this.characterClass = characterClass;
             this.characterLevel = characterLevel;
+            this.picture = picture;
         }
 
         public override string ToString()

@@ -47,12 +47,14 @@ namespace CPSC_SocialNetwork.UserDisplay
             InitializeComponent();
         }
 
-        public SidebarButton(string title, UserControl linkedControl, string description = "")
+        public SidebarButton(string title, UserControl linkedControl, string description = "", string picture = "")
         {
             InitializeComponent();
             Title.Text = title;
             Description.Text = description;
             link = linkedControl;
+            if(picture != "")
+                Image.Source = new BitmapImage(new Uri(@"\Images\" + picture, UriKind.Relative));
         }
     }
 }

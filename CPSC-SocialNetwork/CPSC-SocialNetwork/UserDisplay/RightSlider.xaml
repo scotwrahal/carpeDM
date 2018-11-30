@@ -22,6 +22,9 @@
                         <DropShadowEffect Color="#FF333333" Opacity="0.5" ShadowDepth="0"/>
                     </Ellipse.Effect>
                 </Ellipse>
+                <Grid Grid.Row="1" Margin="-18,0,6,0">
+                    <Image Margin="8,10,10,10" Source="/CPSC-SocialNetwork;component/Images/LeftDoubleArrow.png"/>
+                </Grid>
             </Grid>
         </ControlTemplate>
         <Style x:Key="SidebarFocusVisual" TargetType="{x:Type Control}">
@@ -48,133 +51,138 @@
                         <DropShadowEffect Color="#FF333333" Opacity="0.5" ShadowDepth="0"/>
                     </Ellipse.Effect>
                 </Ellipse>
+                <Grid Grid.Row="1" Margin="6,0,-18,0">
+                    <Image Margin="10,10,8,10" Source="/CPSC-SocialNetwork;component/Images/RightDoubleArrow.png"/>
+                </Grid>
             </Grid>
         </ControlTemplate>
     </UserControl.Resources>
-    <Grid>
+    <Border Background="#FFF2F2F2">
+        <Grid>
 
-        <!--#region Grid Dimensions-->
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="24"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <!--#endregion-->
-
-        <Grid Grid.Column="1" Background="#F2F2F2">
             <!--#region Grid Dimensions-->
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="36"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="24"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
             <!--#endregion-->
 
-            <Grid Grid.Row="0" Name="FriendViewer">
+            <Grid Grid.Column="1" Background="#F2F2F2">
                 <!--#region Grid Dimensions-->
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="24"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="36"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <!--#endregion-->
 
-                <!--#region Label-->
-                <Border Grid.Row="0" Background="#F2F2F2" BorderBrush="#CCCCCC" BorderThickness="0,0,0,1">
-                    <TextBlock FontSize="14" FontFamily="Century Gothic" Text="Friends" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF4C4C4C"/>
-                </Border>
-                <!--#endregion-->
+                <Grid Grid.Row="0" Name="FriendViewer">
+                    <!--#region Grid Dimensions-->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="24"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <!--#endregion-->
 
-                <ScrollViewer Grid.Row="1"
-                      VerticalScrollBarVisibility="Hidden"
-                      Background="#F2F2F2">
-                    <StackPanel Name="FriendList" Background="#F2F2F2" Margin="4"/>
-                </ScrollViewer>
-            </Grid>
+                    <!--#region Label-->
+                    <Border Grid.Row="0" Background="#F2F2F2" BorderBrush="#CCCCCC" BorderThickness="0,0,0,1">
+                        <TextBlock FontSize="14" FontFamily="Century Gothic" Text="Friends" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF4C4C4C"/>
+                    </Border>
+                    <!--#endregion-->
 
-            <!--#region Middle Tab Label-->
-            <Grid Grid.Row="1" Name="MiddleTab" Background="#CCCCCC">
-                <TextBlock Text="Chat" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF4C4C4C"/>
-            </Grid>
-            <!--#endregion-->
-
-            <Grid Grid.Row="2" Background="#F2F2F2" Name="GroupViewer">
-                <!--#region Grid Dimensions-->
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="24"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <!--#endregion-->
-
-                <!--#region Label-->
-                <Border Grid.Row="0" Background="#F2F2F2" BorderBrush="#CCCCCC" BorderThickness="0,0,0,1">
-                    <TextBlock FontSize="14" FontFamily="Century Gothic" Text="Groups" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF4C4C4C"/>
-                </Border>
-                <!--#endregion-->
-
-                <!--#region Content-->
-                <ScrollViewer Grid.Row="1"
+                    <ScrollViewer Grid.Row="1"
                           VerticalScrollBarVisibility="Hidden"
                           Background="#F2F2F2">
-                    <StackPanel Name="GroupList" Background="#F2F2F2" Margin="4"/>
-                </ScrollViewer>
+                        <StackPanel Name="FriendList" Background="#F2F2F2" Margin="4"/>
+                    </ScrollViewer>
+                </Grid>
+
+                <!--#region Middle Tab Label-->
+                <Grid Grid.Row="1" Name="MiddleTab" Background="#CCCCCC">
+                    <TextBlock Text="Chat" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF4C4C4C"/>
+                </Grid>
                 <!--#endregion-->
+
+                <Grid Grid.Row="2" Background="#F2F2F2" Name="GroupViewer">
+                    <!--#region Grid Dimensions-->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="24"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <!--#endregion-->
+
+                    <!--#region Label-->
+                    <Border Grid.Row="0" Background="#F2F2F2" BorderBrush="#CCCCCC" BorderThickness="0,0,0,1">
+                        <TextBlock FontSize="14" FontFamily="Century Gothic" Text="Groups" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF4C4C4C"/>
+                    </Border>
+                    <!--#endregion-->
+
+                    <!--#region Content-->
+                    <ScrollViewer Grid.Row="1"
+                              VerticalScrollBarVisibility="Hidden"
+                              Background="#F2F2F2">
+                        <StackPanel Name="GroupList" Background="#F2F2F2" Margin="4"/>
+                    </ScrollViewer>
+                    <!--#endregion-->
+                </Grid>
+            </Grid>
+
+            <Button Grid.Column="0"
+                    Name="CloseButton"
+                    Width="24" Height="auto"
+                    Background="#CCCCCC" 
+                    Click="CloseButton_Click" Template="{DynamicResource CloseButtonControlTemplate}" FocusVisualStyle="{DynamicResource SidebarFocusVisual}">
+
+            </Button>
+
+            <Button Grid.Column="1"
+                    Name="OpenButton"
+                    HorizontalAlignment="Right"
+                    Visibility="Hidden"
+                    Width="24" Height="auto"
+                    Background="#CCCCCC" 
+                    Click="OpenButton_Click" Template="{DynamicResource OpenButtonControlTemplate}">
+
+            </Button>
+
+            <Grid Grid.Column="1" 
+                  x:Name="OpenButtonLabels" 
+                  Visibility="Hidden" 
+                  HorizontalAlignment="Right" 
+                  Width="24">
+                <!--#region Grid Dimensions-->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="36"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <!--#endregion-->
+
+                <TextBlock Grid.Row="0" 
+                           Text="Friends" 
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Center" 
+                           FontSize="14" 
+                           FontFamily="Century Gothic" Foreground="#FF4C4C4C">
+                    <TextBlock.LayoutTransform>
+                        <TransformGroup>
+                            <RotateTransform Angle="270"/>
+                        </TransformGroup>
+                    </TextBlock.LayoutTransform>
+                </TextBlock>
+                <TextBlock Grid.Row="2" 
+                           Text="Groups" 
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Center" 
+                           FontSize="14" 
+                           FontFamily="Century Gothic" Foreground="#FF4C4C4C">
+                    <TextBlock.LayoutTransform>
+                        <TransformGroup>
+                            <RotateTransform Angle="270"/>
+                        </TransformGroup>
+                    </TextBlock.LayoutTransform>
+                </TextBlock>
             </Grid>
         </Grid>
-
-        <Button Grid.Column="0"
-                Name="CloseButton"
-                Width="24" Height="auto"
-                Background="#CCCCCC" 
-                Click="CloseButton_Click" Template="{DynamicResource CloseButtonControlTemplate}" FocusVisualStyle="{DynamicResource SidebarFocusVisual}">
-
-        </Button>
-
-        <Button Grid.Column="1"
-                Name="OpenButton"
-                HorizontalAlignment="Right"
-                Visibility="Hidden"
-                Width="24" Height="auto"
-                Background="#CCCCCC" 
-                Click="OpenButton_Click" Template="{DynamicResource OpenButtonControlTemplate}">
-
-        </Button>
-
-        <Grid Grid.Column="1" 
-              x:Name="OpenButtonLabels" 
-              Visibility="Hidden" 
-              HorizontalAlignment="Right" 
-              Width="24">
-            <!--#region Grid Dimensions-->
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="36"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <!--#endregion-->
-
-            <TextBlock Grid.Row="0" 
-                       Text="Friends" 
-                       VerticalAlignment="Center" 
-                       HorizontalAlignment="Center" 
-                       FontSize="14" 
-                       FontFamily="Century Gothic" Foreground="#FF4C4C4C">
-                <TextBlock.LayoutTransform>
-                    <TransformGroup>
-                        <RotateTransform Angle="270"/>
-                    </TransformGroup>
-                </TextBlock.LayoutTransform>
-            </TextBlock>
-            <TextBlock Grid.Row="2" 
-                       Text="Groups" 
-                       VerticalAlignment="Center" 
-                       HorizontalAlignment="Center" 
-                       FontSize="14" 
-                       FontFamily="Century Gothic" Foreground="#FF4C4C4C">
-                <TextBlock.LayoutTransform>
-                    <TransformGroup>
-                        <RotateTransform Angle="270"/>
-                    </TransformGroup>
-                </TextBlock.LayoutTransform>
-            </TextBlock>
-        </Grid>
-    </Grid>
+    </Border>
 </UserControl>

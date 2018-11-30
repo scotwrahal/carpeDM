@@ -30,6 +30,9 @@
                         <DropShadowEffect Direction="270" ShadowDepth="0" BlurRadius="5" Color="#FF333333" Opacity="0.5"/>
                     </Ellipse.Effect>
                 </Ellipse>
+                <Grid Grid.Row="1" Margin="-18,0,6,0">
+                    <Image Margin="8,10,10,10" Source="/CPSC-SocialNetwork;component/Images/LeftDoubleArrow.png"></Image>
+                </Grid>
             </Grid>
         </ControlTemplate>
         <ControlTemplate x:Key="OpenButtonControlTemplate" TargetType="{x:Type Button}">
@@ -55,6 +58,9 @@
                         <DropShadowEffect Direction="270" ShadowDepth="0" BlurRadius="5" Color="#FF333333" Opacity="0.5"/>
                     </Ellipse.Effect>
                 </Ellipse>
+                <Grid Grid.Row="1" Margin="6,0,-18,0">
+                    <Image Margin="10,10,8,10" Source="/CPSC-SocialNetwork;component/Images/RightDoubleArrow.png"/>
+                </Grid>
             </Grid>
         </ControlTemplate>
     </UserControl.Resources>
@@ -157,17 +163,13 @@
                     HorizontalAlignment="Left"
                     Width="24" Height="auto"
                     Background="#CCCCCC" 
-                    Click="OpenButton_Click" Template="{DynamicResource OpenButtonControlTemplate}">
-
-            </Button>
+                    Click="OpenButton_Click" Template="{DynamicResource OpenButtonControlTemplate}"/>
 
             <Button Grid.Column="1"
                     Name="CloseButton"
                     Width="auto" Height="auto"
                     Background="#CCCCCC" 
-                    Click="CloseButton_Click" Template="{DynamicResource CloseButtonControlTemplate}">
-
-            </Button>
+                    Click="CloseButton_Click" Template="{DynamicResource CloseButtonControlTemplate}"/>
             <Grid Grid.Column="0" x:Name="OpenButtonLabels" Visibility="Hidden" HorizontalAlignment="Left" Width="24">
                 <!--#region Grid Dimensions-->
                 <Grid.RowDefinitions>

@@ -36,20 +36,21 @@ namespace CPSC_SocialNetwork.Database
 
             users = new Dictionary<string, User>
             {
-                { "HardworkingIdiot", new User(username: "HardworkingIdiot", displayname: "Micah Peacock") },
-                { "ToolboxMoron", new User(username: "ToolboxMoron", displayname: "Scot Rahal") },
-                { "Doooooood", new User(username: "Doooooood", displayname: "Jesse Shewfelt") },
-                { "ThatSmartGuy", new User(username: "ThatSmartGuy", displayname: "Kris Lugtu") },
-                { "ThatOtherSmartGuy", new User(username: "ThatOtherSmartGuy", displayname: "Kendrick Ankamah") } 
+                { "HardworkingIdiot", new User(username: "HardworkingIdiot", displayname: "Micah Peacock", picture: "ProfilePicture.png") },
+                { "ToolboxMoron", new User(username: "ToolboxMoron", displayname: "Scot Rahal", picture: "4.png") },
+                { "Doooooood", new User(username: "Doooooood", displayname: "Jesse Shewfelt", picture: "5.png") },
+                { "ThatSmartGuy", new User(username: "ThatSmartGuy", displayname: "Kris Lugtu", picture: "6.png") },
+                { "ThatOtherSmartGuy", new User(username: "ThatOtherSmartGuy", displayname: "Kendrick Ankamah", picture: "7.png") },
+                { "MrRobotDood", new User(username: "MrRobotDood", displayname: "Claire's Talking Robot", picture: "8.png") }
             };
 
             characters = new Dictionary<string, Dictionary<string, Character>>
             {
                 { "HardworkingIdiot", new Dictionary<string, Character>
                     { 
-                        { "Eridan Xanthas", new Character(characterName: "Eridan Xanthas", characterRace: "Half-Elf", characterClass: "Magus", characterLevel: 6) },
-                        { "Soren Riftbane", new Character(characterName: "Soren Riftbane", characterRace: "Tiefling (Pit-born)", characterClass: "Inquisitor", characterLevel: 13) },
-                        { "Gradius Braveheart", new Character(characterName: "Gradius Braveheart", characterRace: "Human", characterClass:"Barbarian", characterLevel: 7) }
+                        { "Eridan Xanthas", new Character(characterName: "Eridan Xanthas", characterRace: "Half-Elf", characterClass: "Magus", characterLevel: 6, picture: "1.png") },
+                        { "Soren Riftbane", new Character(characterName: "Soren Riftbane", characterRace: "Tiefling (Pit-born)", characterClass: "Inquisitor", characterLevel: 13, picture: "2.png") },
+                        { "Gradius Braveheart", new Character(characterName: "Gradius Braveheart", characterRace: "Human", characterClass:"Barbarian", characterLevel: 7, picture: "3.png") }
                     }
                 },
                 { "ToolboxMoron", new Dictionary<string, Character>

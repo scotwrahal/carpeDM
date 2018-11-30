@@ -14,36 +14,44 @@ namespace CPSC_SocialNetwork.Users
         private string username;
         public string Username
         {
-            get { return this.username; }
-            set { this.username = value; }
+            get => this.username; 
+            set => this.username = value; 
         }
 
         private string displayname;
         public string DisplayName
         {
-            get { return this.displayname; }
-            set { this.displayname = value; }
+            get => this.displayname; 
+            set => this.displayname = value; 
+        }
+
+        private string picture;
+        public string Picture
+        {
+            get => this.picture;
+            set => this.picture = value;
         }
 
         private Dictionary<string, Character> characters;
         public Dictionary<string, Character> Characters
         {
-            get { return this.characters; }
-            set { this.characters = value; }
+            get => this.characters; 
+            set => this.characters = value;
         }
 
         private Dictionary<string, Campaign> campaigns;
         public Dictionary<string, Campaign> Campaigns
         {
-            get { return this.campaigns; }
-            set { this.campaigns = value; }
+            get => this.campaigns; 
+            set => this.campaigns = value; 
         }
 
 
-        public User(string username = "User123", string displayname = "Unnamed User", Dictionary<string, Character> characters = null, Dictionary<string, Campaign> campaigns = null)
+        public User(string username = "User123", string displayname = "Unnamed User", string picture = "", Dictionary<string, Character> characters = null, Dictionary<string, Campaign> campaigns = null)
         {
             this.username = username;
             this.displayname = displayname;
+            this.picture = picture;
             this.characters = characters;
             this.campaigns = campaigns;
         }

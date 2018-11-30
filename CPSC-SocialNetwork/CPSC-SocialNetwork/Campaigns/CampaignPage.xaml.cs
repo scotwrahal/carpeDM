@@ -46,7 +46,6 @@ namespace CPSC_SocialNetwork.Campaigns
 
             foreach(StoryEntry entry in this.storyEntries)
                 this.StoryList.Children.Add(entry);
-
         }
 
 

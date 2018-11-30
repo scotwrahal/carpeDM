@@ -45,7 +45,7 @@ namespace CPSC_SocialNetwork
             foreach(Character character in database.Characters["HardworkingIdiot"].Values)
             {
                 CharacterPage page = new CharacterPage(character);
-                SidebarButton button = new SidebarButton(title: character.CharacterName, description: character.ToString(), linkedControl: page);
+                SidebarButton button = new SidebarButton(title: character.CharacterName, description: character.ToString(), picture: character.Picture, linkedControl: page);
                 button.MouseLeftButtonDown += SidebarButtonHandler;
                 this.LeftSidebar.CharacterList.Children.Add(button);
             }
@@ -63,7 +63,7 @@ namespace CPSC_SocialNetwork
                 if(friend.Username != this.mainUser.Username)
                 {
                     ProfilePage page = new ProfilePage(friend);
-                    SidebarButton button = new SidebarButton(title: friend.DisplayName, linkedControl: page);
+                    SidebarButton button = new SidebarButton(title: friend.DisplayName, picture: friend.Picture, linkedControl: page);
                     button.MouseLeftButtonDown += SidebarButtonHandler;
                     this.RightSidebar.FriendList.Children.Add(button);
                 }
