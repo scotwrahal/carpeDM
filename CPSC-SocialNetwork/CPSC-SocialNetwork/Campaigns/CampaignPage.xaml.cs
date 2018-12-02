@@ -24,9 +24,24 @@ namespace CPSC_SocialNetwork.Campaigns
         public List<StoryEntry> StoryEntries
         {
             get => this.storyEntries;
-            set {
+            set
+            {
                 this.storyEntries = value;
                 this.StoryList.DataContext = storyEntries;
+            }
+        }
+
+
+        private List<CharacterEntry> characterEntries;
+
+        private List<PlayerEntry> playerEntries;
+        public List<PlayerEntry> PlayerEntries
+        {
+            get => this.playerEntries;
+            set
+            {
+                this.playerEntries = value;
+                this.PlayerList.DataContext = playerEntries;
             }
         }
 
@@ -73,8 +88,23 @@ namespace CPSC_SocialNetwork.Campaigns
             foreach(StoryEntry entry in this.storyEntries)
                 this.StoryList.Children.Add(entry);
 
+            playerEntries = new List<PlayerEntry>();
+            foreach (Users.User user in campaign.Players.Values)
+                playerEntries.Add(new PlayerEntry(user));
+
+            //TODO: Delete when done testing
+            for (int i = 0; i < 10; i++)
+                playerEntries.Add(new PlayerEntry());
+
+
+
+            foreach (PlayerEntry entry in this.playerEntries)
+                this.PlayerList.Children.Add(entry);
+
             this.CampaignImage.Source = new BitmapImage(new Uri(@"\Images\" + "10.png", UriKind.Relative));
             this.MasterImage.Source = new BitmapImage(new Uri(@"\Images\" + "11.png", UriKind.Relative));
+
+
         }
 
 

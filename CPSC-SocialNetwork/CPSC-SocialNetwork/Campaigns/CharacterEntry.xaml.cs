@@ -16,24 +16,13 @@ using System.Windows.Shapes;
 namespace CPSC_SocialNetwork.Campaigns
 {
     /// <summary>
-    /// Interaction logic for StoryEntry.xaml
+    /// Interaction logic for CharacterEntry.xaml
     /// </summary>
-    public partial class StoryEntry : UserControl
+    public partial class CharacterEntry : UserControl
     {
-        private readonly string title;
-        public string Title { get => this.title; }
-
-        private readonly string text;
-        public string Text { get => this.text; }
-
-
-        public StoryEntry(string title, string text)
+        public CharacterEntry()
         {
             InitializeComponent();
-            this.title = title;
-            this.TitleBox.Text = title;
-            this.text = text;
-            this.TextBox.Text = text;
         }
     }
 }
