@@ -25,10 +25,10 @@ namespace CPSC_SocialNetwork.Campaigns
             set => this.description = value; 
         }
 
-        private string image;
-        public string Image
+        private readonly string picture;
+        public string Picture
         {
-            get => image;
+            get => this.picture;
         }
 
         private readonly User owner;

@@ -8,6 +8,46 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280">
+    <Window.Resources>
+        <ControlTemplate x:Key="LogoutButtonTemplate" TargetType="{x:Type Button}">
+            <Grid Background="Transparent">
+                <Image Source="/CPSC-SocialNetwork;component/Images/PowerLogo.png">
+                    <Image.Effect>
+                        <DropShadowEffect Direction="270" ShadowDepth="0"/>
+                    </Image.Effect>
+                </Image>
+            </Grid>
+        </ControlTemplate>
+        <ControlTemplate x:Key="NotificationButtonTemplate" TargetType="{x:Type Button}">
+            <Grid Background="Transparent">
+                <Image Source="/CPSC-SocialNetwork;component/Images/BellLogo.png">
+                    <Image.Effect>
+                        <DropShadowEffect Direction="270" ShadowDepth="0"/>
+                    </Image.Effect>
+                </Image>
+            </Grid>
+        </ControlTemplate>
+        <ControlTemplate x:Key="ProfilePageButtonTemplate" TargetType="{x:Type Button}">
+            <Grid Background="Transparent">
+                <Grid.Effect>
+                    <DropShadowEffect ShadowDepth="0"/>
+                </Grid.Effect>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="44"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Source="/CPSC-SocialNetwork;component/Images/ProfilePicture.png">
+                    <Image.Effect>
+                        <DropShadowEffect ShadowDepth="0"/>
+                    </Image.Effect>
+                    <Image.Clip>
+                        <EllipseGeometry Center="22,22" RadiusX="22" RadiusY="22"/>
+                    </Image.Clip>
+                </Image>
+                <TextBlock Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8,0,8,0" Foreground="White" FontFamily="Century Gothic" FontSize="14" FontWeight="Bold" Text="Micah Peacock" TextTrimming="CharacterEllipsis"/>
+            </Grid>
+        </ControlTemplate>
+    </Window.Resources>
 
     <DockPanel LastChildFill="True">
         <!--#region Top Menu-->
@@ -39,30 +79,15 @@
                     </Grid.ColumnDefinitions>
                     <!--#endregion-->
 
-                    <Button x:Name="ProfilePageButton" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,10,0,10" Background="Transparent" Click="ProfilePageButton_Click" Width="172" Height="44">
-                        <Button.Content>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="44"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Image x:Name="ProfileImage" Stretch="UniformToFill" Source="Images/IMG-0336.JPG" Height="49" Width="56" VerticalAlignment="Center" StretchDirection="DownOnly" RenderTransformOrigin="0.632,1.493" HorizontalAlignment="Left" UseLayoutRounding="False">
-                                    <Image.LayoutTransform>
-                                        <TransformGroup>
-                                            <RotateTransform Angle="90"/>
-                                        </TransformGroup>
-                                    </Image.LayoutTransform>
-                                </Image>
-                                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" FontFamily="Century Gothic" Foreground="White" Text="Micah"/>
-                            </Grid>
-                        </Button.Content>
-                    </Button>
-
-                    <Button x:Name="NotificationButton" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8" Background="White">
+                    <Button x:Name="ProfilePageButton" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,10,0,10" Background="Transparent" Click="ProfilePageButton_Click" Width="172" Height="44" Template="{DynamicResource ProfilePageButtonTemplate}">
 
                     </Button>
 
-                    <Button x:Name="LogoutButton" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8" Background="White" Click="LogoutButton_Click">
+                    <Button x:Name="NotificationButton" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8" Background="White" Template="{DynamicResource NotificationButtonTemplate}">
+
+                    </Button>
+
+                    <Button x:Name="LogoutButton" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8" Background="White" Click="LogoutButton_Click" Template="{DynamicResource LogoutButtonTemplate}">
 
                     </Button>
                 </Grid>

@@ -4,36 +4,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using CPSC_SocialNetwork.Users;
+
+
 namespace CPSC_SocialNetwork.Characters
 {
     public class Character
     {
+        private User owner;
+        public User Owner
+        {
+            get => this.owner;
+            set => this.owner = value;
+        }
+
         private string characterName;
         public string CharacterName
         {
-            get { return characterName; }
-            set { this.characterName = value; }
+            get => this.characterName; 
+            set => this.characterName = value;
         }
 
         private string characterRace;
         public string CharacterRace
         {
-            get { return characterRace; }
-            set { this.characterRace = value; }
+            get => this.characterRace;
+            set => this.characterRace = value;
         }
 
         private string characterClass;
         public string CharacterClass
         {
-            get { return characterClass; }
-            set { this.characterClass = value; }
+            get => this.characterClass; 
+            set => this.characterClass = value; 
         }
 
         private int characterLevel;
         public int CharacterLevel
         {
-            get { return characterLevel; }
-            set { this.characterLevel = value; }
+            get => this.characterLevel; 
+            set => this.characterLevel = value; 
         }
 
         private string picture;
@@ -44,18 +54,7 @@ namespace CPSC_SocialNetwork.Characters
         }
 
 
-
-        public Character()
-        {
-            characterName = "";
-            characterRace = "";
-            characterClass = "";
-            characterLevel = 0;
-            picture = "";
-        }
-
-
-        public Character(string characterName = "", string characterRace = "", string characterClass = "", int characterLevel = 0, string picture = "")
+        public Character(User owner, string characterName = "", string characterRace = "", string characterClass = "", int characterLevel = 0, string picture = "")
         {
             this.characterName = characterName;
             this.characterRace = characterRace;

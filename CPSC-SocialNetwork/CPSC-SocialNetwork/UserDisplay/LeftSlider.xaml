@@ -116,7 +116,7 @@
                 </Grid>
 
                 <!--#region Middle Tab Label-->
-                <Grid Grid.Row="1" Name="MiddleTab" Background="#CCCCCC" MouseDown="MiddleTab_MouseDown">
+                <Grid Grid.Row="1" Name="MiddleTab" Background="#CCCCCC">
                     <TextBlock Name="MiddleLabel" Text="Games" 
                                HorizontalAlignment="Center" 
                                VerticalAlignment="Center" 

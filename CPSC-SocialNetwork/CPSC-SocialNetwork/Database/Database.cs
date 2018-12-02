@@ -13,22 +13,13 @@ namespace CPSC_SocialNetwork.Database
     class SocialNetworkDatabase
     {
         private Dictionary<string, Dictionary<string, Character>> characters;
-        public Dictionary<string, Dictionary<string, Character>> Characters
-        {
-            get { return this.characters; }
-        }
-
+        public Dictionary<string, Dictionary<string, Character>> Characters { get => this.characters; }
+        
         private Dictionary<string, Dictionary<string, Campaign>> campaigns;
-        public Dictionary<string, Dictionary<string, Campaign>> Campaigns
-        {
-            get { return this.campaigns; }
-        }
+        public Dictionary<string, Dictionary<string, Campaign>> Campaigns { get => this.campaigns; }
 
         private Dictionary<string, User> users;
-        public Dictionary<string, User> Users
-        {
-            get { return this.users; }
-        }
+        public Dictionary<string, User> Users { get => this.users; }
 
 
         public SocialNetworkDatabase()
@@ -48,15 +39,15 @@ namespace CPSC_SocialNetwork.Database
             {
                 { "HardworkingIdiot", new Dictionary<string, Character>
                     { 
-                        { "Eridan Xanthas", new Character(characterName: "Eridan Xanthas", characterRace: "Half-Elf", characterClass: "Magus", characterLevel: 6, picture: "1.png") },
-                        { "Soren Riftbane", new Character(characterName: "Soren Riftbane", characterRace: "Tiefling (Pit-born)", characterClass: "Inquisitor", characterLevel: 13, picture: "2.png") },
-                        { "Gradius Braveheart", new Character(characterName: "Gradius Braveheart", characterRace: "Human", characterClass:"Barbarian", characterLevel: 7, picture: "3.png") }
+                        { "Eridan Xanthas", new Character(owner: users["HardworkingIdiot"], characterName: "Eridan Xanthas", characterRace: "Half-Elf", characterClass: "Magus", characterLevel: 6, picture: "1.png") },
+                        { "Soren Riftbane", new Character(owner: users["HardworkingIdiot"], characterName: "Soren Riftbane", characterRace: "Tiefling (Pit-born)", characterClass: "Inquisitor", characterLevel: 13, picture: "2.png") },
+                        { "Gradius Braveheart", new Character(owner: users["HardworkingIdiot"], characterName: "Gradius Braveheart", characterRace: "Human", characterClass:"Barbarian", characterLevel: 7, picture: "3.png") }
                     }
                 },
                 { "ToolboxMoron", new Dictionary<string, Character>
                     {
-                        { "Doralig Cragarm", new Character(characterName: "Doralig Cragarm", characterRace: "Dwarf", characterClass: "Druid", characterLevel: 16) },
-                        { "Luvon Keywynn", new Character(characterName: "Luvon Keywynn", characterRace: "Elf", characterClass: "Ranger", characterLevel: 7) }
+                        { "Doralig Cragarm", new Character(owner: users["ToolboxMoron"], characterName: "Doralig Cragarm", characterRace: "Dwarf", characterClass: "Druid", characterLevel: 16) },
+                        { "Luvon Keywynn", new Character(owner: users["ToolboxMoron"], characterName: "Luvon Keywynn", characterRace: "Elf", characterClass: "Ranger", characterLevel: 7) }
                     }
                 },
                 { "Doooooood", new Dictionary<string, Character>
@@ -108,5 +99,41 @@ namespace CPSC_SocialNetwork.Database
         }
 
         
+        public void Add(User user)
+        {
+            users[user.Username] = user;
+        }
+
+
+        public void Add(Character character)
+        {
+            characters[character.Owner.Username][character.CharacterName] = character;
+        }
+
+
+        public void Add(Campaign campaign)
+        {
+            campaigns[campaign.Owner.Username][campaign.Name] = campaign;
+        }
+
+
+        public void Remove(User user)
+        {
+            characters.Remove(user.Username);
+            campaigns.Remove(user.Username);
+            users.Remove(user.Username);
+        }
+
+
+        public void Remove(Character character)
+        {
+            characters[character.Owner.Username].Remove(character.CharacterName);
+        }
+
+
+        public void Remove(Campaign campaign)
+        {
+            campaigns[campaign.Owner.Username].Remove(campaign.Name);
+        }
     }
 }

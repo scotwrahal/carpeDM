@@ -47,12 +47,6 @@ namespace CPSC_SocialNetwork.UserDisplay
 
             OpenButton.Visibility = Visibility.Hidden;
             OpenButtonLabels.Visibility = Visibility.Hidden;
-
-        }
-
-        private void MiddleTab_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            MiddleLabel.Text = "Clicked it!";
         }
     }
 }
