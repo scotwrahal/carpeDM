@@ -363,13 +363,25 @@
                     <TextBlock Grid.Row="1" Margin="10,10,10,10" TextWrapping="Wrap" Text="This will hold the description" Grid.ColumnSpan="2" FontSize="18"/>
                 </Grid>
             </TabItem>
+            
             <TabItem Header="Story" Style="{DynamicResource TabItemStyle1}">
                 <ScrollViewer Margin="0">
                     <StackPanel Name="StoryList"/>
                 </ScrollViewer>
             </TabItem>
-            <TabItem Header="Characters" Style="{DynamicResource TabItemStyle1}"/>
-            <TabItem Header="Players" Style="{DynamicResource TabItemStyle1}"/>
+
+            <TabItem Header="Characters" Style="{DynamicResource TabItemStyle1}">
+                <ScrollViewer Margin="0">
+                    <StackPanel Name="CharacterList"/>
+                </ScrollViewer>
+            </TabItem>
+
+            <TabItem Header="Players" Style="{DynamicResource TabItemStyle1}">
+                <ScrollViewer Margin="0">
+                    <StackPanel Name="PlayerList"/>
+                </ScrollViewer>
+            </TabItem>
+
             <TabItem Header="Extras" Style="{DynamicResource TabItemStyle1}"/>
         </TabControl>
     </Grid>

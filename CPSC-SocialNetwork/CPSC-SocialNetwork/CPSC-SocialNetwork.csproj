@@ -68,6 +68,12 @@
     <Compile Include="Campaigns\CampaignSidebarButton.xaml.cs">
       <DependentUpon>CampaignSidebarButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Campaigns\CharacterEntry.xaml.cs">
+      <DependentUpon>CharacterEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Campaigns\PlayerEntry.xaml.cs">
+      <DependentUpon>PlayerEntry.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Campaigns\StoryEntry.xaml.cs">
       <DependentUpon>StoryEntry.xaml</DependentUpon>
     </Compile>
@@ -95,6 +101,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Campaigns\CampaignSidebarButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Campaigns\CharacterEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Campaigns\PlayerEntry.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -191,10 +205,8 @@
     <Resource Include="Images\9.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\PowerLogo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\BellLogo.png" />
+    <Resource Include="Images\DM.png" />
+    <Resource Include="Images\GM.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
