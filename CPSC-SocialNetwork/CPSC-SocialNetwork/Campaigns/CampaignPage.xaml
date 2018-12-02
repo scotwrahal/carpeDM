@@ -319,7 +319,7 @@
                         <RowDefinition Height="64"/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock Grid.Row="0" Text="This is the campaign name!" VerticalAlignment="Center" FontSize="20" TextTrimming="CharacterEllipsis"/>
+                    <TextBlock x:Name="CampaignName" Grid.Row="0" VerticalAlignment="Center" FontSize="20" TextTrimming="CharacterEllipsis"/>
 
                     <Grid Grid.Row="1">
                         <Grid.ColumnDefinitions>
@@ -338,8 +338,7 @@
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0" Margin="6,0,0,0"  Text="This is the dungeon masters user name!" VerticalAlignment="Bottom" FontSize="16" TextTrimming="CharacterEllipsis"/>
-                            <TextBlock Grid.Row="1" Margin="6,0,0,0"  Text="This is the dungeon masters tag line or something!" VerticalAlignment="Top" FontSize="12" TextTrimming="CharacterEllipsis"/>
+                            <TextBlock x:Name="OwnerName" Grid.Row="0" Margin="6,0,0,0" VerticalAlignment="Bottom" FontSize="16" TextTrimming="CharacterEllipsis"/>
                         </Grid>
                     </Grid>
                 </Grid>

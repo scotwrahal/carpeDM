@@ -70,6 +70,7 @@ namespace CPSC_SocialNetwork.Campaigns
             string name, 
             string description, 
             User owner, 
+            string picture = "",
             SortedList<string, User> players = null, 
             SortedList<string, CharacterPage> characters = null, 
             List<StoryEntry> entries = null)
@@ -77,6 +78,7 @@ namespace CPSC_SocialNetwork.Campaigns
             this.name = name;
             this.description = description;
             this.owner = owner;
+            this.picture = picture;
             this.players = players;
             this.characters = characters;
             this.entries = entries;

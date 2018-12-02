@@ -92,18 +92,15 @@ namespace CPSC_SocialNetwork.Campaigns
             foreach (Users.User user in campaign.Players.Values)
                 playerEntries.Add(new PlayerEntry(user));
 
-            //TODO: Delete when done testing
-            for (int i = 0; i < 10; i++)
-                playerEntries.Add(new PlayerEntry());
-
-
 
             foreach (PlayerEntry entry in this.playerEntries)
                 this.PlayerList.Children.Add(entry);
 
-            this.CampaignImage.Source = new BitmapImage(new Uri(@"\Images\" + "10.png", UriKind.Relative));
-            this.MasterImage.Source = new BitmapImage(new Uri(@"\Images\" + "11.png", UriKind.Relative));
+            this.CampaignImage.Source = new BitmapImage(new Uri(@"\Images\" + campaign.Picture, UriKind.Relative));
+            this.CampaignName.Text = campaign.Name;
 
+            this.MasterImage.Source = new BitmapImage(new Uri(@"\Images\" + campaign.Owner.Picture, UriKind.Relative));
+            this.OwnerName.Text = campaign.Owner.DisplayName;
 
         }
 

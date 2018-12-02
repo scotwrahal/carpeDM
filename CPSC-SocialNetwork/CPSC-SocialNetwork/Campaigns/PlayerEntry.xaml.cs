@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using CPSC_SocialNetwork.Users;
+
+
 namespace CPSC_SocialNetwork.Campaigns
 {
     /// <summary>
@@ -26,16 +29,14 @@ namespace CPSC_SocialNetwork.Campaigns
 
             this.Image.Source = new BitmapImage(new Uri(@"\Images\" + "1.png", UriKind.Relative));
             this.Name.Text = "Display Name";
-            this.Tag.Text = "User Name";
         }
 
-        public PlayerEntry(Users.User user)
+        public PlayerEntry(User user)
         {
             InitializeComponent();
             
             this.Image.Source = new BitmapImage(new Uri(@"\Images\" + user.Picture, UriKind.Relative));
             this.Name.Text = user.DisplayName;
-            this.Tag.Text = user.Username;
         }
     }
 }

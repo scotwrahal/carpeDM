@@ -71,7 +71,23 @@ namespace CPSC_SocialNetwork.Database
             {
                 { "HardworkingIdiot", new Dictionary<string, Campaign>
                     {
-                        { "Red Hand of Doom", new Campaign(name: "Red Hand of Doom", description: "An old 3e campaign.", owner: users["HardworkingIdiot"]) },
+                        { "Red Hand of Doom", new Campaign(
+                            name: "Red Hand of Doom", 
+                            description: "An old 3e campaign.", 
+                            owner: users["HardworkingIdiot"],
+                            picture: "11.png",
+                            players: new SortedList<string, User>
+                            {
+                                { users["HardworkingIdiot"].DisplayName, users["HardworkingIdiot"] },
+                                { users["Doooooood"].DisplayName, users["Doooooood"] },
+                                { users["ToolboxMoron"].DisplayName, users["ToolboxMoron"] }
+                            },
+                            characters: new SortedList<string, CharacterPage>
+                            {
+                                { characters["ToolboxMoron"]["Doralig Cragarm"].CharacterName, new CharacterPage(characters["ToolboxMoron"]["Doralig Cragarm"]) }
+                            }
+                            )
+                        },
                         { "Kingmaker", new Campaign(name: "Kingmaker", description: "A politically based campaign with the goal of building a kingdom.", owner: users["HardworkingIdiot"]) }
                     }
                 },
