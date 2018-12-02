@@ -30,6 +30,17 @@ namespace CPSC_SocialNetwork.Campaigns
             }
         }
 
+        private Image picture;
+        public Image Picture
+        {
+            get { return picture; }
+            set
+            {
+                picture = value;
+                this.Picture.Source = this.picture.Source;
+            }
+        }
+
         public CampaignPage()
         {
             InitializeComponent();
@@ -41,11 +52,29 @@ namespace CPSC_SocialNetwork.Campaigns
             storyEntries = new List<StoryEntry>
             {
                 { new StoryEntry("Test", "This is a test!") },
-                { new StoryEntry("Also a test!", "Another Test for the testings") }
+                { new StoryEntry("Also a test!", "Another Test for the testings") },
+                { new StoryEntry("This test involves both properties having exceptionally long names to see how that changes the formatting of the output text within the bounds of their designated text areas",
+                                 "As you can see like it said above this text is quite considerably longer than that of previous text boxes. The intent behind this is to show how the text behaves when the input data is long enough to span multiple lines within the text area") },
+                { new StoryEntry("Another test", "more testing") },
+                { new StoryEntry("Another test", "more testing") },
+                { new StoryEntry("Another test", "more testing") },
+                { new StoryEntry("Another test", "more testing") },
+                { new StoryEntry("Another test", "more testing") },
+                { new StoryEntry("Another test", "more testing") },
+                { new StoryEntry("Another test", "more testing") },
+                { new StoryEntry("Another test", "more testing") },
+                { new StoryEntry("Another test", "more testing") },
+                { new StoryEntry("Another test", "more testing") },
+                { new StoryEntry("Another test", "more testing") },
+                { new StoryEntry("Another test", "more testing") },
+                { new StoryEntry("Another test", "more testing") }
             };
 
             foreach(StoryEntry entry in this.storyEntries)
                 this.StoryList.Children.Add(entry);
+
+            this.CampaignImage.Source = new BitmapImage(new Uri(@"\Images\" + "10.png", UriKind.Relative));
+            this.MasterImage.Source = new BitmapImage(new Uri(@"\Images\" + "11.png", UriKind.Relative));
         }
 
 

@@ -25,6 +25,12 @@ namespace CPSC_SocialNetwork.Campaigns
             set => this.description = value; 
         }
 
+        private string image;
+        public string Image
+        {
+            get => image;
+        }
+
         private readonly User owner;
         public User Owner
         {

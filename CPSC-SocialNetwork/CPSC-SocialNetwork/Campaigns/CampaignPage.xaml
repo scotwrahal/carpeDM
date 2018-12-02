@@ -288,7 +288,7 @@
         </Style>
     </UserControl.Resources>
 
-    <Grid Background="#FFFFFF">
+    <Grid x:Name="Page" Background="#FFFFFF">
         <Grid.RowDefinitions>
             <RowDefinition Height="128"/>
             <RowDefinition Height="*"/>
@@ -297,9 +297,57 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Row="0" Width="auto" Background="#CCCCCC" Margin="4" CornerRadius="12"/>
+        <Border x:Name="Header" Grid.Row="0" Width="auto" Background="#F2F2F2" CornerRadius="12" Margin="8">
+            <Grid x:Name="OuterGrid" Margin="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-        <TabControl Margin="0" Grid.Row="1" Style="{DynamicResource TabControlStyle1}">
+                <Border x:Name="Mask" Grid.Column="0" Background="White" CornerRadius="20"/>
+
+                <Image x:Name="CampaignImage" Grid.Column="0">
+                    <Image.OpacityMask>
+                        <VisualBrush Visual="{Binding ElementName=Mask}"/>
+                    </Image.OpacityMask>
+                </Image>
+
+                
+                <Grid x:Name="InnerGrid" Grid.Column="1" Margin="8,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="64"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="This is the campaign name!" VerticalAlignment="Center" FontSize="20" TextTrimming="CharacterEllipsis"/>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="64"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image x:Name="MasterImage" Grid.Column="0">
+                            <Image.Clip>
+                                <EllipseGeometry Center="32,32" RadiusX="32" RadiusY="32"/>
+                            </Image.Clip>
+                        </Image>
+
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Margin="6,0,0,0"  Text="This is the dungeon masters user name!" VerticalAlignment="Bottom" FontSize="16" TextTrimming="CharacterEllipsis"/>
+                            <TextBlock Grid.Row="1" Margin="6,0,0,0"  Text="This is the dungeon masters tag line or something!" VerticalAlignment="Top" FontSize="12" TextTrimming="CharacterEllipsis"/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                
+            </Grid>
+        </Border>
+
+        <TabControl x:Name="Tabs" Margin="0" Grid.Row="1" Style="{DynamicResource TabControlStyle1}">
             <TabItem Header="About" Style="{DynamicResource TabItemStyle1}">
                 <Grid Margin="0">
                     <Grid.ColumnDefinitions>
@@ -311,8 +359,8 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <Border Grid.Row="1" Background="#CCCCCC" Margin="4" CornerRadius="12" Grid.ColumnSpan="2"/>
-                    <TextBlock Grid.Row="1" Margin="10,10,10,10" TextWrapping="Wrap" Text="TextBlock" Grid.ColumnSpan="2" FontSize="18"/>
+                    <Border Grid.Row="1" Background="#F2F2F2" Margin="4" CornerRadius="12" Grid.ColumnSpan="2"/>
+                    <TextBlock Grid.Row="1" Margin="10,10,10,10" TextWrapping="Wrap" Text="This will hold the description" Grid.ColumnSpan="2" FontSize="18"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Story" Style="{DynamicResource TabItemStyle1}">
