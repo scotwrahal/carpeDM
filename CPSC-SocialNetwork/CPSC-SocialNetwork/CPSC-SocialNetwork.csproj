@@ -208,5 +208,9 @@
     <Resource Include="Images\DM.png" />
     <Resource Include="Images\GM.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BellIcon.png" />
+    <Resource Include="Images\PowerSymbol.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

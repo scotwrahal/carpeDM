@@ -11,7 +11,7 @@
     <Window.Resources>
         <ControlTemplate x:Key="LogoutButtonTemplate" TargetType="{x:Type Button}">
             <Grid Background="Transparent">
-                <Image Source="/CPSC-SocialNetwork;component/Images/PowerLogo.png">
+                <Image Source="/CPSC-SocialNetwork;component/Images/PowerSymbol.png">
                     <Image.Effect>
                         <DropShadowEffect Direction="270" ShadowDepth="0"/>
                     </Image.Effect>
@@ -20,7 +20,7 @@
         </ControlTemplate>
         <ControlTemplate x:Key="NotificationButtonTemplate" TargetType="{x:Type Button}">
             <Grid Background="Transparent">
-                <Image Source="/CPSC-SocialNetwork;component/Images/BellLogo.png">
+                <Image Source="/CPSC-SocialNetwork;component/Images/BellIcon.png">
                     <Image.Effect>
                         <DropShadowEffect Direction="270" ShadowDepth="0"/>
                     </Image.Effect>
