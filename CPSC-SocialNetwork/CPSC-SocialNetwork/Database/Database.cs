@@ -29,7 +29,7 @@ namespace CPSC_SocialNetwork.Database
             {
                 { "HardworkingIdiot", new User(username: "HardworkingIdiot", displayname: "Micah Peacock", picture: "ProfilePicture.png") },
                 { "ToolboxMoron", new User(username: "ToolboxMoron", displayname: "Scot Rahal", picture: "4.png") },
-                { "Doooooood", new User(username: "Doooooood", displayname: "Jesse Shewfelt", picture: "5.png") },
+                { "VirtualWaffles", new User(username: "VirtualWaffles", displayname: "Jesse Shewfelt", picture: "5.png") },
                 { "ThatSmartGuy", new User(username: "ThatSmartGuy", displayname: "Kris Lugtu", picture: "6.png") },
                 { "ThatOtherSmartGuy", new User(username: "ThatOtherSmartGuy", displayname: "Kendrick Ankamah", picture: "7.png") },
                 { "MrRobotDood", new User(username: "MrRobotDood", displayname: "Claire's Talking Robot", picture: "8.png") }
@@ -50,9 +50,9 @@ namespace CPSC_SocialNetwork.Database
                         { "Luvon Keywynn", new Character(owner: users["ToolboxMoron"], characterName: "Luvon Keywynn", characterRace: "Elf", characterClass: "Ranger", characterLevel: 7) }
                     }
                 },
-                { "Doooooood", new Dictionary<string, Character>
+                { "VirtualWaffles", new Dictionary<string, Character>
                     {
-
+                    { "Aeyi Oyu", new Character(users["VirtualWaffles"], "Aeyi Oyu", "", "", 6, "") }
                     }
                 },
                 { "ThatSmartGuy", new Dictionary<string, Character>
@@ -79,12 +79,12 @@ namespace CPSC_SocialNetwork.Database
                             players: new SortedList<string, User>
                             {
                                 { users["HardworkingIdiot"].DisplayName, users["HardworkingIdiot"] },
-                                { users["Doooooood"].DisplayName, users["Doooooood"] },
+                                { users["VirtualWaffles"].DisplayName, users["VirtualWaffles"] },
                                 { users["ToolboxMoron"].DisplayName, users["ToolboxMoron"] }
                             },
-                            characters: new SortedList<string, CharacterPage>
+                            characters: new SortedList<string, Character>
                             {
-                                { characters["ToolboxMoron"]["Doralig Cragarm"].CharacterName, new CharacterPage(characters["ToolboxMoron"]["Doralig Cragarm"]) }
+                                { characters["ToolboxMoron"]["Doralig Cragarm"].CharacterName, characters["ToolboxMoron"]["Doralig Cragarm"] }
                             }
                             )
                         },
@@ -96,7 +96,7 @@ namespace CPSC_SocialNetwork.Database
 
                     }
                 },
-                { "Doooooood", new Dictionary<string, Campaign>
+                { "VirtualWaffles", new Dictionary<string, Campaign>
                     {
 
                     }

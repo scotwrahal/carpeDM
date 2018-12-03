@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using CPSC_SocialNetwork.Characters;
+using CPSC_SocialNetwork.Users;
+
 namespace CPSC_SocialNetwork.Campaigns
 {
     /// <summary>
@@ -64,6 +67,19 @@ namespace CPSC_SocialNetwork.Campaigns
         public CampaignPage(Campaign campaign)
         {
             InitializeComponent();
+
+            //header
+            this.CampaignImage.Source = new BitmapImage(new Uri(@"\Images\Campaign\" + campaign.Picture, UriKind.Relative));
+            this.CampaignName.Text = campaign.Name;
+
+            this.MasterImage.Source = new BitmapImage(new Uri(@"\Images\User\" + campaign.Owner.Picture, UriKind.Relative));
+            this.OwnerName.Text = campaign.Owner.DisplayName;
+
+            //about tab
+            this.Description.Text = campaign.Description;
+
+
+            //story tab
             storyEntries = new List<StoryEntry>
             {
                 { new StoryEntry("Test", "This is a test!") },
@@ -84,23 +100,26 @@ namespace CPSC_SocialNetwork.Campaigns
                 { new StoryEntry("Another test", "more testing") },
                 { new StoryEntry("Another test", "more testing") }
             };
-
+        
             foreach(StoryEntry entry in this.storyEntries)
                 this.StoryList.Children.Add(entry);
 
-            playerEntries = new List<PlayerEntry>();
-            foreach (Users.User user in campaign.Players.Values)
-                playerEntries.Add(new PlayerEntry(user));
+            //characters tab
+            characterEntries = new List<CharacterEntry>();
+            foreach (Character character in campaign.PlayerCharacters.Values)
+                characterEntries.Add(new CharacterEntry(character));
 
+            foreach (CharacterEntry entry in this.characterEntries)
+                this.CharacterList.Children.Add(entry);
+
+            //players tab
+            playerEntries = new List<PlayerEntry>();
+            foreach (User user in campaign.Players.Values)
+                playerEntries.Add(new PlayerEntry(user));
 
             foreach (PlayerEntry entry in this.playerEntries)
                 this.PlayerList.Children.Add(entry);
 
-            this.CampaignImage.Source = new BitmapImage(new Uri(@"\Images\" + campaign.Picture, UriKind.Relative));
-            this.CampaignName.Text = campaign.Name;
-
-            this.MasterImage.Source = new BitmapImage(new Uri(@"\Images\" + campaign.Owner.Picture, UriKind.Relative));
-            this.OwnerName.Text = campaign.Owner.DisplayName;
 
         }
 

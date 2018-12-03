@@ -5,23 +5,38 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CPSC_SocialNetwork.Campaigns"
              mc:Ignorable="d" 
-             d:DesignHeight="200" d:DesignWidth="500">
-    <Border Background="#F2F2F2" CornerRadius="12">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="128"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+             d:DesignHeight="80
+             " d:DesignWidth="500">
+    <Border Background="Transparent" Margin="8">
+        <Border Background="#F2F2F2" CornerRadius="12">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="64"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="64"/>
+                </Grid.ColumnDefinitions>
 
-            <Image Grid.Column="0"/>
+                <Image x:Name="Image" Grid.Column="0" Margin="4">
+                    <Image.Clip>
+                        <EllipseGeometry Center="28,28" RadiusX="28" RadiusY="28"/>
+                    </Image.Clip>
+                </Image>
 
-            <Grid Grid.Column="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock x:Name="CharacterName" Grid.Row="0" Text="name" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="16"/>
+                    <TextBlock x:Name="CharacterDescription" Grid.Row="1" Text="description" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="14"/>
+                </Grid>
+
+                <Grid Grid.Column="2">
+                    <Image Source="/Images/System/pdf.png" Cursor="Hand" Margin="8"/>
+                </Grid>
+
             </Grid>
-
-        </Grid>
+        </Border>
     </Border>
 </UserControl>

@@ -54,7 +54,7 @@ namespace CPSC_SocialNetwork.UserDisplay
             Description.Text = description;
             link = linkedControl;
             if(picture != "")
-                Image.Source = new BitmapImage(new Uri(@"\Images\" + picture, UriKind.Relative));
+                Image.Source = new BitmapImage(new Uri(@"\Images\User\" + picture, UriKind.Relative));
         }
     }
 }
