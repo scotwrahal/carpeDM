@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using CPSC_SocialNetwork.Users;
 using CPSC_SocialNetwork.Characters;
 
+using CPSC_SocialNetwork.Database;
+
 namespace CPSC_SocialNetwork.Campaigns
 {
     public class Campaign

@@ -10,7 +10,7 @@ using CPSC_SocialNetwork.Characters;
 
 namespace CPSC_SocialNetwork.Database
 {
-    class SocialNetworkDatabase
+    static class SocialNetworkDatabase
     {
         public const string USERNAME_1 = "HardworkingIdiot";
         public const string USERNAME_2 = "ToolboxMoron";
@@ -28,29 +28,19 @@ namespace CPSC_SocialNetwork.Database
         public const string DISPLAYNAME_6 = "Claire's Talking Robot";
         public const string DISPLAYNAME_7 = "Not Claire";
 
-        private readonly Dictionary<string, User> users;
-        public Dictionary<string, User> Users { get => this.users; }
+        public static Dictionary<string, User> Users = InitializeUsers();
+        public static Dictionary<string, Dictionary<string, Character>> Characters = InitializeCharacters();
+        public static Dictionary<string, Dictionary<string, Campaign>> Campaigns = InitializeCampaigns();
 
-        private readonly Dictionary<string, Dictionary<string, Character>> characters;
-        public Dictionary<string, Dictionary<string, Character>> Characters { get => this.characters; }
-        
-        private readonly Dictionary<string, Dictionary<string, Campaign>> campaigns;
-        public Dictionary<string, Dictionary<string, Campaign>> Campaigns { get => this.campaigns; }
-
-        private readonly Dictionary<User, ProfilePage> profilepages;
-        public Dictionary<User, ProfilePage> ProfilePages { get => this.profilepages; }
-
-        private readonly Dictionary<Character, CharacterPage> characterpages;
-        public Dictionary<Character, CharacterPage> CharacterPages { get => this.characterpages; }
-
-        private readonly Dictionary<Campaign, CampaignPage> campaignpages;
-        public Dictionary<Campaign, CampaignPage> CampaignPages { get => this.campaignpages; }
+        public static Dictionary<User, ProfilePage> ProfilePages = InitializeProfilePages();
+        public static Dictionary<Character, CharacterPage> CharacterPages = InitializeCharacterPages();
+        public static Dictionary<Campaign, CampaignPage> CampaignPages = InitializeCampaignPages(); 
 
 
-        public SocialNetworkDatabase()
+        // Initialization functions
+        private static Dictionary<string, User> InitializeUsers()
         {
-
-            users = new Dictionary<string, User>
+            return new Dictionary<string, User>
             {
                 { USERNAME_1, new User(username: USERNAME_1, displayname: DISPLAYNAME_1, picture: "ProfilePicture.png") },
                 { USERNAME_2, new User(username: USERNAME_2, displayname: DISPLAYNAME_2, picture: "4.png") },
@@ -60,25 +50,29 @@ namespace CPSC_SocialNetwork.Database
                 { USERNAME_6, new User(username: USERNAME_6, displayname: DISPLAYNAME_6, picture: "7.png") },
                 { USERNAME_7, new User(username: USERNAME_7, displayname: DISPLAYNAME_7, picture: "6.png") }
             };
+        }
+        
 
-            characters = new Dictionary<string, Dictionary<string, Character>>
+        private static Dictionary<string, Dictionary<string, Character>> InitializeCharacters()
+        {
+            return new Dictionary<string, Dictionary<string, Character>>
             {
                 { USERNAME_1, new Dictionary<string, Character>
-                    { 
-                        { "Eridan Xanthas", new Character(owner: users[USERNAME_1], characterName: "Eridan Xanthas", characterRace: "Half-Elf", characterClass: "Magus", characterLevel: 6, picture: "1.png") },
-                        { "Soren Riftbane", new Character(owner: users[USERNAME_1], characterName: "Soren Riftbane", characterRace: "Tiefling (Pit-born)", characterClass: "Inquisitor", characterLevel: 13, picture: "2.png") },
-                        { "Gradius Braveheart", new Character(owner: users[USERNAME_1], characterName: "Gradius Braveheart", characterRace: "Human", characterClass:"Barbarian", characterLevel: 7, picture: "3.png") }
+                    {
+                        { "Eridan Xanthas", new Character(owner: Users[USERNAME_1], characterName: "Eridan Xanthas", characterRace: "Half-Elf", characterClass: "Magus", characterLevel: 6, picture: "1.png") },
+                        { "Soren Riftbane", new Character(owner: Users[USERNAME_1], characterName: "Soren Riftbane", characterRace: "Tiefling (Pit-born)", characterClass: "Inquisitor", characterLevel: 13, picture: "2.png") },
+                        { "Gradius Braveheart", new Character(owner: Users[USERNAME_1], characterName: "Gradius Braveheart", characterRace: "Human", characterClass:"Barbarian", characterLevel: 7, picture: "3.png") }
                     }
                 },
                 { USERNAME_2, new Dictionary<string, Character>
                     {
-                        { "Doralig Cragarm", new Character(owner: users[USERNAME_2], characterName: "Doralig Cragarm", characterRace: "Dwarf", characterClass: "Druid", characterLevel: 16) },
-                        { "Luvon Keywynn", new Character(owner: users[USERNAME_2], characterName: "Luvon Keywynn", characterRace: "Elf", characterClass: "Ranger", characterLevel: 7) }
+                        { "Doralig Cragarm", new Character(owner: Users[USERNAME_2], characterName: "Doralig Cragarm", characterRace: "Dwarf", characterClass: "Druid", characterLevel: 16) },
+                        { "Luvon Keywynn", new Character(owner: Users[USERNAME_2], characterName: "Luvon Keywynn", characterRace: "Elf", characterClass: "Ranger", characterLevel: 7) }
                     }
                 },
                 { USERNAME_3, new Dictionary<string, Character>
                     {
-                        { "Aeyi Oyu", new Character(owner: users[USERNAME_3], characterName: "Aeyi Oyu", characterRace: "Elf", characterClass: "Shadowdancer", characterLevel: 7) }
+                        { "Aeyi Oyu", new Character(owner: Users[USERNAME_3], characterName: "Aeyi Oyu", characterRace: "Elf", characterClass: "Shadowdancer", characterLevel: 7) }
                     }
                 },
                 { USERNAME_4, new Dictionary<string, Character>
@@ -102,28 +96,32 @@ namespace CPSC_SocialNetwork.Database
                     }
                 }
             };
+        }
 
-            campaigns = new Dictionary<string, Dictionary<string, Campaign>>
+
+        private static Dictionary<string, Dictionary<string, Campaign>> InitializeCampaigns()
+        {
+            return new Dictionary<string, Dictionary<string, Campaign>>
             {
                 { USERNAME_1, new Dictionary<string, Campaign>
                     {
                         { "Red Hand of Doom", new Campaign(
-                            name: "Red Hand of Doom", 
-                            description: "An old 3e campaign.", 
-                            owner: users[USERNAME_1],
+                            name: "Red Hand of Doom",
+                            description: "An old 3e campaign.",
+                            owner: Users[USERNAME_1],
                             picture: "11.png",
                             players: new SortedList<string, User>
                             {
-                                { users[USERNAME_1].DisplayName, users[USERNAME_1] },
-                                { users[USERNAME_2].DisplayName, users[USERNAME_2] },
-                                { users[USERNAME_3].DisplayName, users[USERNAME_3] }
+                                { Users[USERNAME_1].DisplayName, Users[USERNAME_1] },
+                                { Users[USERNAME_2].DisplayName, Users[USERNAME_2] },
+                                { Users[USERNAME_3].DisplayName, Users[USERNAME_3] }
                             },
                             characters: new SortedList<string, Character>
                             {
-                                { characters[USERNAME_2]["Doralig Cragarm"].CharacterName, characters[USERNAME_2]["Doralig Cragarm"] }
+                                { Characters[USERNAME_2]["Doralig Cragarm"].CharacterName, Characters[USERNAME_2]["Doralig Cragarm"] }
                             })
                         },
-                        { "Kingmaker", new Campaign(name: "Kingmaker", description: "A politically based campaign with the goal of building a kingdom.", owner: users[USERNAME_1]) }
+                        { "Kingmaker", new Campaign(name: "Kingmaker", description: "A politically based campaign with the goal of building a kingdom.", owner: Users[USERNAME_1]) }
                     }
                 },
                 { USERNAME_2, new Dictionary<string, Campaign>
@@ -157,88 +155,87 @@ namespace CPSC_SocialNetwork.Database
                     }
                 }
             };
+        }
 
-            foreach(User user in users.Values)
-            {
-                user.Characters = characters[user.Username];
-                user.Campaigns = campaigns[user.Username];
-            }
 
-            profilepages = new Dictionary<User, ProfilePage>
-            {
+        private static Dictionary<User, ProfilePage> InitializeProfilePages()
+        {
+            return new Dictionary<User, ProfilePage>();
+        }
 
-            };
 
-            characterpages = new Dictionary<Character, CharacterPage>
-            {
+        private static Dictionary<Character, CharacterPage> InitializeCharacterPages()
+        {
+            return new Dictionary<Character, CharacterPage>();
+        }
 
-            };
 
-            campaignpages = new Dictionary<Campaign, CampaignPage>
-            {
+        private static Dictionary<Campaign, CampaignPage> InitializeCampaignPages()
+        {
+            return new Dictionary<Campaign, CampaignPage>();
+        }
 
-            };
+
+        // Add to Database Functions
+        public static void Add(User user)
+        {
+            Users[user.Username] = user;
+        }
+
             
-        }
-
-        
-        public void Add(User user)
+        public static void Add(Character character)
         {
-            users[user.Username] = user;
+            Characters[character.Owner.Username][character.CharacterName] = character;
         }
 
 
-        public void Add(Character character)
+        public static void Add(Campaign campaign)
         {
-            characters[character.Owner.Username][character.CharacterName] = character;
+            Campaigns[campaign.Owner.Username][campaign.Name] = campaign;
         }
 
 
-        public void Add(Campaign campaign)
+        public static void Add(ProfilePage page)
         {
-            campaigns[campaign.Owner.Username][campaign.Name] = campaign;
+            ProfilePages[page.Owner] = page;
         }
 
 
-        public void Add(ProfilePage page)
+        public static void Add(CharacterPage characterpage)
         {
-            profilepages[page.Owner] = page;
+            CharacterPages[characterpage.Character] = characterpage;
         }
 
 
-        public void Add(CharacterPage characterpage)
+        public static void Add(CampaignPage campaignpage)
         {
-            characterpages[characterpage.Character] = characterpage;
+            CampaignPages[campaignpage.Campaign] = campaignpage;
         }
 
 
-        public void Add(CampaignPage campaignpage)
+        // Remove from Database functions
+        public static void Remove(User user)
         {
-            campaignpages[campaignpage.Campaign] = campaignpage;
+            Characters.Remove(user.Username);
+
+            Campaigns.Remove(user.Username);
+
+            ProfilePages.Remove(user);
+            Users.Remove(user.Username);
         }
 
 
-        public void Remove(User user)
+        public static void Remove(Character character)
         {
-            characters.Remove(user.Username);
-
-            campaigns.Remove(user.Username);
-
-            users.Remove(user.Username);
+            CharacterPages.Remove(character);
+            Characters[character.Owner.Username].Remove(character.CharacterName);
         }
 
 
-        public void Remove(Character character)
+        public static void Remove(Campaign campaign)
         {
-            characterpages.Remove(character);
-            characters[character.Owner.Username].Remove(character.CharacterName);
-        }
-
-
-        public void Remove(Campaign campaign)
-        {
-            campaignpages.Remove(campaign);
-            campaigns[campaign.Owner.Username].Remove(campaign.Name);
+            CampaignPages.Remove(campaign);
+            Campaigns[campaign.Owner.Username].Remove(campaign.Name);
         }
     }
 }
