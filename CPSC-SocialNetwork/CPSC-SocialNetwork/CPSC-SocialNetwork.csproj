@@ -82,6 +82,12 @@
       <DependentUpon>CharacterPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Database\Database.cs" />
+    <Compile Include="UserDisplay\ChatWindowDirect.xaml.cs">
+      <DependentUpon>ChatWindowDirect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserDisplay\ChatWindowGroup.xaml.cs">
+      <DependentUpon>ChatWindowGroup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Users\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
@@ -117,6 +123,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Characters\CharacterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserDisplay\ChatWindowDirect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserDisplay\ChatWindowGroup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -189,7 +203,7 @@
     <Resource Include="Images\System\LeftDoubleArrow.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\System\ProfilePicture.png" />
+    <Resource Include="Images\User\ProfilePicture.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\System\DM.png" />
