@@ -32,13 +32,13 @@ namespace CPSC_SocialNetwork
         {
             InitializeComponent();
 
-            this.mainUser = SocialNetworkDatabase.Users[SocialNetworkDatabase.USERNAME_1];
+            this.mainUser = SocialNetworkDatabase.Users[SocialNetworkDatabase.USERNAME[0]];
             this.profile = new ProfilePage(mainUser);
 
             Switcher.pageSwitcher = this;
             Switcher.Switch(profile);
 
-            foreach(Character character in SocialNetworkDatabase.Characters[SocialNetworkDatabase.USERNAME_1].Values)
+            foreach(Character character in SocialNetworkDatabase.Characters[SocialNetworkDatabase.USERNAME[0]].Values)
             {
                 CharacterPage page = new CharacterPage(character);
                 SidebarButton button = new SidebarButton(type: SidebarButton.ButtonType.Character, title: character.CharacterName, description: character.ToString(), picture: character.Picture, linkedControl: page);
@@ -46,7 +46,7 @@ namespace CPSC_SocialNetwork
                 this.LeftSidebar.CharacterList.Children.Add(button);
             }
 
-            foreach(Campaign campaign in SocialNetworkDatabase.Campaigns[SocialNetworkDatabase.USERNAME_1].Values)
+            foreach(Campaign campaign in SocialNetworkDatabase.Campaigns[SocialNetworkDatabase.USERNAME[0]].Values)
             {
                 CampaignPage page = new CampaignPage(campaign);
                 SidebarButton button = new SidebarButton(type: SidebarButton.ButtonType.Campaign, title: campaign.Name, description: campaign.Description, linkedControl: page);
