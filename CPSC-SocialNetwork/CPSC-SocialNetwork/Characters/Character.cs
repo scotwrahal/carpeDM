@@ -56,6 +56,7 @@ namespace CPSC_SocialNetwork.Characters
 
         public Character(User owner, string characterName = "", string characterRace = "", string characterClass = "", int characterLevel = 0, string picture = "")
         {
+            this.owner = owner;
             this.characterName = characterName;
             this.characterRace = characterRace;
             this.characterClass = characterClass;

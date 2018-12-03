@@ -36,7 +36,7 @@
                     <ColumnDefinition Width="44"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Image Grid.Column="0" Source="/CPSC-SocialNetwork;component/Images/ProfilePicture.png">
+                <Image x:Name="Picture" Grid.Column="0" Source="/CPSC-SocialNetwork;component/Images/ProfilePicture.png">
                     <Image.Effect>
                         <DropShadowEffect ShadowDepth="0"/>
                     </Image.Effect>
@@ -44,7 +44,7 @@
                         <EllipseGeometry Center="22,22" RadiusX="22" RadiusY="22"/>
                     </Image.Clip>
                 </Image>
-                <TextBlock Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8,0,8,0" Foreground="White" FontFamily="Century Gothic" FontSize="14" FontWeight="Bold" Text="Micah Peacock" TextTrimming="CharacterEllipsis"/>
+                <TextBlock x:Name="DisplayName" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8,0,8,0" Foreground="White" FontFamily="Century Gothic" FontSize="14" FontWeight="Bold" Text="Micah Peacock" TextTrimming="CharacterEllipsis"/>
             </Grid>
         </ControlTemplate>
     </Window.Resources>

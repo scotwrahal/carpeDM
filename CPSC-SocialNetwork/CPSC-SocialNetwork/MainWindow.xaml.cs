@@ -36,23 +36,25 @@ namespace CPSC_SocialNetwork
 
             database = new SocialNetworkDatabase();
 
-            this.mainUser = database.Users["HardworkingIdiot"];
+            this.mainUser = database.Users[SocialNetworkDatabase.USERNAME_1];
             this.profile = new ProfilePage(mainUser);
 
             Switcher.pageSwitcher = this;
             Switcher.Switch(profile);
 
-            foreach(Character character in database.Characters["HardworkingIdiot"].Values)
+            foreach(Character character in database.Users[SocialNetworkDatabase.USERNAME_1].Characters.Values)
             {
                 CharacterPage page = new CharacterPage(character);
+                database.Add(page);
                 SidebarButton button = new SidebarButton(title: character.CharacterName, description: character.ToString(), picture: character.Picture, linkedControl: page);
                 button.MouseLeftButtonDown += SidebarButtonHandler;
                 this.LeftSidebar.CharacterList.Children.Add(button);
             }
 
-            foreach(Campaign campaign in database.Campaigns["HardworkingIdiot"].Values)
+            foreach(Campaign campaign in database.Users[SocialNetworkDatabase.USERNAME_1].Campaigns.Values)
             {
                 CampaignPage page = new CampaignPage(campaign);
+                database.Add(page);
                 SidebarButton button = new SidebarButton(title: campaign.Name, description: campaign.Description, linkedControl: page);
                 button.MouseLeftButtonDown += SidebarButtonHandler;
                 this.LeftSidebar.CampaignList.Children.Add(button);
@@ -63,6 +65,7 @@ namespace CPSC_SocialNetwork
                 if(friend.Username != this.mainUser.Username)
                 {
                     ProfilePage page = new ProfilePage(friend);
+                    database.Add(page);
                     SidebarButton button = new SidebarButton(title: friend.DisplayName, picture: friend.Picture, linkedControl: page);
                     button.MouseLeftButtonDown += SidebarButtonHandler;
                     this.RightSidebar.FriendList.Children.Add(button);

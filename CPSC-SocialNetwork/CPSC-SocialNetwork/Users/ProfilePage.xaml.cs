@@ -20,14 +20,20 @@ namespace CPSC_SocialNetwork.Users
     /// </summary>
     public partial class ProfilePage : UserControl
     {
+        private User owner;
+        public User Owner { get => this.owner; }
+
+
         public ProfilePage()
         {
             InitializeComponent();
         }
 
+
         public ProfilePage(User user)
         {
             InitializeComponent();
+            this.owner = user;
         }
     }
 }

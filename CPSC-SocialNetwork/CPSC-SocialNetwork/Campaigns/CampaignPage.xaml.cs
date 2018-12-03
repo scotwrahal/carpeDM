@@ -20,6 +20,9 @@ namespace CPSC_SocialNetwork.Campaigns
     /// </summary>
     public partial class CampaignPage : UserControl
     {
+        private Campaign campaign;
+        public Campaign Campaign { get => this.campaign; }
+
         private List<StoryEntry> storyEntries;
         public List<StoryEntry> StoryEntries
         {
@@ -64,6 +67,9 @@ namespace CPSC_SocialNetwork.Campaigns
         public CampaignPage(Campaign campaign)
         {
             InitializeComponent();
+
+            this.campaign = campaign;
+
             storyEntries = new List<StoryEntry>
             {
                 { new StoryEntry("Test", "This is a test!") },

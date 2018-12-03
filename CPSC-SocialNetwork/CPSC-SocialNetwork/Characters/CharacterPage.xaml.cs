@@ -24,15 +24,23 @@ namespace CPSC_SocialNetwork.Characters
     public partial class CharacterPage : UserControl
     {
         private Character character;
+        public Character Character
+        {
+            get => this.character;
+            set => this.character = value;
+        }
+
 
         public CharacterPage()
         {
             InitializeComponent();
         }
+        
 
         public CharacterPage(Character character)
         {
             InitializeComponent();
+            this.character = character;
         }
     }
 }
