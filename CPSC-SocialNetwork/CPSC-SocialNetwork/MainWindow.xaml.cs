@@ -46,7 +46,7 @@ namespace CPSC_SocialNetwork
             {
                 CharacterPage page = new CharacterPage(character);
                 database.Add(page);
-                SidebarButton button = new SidebarButton(title: character.CharacterName, description: character.ToString(), picture: character.Picture, linkedControl: page);
+                SidebarButton button = new SidebarButton(type: SidebarButton.ButtonType.Character, title: character.CharacterName, description: character.ToString(), picture: character.Picture, linkedControl: page);
                 button.MouseLeftButtonDown += SidebarButtonHandler;
                 this.LeftSidebar.CharacterList.Children.Add(button);
             }
@@ -55,7 +55,7 @@ namespace CPSC_SocialNetwork
             {
                 CampaignPage page = new CampaignPage(campaign);
                 database.Add(page);
-                SidebarButton button = new SidebarButton(title: campaign.Name, description: campaign.Description, linkedControl: page);
+                SidebarButton button = new SidebarButton(type: SidebarButton.ButtonType.Campaign, title: campaign.Name, description: campaign.Description, linkedControl: page);
                 button.MouseLeftButtonDown += SidebarButtonHandler;
                 this.LeftSidebar.CampaignList.Children.Add(button);
             }
@@ -66,7 +66,7 @@ namespace CPSC_SocialNetwork
                 {
                     ProfilePage page = new ProfilePage(friend);
                     database.Add(page);
-                    SidebarButton button = new SidebarButton(title: friend.DisplayName, picture: friend.Picture, linkedControl: page);
+                    SidebarButton button = new SidebarButton(type: SidebarButton.ButtonType.User, title: friend.DisplayName, picture: friend.Picture, linkedControl: page);
                     button.MouseLeftButtonDown += SidebarButtonHandler;
                     this.RightSidebar.FriendList.Children.Add(button);
                 }

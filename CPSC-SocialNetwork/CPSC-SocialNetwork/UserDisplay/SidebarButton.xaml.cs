@@ -17,6 +17,14 @@ namespace CPSC_SocialNetwork.UserDisplay
 {
     public partial class SidebarButton : UserControl {
 
+        public enum ButtonType
+        {
+            User,
+            Character,
+            Campaign,
+            Group
+        };
+
         private UserControl link;
         public UserControl Link
         {
@@ -47,14 +55,27 @@ namespace CPSC_SocialNetwork.UserDisplay
             InitializeComponent();
         }
 
-        public SidebarButton(string title, UserControl linkedControl, string description = "", string picture = "")
+        public SidebarButton(ButtonType type, string title, UserControl linkedControl, string description = "", string picture = "")
         {
             InitializeComponent();
             Title.Text = title;
             Description.Text = description;
             link = linkedControl;
             if(picture != "")
-                Image.Source = new BitmapImage(new Uri(@"\Images\User\" + picture, UriKind.Relative));
+            {
+                switch (type)
+                {
+                    case ButtonType.User:
+                        Image.Source = new BitmapImage(new Uri(@"\Images\User\" + picture, UriKind.Relative));
+                        break;
+                    case ButtonType.Character:
+                        Image.Source = new BitmapImage(new Uri(@"\Images\Character\" + picture, UriKind.Relative));
+                        break;
+                    case ButtonType.Campaign:
+                        Image.Source = new BitmapImage(new Uri(@"\Images\Campaign\" + picture, UriKind.Relative));
+                        break;
+                };
+            }
         }
     }
 }

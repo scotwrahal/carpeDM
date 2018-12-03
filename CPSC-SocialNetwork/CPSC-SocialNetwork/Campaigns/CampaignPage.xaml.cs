@@ -23,6 +23,9 @@ namespace CPSC_SocialNetwork.Campaigns
     /// </summary>
     public partial class CampaignPage : UserControl
     {
+        private readonly Campaign campaign;
+        public Campaign Campaign { get => this.campaign; }
+
         private List<StoryEntry> storyEntries;
         public List<StoryEntry> StoryEntries
         {
@@ -67,6 +70,8 @@ namespace CPSC_SocialNetwork.Campaigns
         public CampaignPage(Campaign campaign)
         {
             InitializeComponent();
+
+            this.campaign = campaign;
 
             //header
             this.CampaignImage.Source = new BitmapImage(new Uri(@"\Images\Campaign\" + campaign.Picture, UriKind.Relative));

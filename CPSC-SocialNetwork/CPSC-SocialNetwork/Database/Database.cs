@@ -14,7 +14,7 @@ namespace CPSC_SocialNetwork.Database
     {
         public const string USERNAME_1 = "HardworkingIdiot";
         public const string USERNAME_2 = "ToolboxMoron";
-        public const string USERNAME_3 = "Doooooood";
+        public const string USERNAME_3 = "VirtualWaffles";
         public const string USERNAME_4 = "ThatSmartGuy";
         public const string USERNAME_5 = "ThatOtherSmartGuy";
         public const string USERNAME_6 = "MrRobotDood";
@@ -40,11 +40,11 @@ namespace CPSC_SocialNetwork.Database
         private readonly Dictionary<User, ProfilePage> profilepages;
         public Dictionary<User, ProfilePage> ProfilePages { get => this.profilepages; }
 
-        private readonly Dictionary<User, Dictionary<Character, CharacterPage>> characterpages;
-        public Dictionary<User, Dictionary<Character, CharacterPage>> CharacterPages { get => this.characterpages; }
+        private readonly Dictionary<Character, CharacterPage> characterpages;
+        public Dictionary<Character, CharacterPage> CharacterPages { get => this.characterpages; }
 
-        private readonly Dictionary<User, Dictionary<Campaign, CampaignPage>> campaignpages;
-        public Dictionary<User, Dictionary<Campaign, CampaignPage>> CampaignPages { get => this.campaignpages; }
+        private readonly Dictionary<Campaign, CampaignPage> campaignpages;
+        public Dictionary<Campaign, CampaignPage> CampaignPages { get => this.campaignpages; }
 
 
         public SocialNetworkDatabase()
@@ -55,10 +55,10 @@ namespace CPSC_SocialNetwork.Database
                 { USERNAME_1, new User(username: USERNAME_1, displayname: DISPLAYNAME_1, picture: "ProfilePicture.png") },
                 { USERNAME_2, new User(username: USERNAME_2, displayname: DISPLAYNAME_2, picture: "4.png") },
                 { USERNAME_3, new User(username: USERNAME_3, displayname: DISPLAYNAME_3, picture: "5.png") },
-                { USERNAME_4, new User(username: USERNAME_4, displayname: DISPLAYNAME_4, picture: "6.png") },
-                { USERNAME_5, new User(username: USERNAME_5, displayname: DISPLAYNAME_5, picture: "7.png") },
-                { USERNAME_6, new User(username: USERNAME_6, displayname: DISPLAYNAME_6, picture: "8.png") },
-                { USERNAME_7, new User(username: USERNAME_7, displayname: DISPLAYNAME_7, picture: "9.png") }
+                { USERNAME_4, new User(username: USERNAME_4, displayname: DISPLAYNAME_4, picture: "1.png") },
+                { USERNAME_5, new User(username: USERNAME_5, displayname: DISPLAYNAME_5, picture: "3.png") },
+                { USERNAME_6, new User(username: USERNAME_6, displayname: DISPLAYNAME_6, picture: "7.png") },
+                { USERNAME_7, new User(username: USERNAME_7, displayname: DISPLAYNAME_7, picture: "6.png") }
             };
 
             characters = new Dictionary<string, Dictionary<string, Character>>
@@ -78,7 +78,7 @@ namespace CPSC_SocialNetwork.Database
                 },
                 { USERNAME_3, new Dictionary<string, Character>
                     {
-
+                        { "Aeyi Oyu", new Character(owner: users[USERNAME_3], characterName: "Aeyi Oyu", characterRace: "Elf", characterClass: "Shadowdancer", characterLevel: 7) }
                     }
                 },
                 { USERNAME_4, new Dictionary<string, Character>
@@ -118,9 +118,9 @@ namespace CPSC_SocialNetwork.Database
                                 { users[USERNAME_2].DisplayName, users[USERNAME_2] },
                                 { users[USERNAME_3].DisplayName, users[USERNAME_3] }
                             },
-                            characters: new SortedList<string, CharacterPage>
+                            characters: new SortedList<string, Character>
                             {
-                                { characters[USERNAME_2]["Doralig Cragarm"].CharacterName, new CharacterPage(characters[USERNAME_2]["Doralig Cragarm"]) }
+                                { characters[USERNAME_2]["Doralig Cragarm"].CharacterName, characters[USERNAME_2]["Doralig Cragarm"] }
                             })
                         },
                         { "Kingmaker", new Campaign(name: "Kingmaker", description: "A politically based campaign with the goal of building a kingdom.", owner: users[USERNAME_1]) }
@@ -169,13 +169,16 @@ namespace CPSC_SocialNetwork.Database
 
             };
 
-            characterpages = new Dictionary<User, Dictionary<Character, CharacterPage>>();
-            foreach (User user in users.Values)
-                characterpages[user] = new Dictionary<Character, CharacterPage>();
+            characterpages = new Dictionary<Character, CharacterPage>
+            {
 
-            campaignpages = new Dictionary<User, Dictionary<Campaign, CampaignPage>>();
-            foreach (User user in users.Values)
-                campaignpages[user] = new Dictionary<Campaign, CampaignPage>();
+            };
+
+            campaignpages = new Dictionary<Campaign, CampaignPage>
+            {
+
+            };
+            
         }
 
         
@@ -205,23 +208,21 @@ namespace CPSC_SocialNetwork.Database
 
         public void Add(CharacterPage characterpage)
         {
-            characterpages[characterpage.Character.Owner][characterpage.Character] = characterpage;
+            characterpages[characterpage.Character] = characterpage;
         }
 
 
         public void Add(CampaignPage campaignpage)
         {
-            campaignpages[campaignpage.Campaign.Owner][campaignpage.Campaign] = campaignpage;
+            campaignpages[campaignpage.Campaign] = campaignpage;
         }
 
 
         public void Remove(User user)
         {
             characters.Remove(user.Username);
-            characterpages.Remove(user);
 
             campaigns.Remove(user.Username);
-            campaignpages.Remove(user);
 
             users.Remove(user.Username);
         }
@@ -229,14 +230,14 @@ namespace CPSC_SocialNetwork.Database
 
         public void Remove(Character character)
         {
-            characterpages[character.Owner].Remove(character);
+            characterpages.Remove(character);
             characters[character.Owner.Username].Remove(character.CharacterName);
         }
 
 
         public void Remove(Campaign campaign)
         {
-            campaignpages[campaign.Owner].Remove(campaign);
+            campaignpages.Remove(campaign);
             campaigns[campaign.Owner.Username].Remove(campaign.Name);
         }
     }
