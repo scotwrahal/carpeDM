@@ -36,13 +36,13 @@ namespace CPSC_SocialNetwork
 
             database = new SocialNetworkDatabase();
 
-            this.mainUser = database.Users[SocialNetworkDatabase.USERNAME_1];
+            this.mainUser = database.Users[SocialNetworkDatabase.USERNAME[0]];
             this.profile = new ProfilePage(mainUser);
 
             Switcher.pageSwitcher = this;
             Switcher.Switch(profile);
 
-            foreach(Character character in database.Users[SocialNetworkDatabase.USERNAME_1].Characters.Values)
+            foreach(Character character in database.Users[SocialNetworkDatabase.USERNAME[0]].Characters.Values)
             {
                 CharacterPage page = new CharacterPage(character);
                 database.Add(page);
@@ -51,7 +51,7 @@ namespace CPSC_SocialNetwork
                 this.LeftSidebar.CharacterList.Children.Add(button);
             }
 
-            foreach(Campaign campaign in database.Users[SocialNetworkDatabase.USERNAME_1].Campaigns.Values)
+            foreach(Campaign campaign in database.Users[SocialNetworkDatabase.USERNAME[0]].Campaigns.Values)
             {
                 CampaignPage page = new CampaignPage(campaign);
                 database.Add(page);
