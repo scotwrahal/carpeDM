@@ -96,13 +96,13 @@ namespace CPSC_SocialNetwork.Database
                 },
                 { USERNAME[1], new Dictionary<string, Character>
                     {
-                        { "Doralig Cragarm", new Character(owner: users[USERNAME[1]], characterName: "Doralig Cragarm", characterRace: "Dwarf", characterClass: "Druid", characterLevel: 6) },
+                        { "Doralig Cragarm", new Character(owner: users[USERNAME[1]], characterName: "Doralig Cragarm", characterRace: "Dwarf", characterClass: "Druid", characterLevel: 6, picture: "5.png") },
                         { "Luvon Keywynn", new Character(owner: users[USERNAME[1]], characterName: "Luvon Keywynn", characterRace: "Elf", characterClass: "Ranger", characterLevel: 7) }
                     }
                 },
                 { USERNAME[2], new Dictionary<string, Character>
                     {
-                        { "Aeyi Oyu", new Character(owner: users[USERNAME[2]], characterName: "Aeyi Oyu", characterRace: "Elf", characterClass: "Shadowdancer", characterLevel: 7) }
+                        { "Aeyi Oyu", new Character(owner: users[USERNAME[2]], characterName: "Aeyi Oyu", characterRace: "Elf", characterClass: "Shadowdancer", characterLevel: 7, picture: "4.png") }
                     }
                 },
                 { USERNAME[3], new Dictionary<string, Character>
@@ -144,7 +144,8 @@ namespace CPSC_SocialNetwork.Database
                             },
                             characters: new SortedList<string, Character>
                             {
-                                { characters[USERNAME[1]]["Doralig Cragarm"].CharacterName, characters[USERNAME[1]]["Doralig Cragarm"] }
+                                { characters[USERNAME[1]]["Doralig Cragarm"].CharacterName, characters[USERNAME[1]]["Doralig Cragarm"] },
+                                { characters[USERNAME[2]]["Aeyi Oyu"].CharacterName, characters[USERNAME[2]]["Aeyi Oyu"] }
                             })
                         },
                         { "Kingmaker", new Campaign(name: "Kingmaker", description: "A politically based campaign with the goal of building a kingdom.", owner: users[USERNAME[0]], picture: "11.png") }
