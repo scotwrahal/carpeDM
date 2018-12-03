@@ -107,9 +107,9 @@
                     <ControlTemplate TargetType="{x:Type TabItem}">
                         <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
                             <Border x:Name="mainBorder" CornerRadius="8,8,0,0" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1,1,1,0" Background="{TemplateBinding Background}" Margin="0">
-                                <Border x:Name="innerBorder" CornerRadius="8,8,0,0" BorderBrush="{StaticResource TabItem.Selected.Border}" BorderThickness="1,1,1,0" Background="{StaticResource TabItem.Selected.Background}" Margin="-1" Opacity="0"/>
+                                <Border x:Name="innerBorder" CornerRadius="8,8,0,0" BorderBrush="{StaticResource TabItem.Selected.Border}" BorderThickness="1,1,1,0" Background="{StaticResource TabItem.Selected.Background}" Margin="-1" Opacity="0" Cursor="Hand"/>
                             </Border>
-                            <ContentPresenter x:Name="contentPresenter" TextBlock.FontFamily="Century Gothic" TextBlock.FontSize="18" TextBlock.Foreground="#FF4C4C4C" ContentSource="Header" Focusable="False" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+                            <ContentPresenter x:Name="contentPresenter" TextBlock.FontFamily="Century Gothic" TextBlock.FontSize="18" TextBlock.Foreground="#FF4C4C4C" ContentSource="Header" Focusable="False" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" Cursor="Hand"/>
                         </Grid>
                         <ControlTemplate.Triggers>
                             <MultiDataTrigger>
@@ -359,7 +359,7 @@
                     </Grid.RowDefinitions>
 
                     <Border Grid.Row="1" Background="#F2F2F2" Margin="4" CornerRadius="12" Grid.ColumnSpan="2"/>
-                    <TextBlock Grid.Row="1" Margin="10,10,10,10" TextWrapping="Wrap" Text="This will hold the description" Grid.ColumnSpan="2" FontSize="18"/>
+                    <TextBlock x:Name="Description" Grid.Row="1" Margin="10,10,10,10" TextWrapping="Wrap" Grid.ColumnSpan="2" FontSize="18"/>
                 </Grid>
             </TabItem>
             

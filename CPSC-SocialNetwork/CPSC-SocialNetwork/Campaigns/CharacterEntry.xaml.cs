@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using CPSC_SocialNetwork.Characters;
+
 namespace CPSC_SocialNetwork.Campaigns
 {
     /// <summary>
@@ -23,6 +25,14 @@ namespace CPSC_SocialNetwork.Campaigns
         public CharacterEntry()
         {
             InitializeComponent();
+        }
+
+        public CharacterEntry(Character character)
+        {
+            InitializeComponent();
+            this.Image.Source = new BitmapImage(new Uri(@"\Images\Characater\" + character.Picture, UriKind.Relative));
+            this.CharacterName.Text = character.CharacterName;
+            this.CharacterDescription.Text = "Level " + character.CharacterLevel + " " + character.CharacterRace + " " + character.CharacterClass;
         }
     }
 }

@@ -19,9 +19,9 @@
                     <ColumnDefinition Width="32"/>
                 </Grid.ColumnDefinitions>
 
-                <Image x:Name="Image" Grid.Column="0" Margin="8">
+                <Image x:Name="Image" Grid.Column="0" Margin="4">
                     <Image.Clip>
-                        <EllipseGeometry Center="24,24" RadiusX="24" RadiusY="24"/>
+                        <EllipseGeometry Center="28,28" RadiusX="28" RadiusY="28"/>
                     </Image.Clip>
                 </Image>
 
@@ -29,8 +29,8 @@
                     <TextBlock x:Name="Name" FontFamily="Century Gothic" FontSize="18" Grid.Row="0" Margin="4,0,0,0" TextTrimming="CharacterEllipsis" VerticalAlignment="Center"/>
                 </Grid>
 
-                <Image Grid.Column="2" Margin="0,4,0,4" Source="/Images/GM.png"/>
-                <Image Grid.Column="3" Margin="0,4,4,4" Source="/Images/DM.png"/>
+                <Image Grid.Column="2" Margin="0,4,0,4" Source="/Images/System/GM.png" Cursor="Hand"/>
+                <Image Grid.Column="3" Margin="0,4,4,4" Source="/Images/System/DM.png" Cursor="Hand"/>
 
 
             </Grid>

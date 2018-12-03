@@ -27,7 +27,7 @@ namespace CPSC_SocialNetwork.Campaigns
         {
             InitializeComponent();
 
-            this.Image.Source = new BitmapImage(new Uri(@"\Images\" + "1.png", UriKind.Relative));
+            this.Image.Source = new BitmapImage(new Uri(@"\Images\System\default.png", UriKind.Relative));
             this.Name.Text = "Display Name";
         }
 
@@ -35,7 +35,7 @@ namespace CPSC_SocialNetwork.Campaigns
         {
             InitializeComponent();
             
-            this.Image.Source = new BitmapImage(new Uri(@"\Images\" + user.Picture, UriKind.Relative));
+            this.Image.Source = new BitmapImage(new Uri(@"\Images\User\" + user.Picture, UriKind.Relative));
             this.Name.Text = user.DisplayName;
         }
     }

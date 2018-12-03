@@ -11,7 +11,7 @@
     <Window.Resources>
         <ControlTemplate x:Key="LogoutButtonTemplate" TargetType="{x:Type Button}">
             <Grid Background="Transparent">
-                <Image Source="/CPSC-SocialNetwork;component/Images/PowerSymbol.png">
+                <Image Source="/CPSC-SocialNetwork;component/Images/System/PowerSymbol.png">
                     <Image.Effect>
                         <DropShadowEffect Direction="270" ShadowDepth="0"/>
                     </Image.Effect>
@@ -20,7 +20,7 @@
         </ControlTemplate>
         <ControlTemplate x:Key="NotificationButtonTemplate" TargetType="{x:Type Button}">
             <Grid Background="Transparent">
-                <Image Source="/CPSC-SocialNetwork;component/Images/BellIcon.png">
+                <Image Source="/CPSC-SocialNetwork;component/Images/System/BellIcon.png">
                     <Image.Effect>
                         <DropShadowEffect Direction="270" ShadowDepth="0"/>
                     </Image.Effect>
@@ -36,7 +36,7 @@
                     <ColumnDefinition Width="44"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Image x:Name="Picture" Grid.Column="0" Source="/CPSC-SocialNetwork;component/Images/ProfilePicture.png">
+                <Image x:Name="Image" Grid.Column="0" Source="this doesnt work like every other image so i dont know how to change this inside the cs">
                     <Image.Effect>
                         <DropShadowEffect ShadowDepth="0"/>
                     </Image.Effect>
@@ -44,7 +44,7 @@
                         <EllipseGeometry Center="22,22" RadiusX="22" RadiusY="22"/>
                     </Image.Clip>
                 </Image>
-                <TextBlock x:Name="DisplayName" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8,0,8,0" Foreground="White" FontFamily="Century Gothic" FontSize="14" FontWeight="Bold" Text="Micah Peacock" TextTrimming="CharacterEllipsis"/>
+                <TextBlock Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8,0,8,0" Foreground="White" FontFamily="Century Gothic" FontSize="14" FontWeight="Bold" Text="Micah Peacock" TextTrimming="CharacterEllipsis"/>
             </Grid>
         </ControlTemplate>
     </Window.Resources>
@@ -66,9 +66,21 @@
 
                 <Border Grid.Column="0" Background="White" Margin="12,12,92,12"/>
 
-                <TextBox x:Name="SearchBar" Grid.Column="1" Background="White" Margin="12,16,12,16">
-
-                </TextBox>
+                <Border Grid.Column="1" Background="White" Margin="12,16,12,16" CornerRadius="20">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="32"/>
+                        </Grid.ColumnDefinitions>
+                    
+                        <TextBox x:Name="SearchBar" Grid.Column="0" Margin="15,0,0,0" FontFamily="Century Gothic" FontSize="16"/>
+                        <Image Grid.Column="1" Source="/Images/System/search.png" Margin="6">
+                            <Image.Clip>
+                                <EllipseGeometry Center="10,10" RadiusX="16" RadiusY="16"/>
+                            </Image.Clip>
+                        </Image>
+                    </Grid>
+                </Border>
 
                 <Grid Grid.Column="2">
                     <!--#region Grid Dimensions-->
