@@ -28,11 +28,11 @@ namespace CPSC_SocialNetwork.Database
             users = new Dictionary<string, User>
             {
                 { "HardworkingIdiot", new User(username: "HardworkingIdiot", displayname: "Micah Peacock", picture: "ProfilePicture.png") },
-                { "ToolboxMoron", new User(username: "ToolboxMoron", displayname: "Scot Rahal", picture: "4.png") },
-                { "VirtualWaffles", new User(username: "VirtualWaffles", displayname: "Jesse Shewfelt", picture: "5.png") },
-                { "ThatSmartGuy", new User(username: "ThatSmartGuy", displayname: "Kris Lugtu", picture: "6.png") },
-                { "ThatOtherSmartGuy", new User(username: "ThatOtherSmartGuy", displayname: "Kendrick Ankamah", picture: "7.png") },
-                { "MrRobotDood", new User(username: "MrRobotDood", displayname: "Claire's Talking Robot", picture: "8.png") }
+                { "ToolboxMoron", new User(username: "ToolboxMoron", displayname: "Scot Rahal", picture: "3.png") },
+                { "VirtualWaffles", new User(username: "VirtualWaffles", displayname: "Jesse Shewfelt", picture: "4.png") },
+                { "ThatSmartGuy", new User(username: "ThatSmartGuy", displayname: "Kris Lugtu", picture: "2.png") },
+                { "ThatOtherSmartGuy", new User(username: "ThatOtherSmartGuy", displayname: "Kendrick Ankamah", picture: "5.png") },
+                { "MrRobotDood", new User(username: "MrRobotDood", displayname: "Claire's Talking Robot", picture: "7.png") }
             };
 
             characters = new Dictionary<string, Dictionary<string, Character>>
@@ -46,13 +46,13 @@ namespace CPSC_SocialNetwork.Database
                 },
                 { "ToolboxMoron", new Dictionary<string, Character>
                     {
-                        { "Doralig Cragarm", new Character(owner: users["ToolboxMoron"], characterName: "Doralig Cragarm", characterRace: "Dwarf", characterClass: "Druid", characterLevel: 16) },
+                        { "Doralig Cragarm", new Character(owner: users["ToolboxMoron"], characterName: "Doralig Cragarm", characterRace: "Dwarf", characterClass: "Druid", characterLevel: 16, picture: "5.png") },
                         { "Luvon Keywynn", new Character(owner: users["ToolboxMoron"], characterName: "Luvon Keywynn", characterRace: "Elf", characterClass: "Ranger", characterLevel: 7) }
                     }
                 },
                 { "VirtualWaffles", new Dictionary<string, Character>
                     {
-                    { "Aeyi Oyu", new Character(users["VirtualWaffles"], "Aeyi Oyu", "", "", 6, "") }
+                    { "Aeyi Oyu", new Character(users["VirtualWaffles"], "Aeyi Oyu", "Elf", "Shadowdancer", 6, "100.png") }
                     }
                 },
                 { "ThatSmartGuy", new Dictionary<string, Character>
@@ -84,7 +84,8 @@ namespace CPSC_SocialNetwork.Database
                             },
                             characters: new SortedList<string, Character>
                             {
-                                { characters["ToolboxMoron"]["Doralig Cragarm"].CharacterName, characters["ToolboxMoron"]["Doralig Cragarm"] }
+                                { characters["ToolboxMoron"]["Doralig Cragarm"].CharacterName, characters["ToolboxMoron"]["Doralig Cragarm"] },
+                                { characters["VirtualWaffles"]["Aeyi Oyu"].CharacterName, characters["VirtualWaffles"]["Aeyi Oyu"] }
                             }
                             )
                         },
@@ -98,7 +99,27 @@ namespace CPSC_SocialNetwork.Database
                 },
                 { "VirtualWaffles", new Dictionary<string, Campaign>
                     {
-
+                        {
+                        "Quest for the Breeziest Shorts",
+                        new Campaign("Quest for the Breeziest Shorts",
+                                     "Join some of the bravest adventurers in all the land in an action filled quest to find the ancient and mythical shorts of brííz.",
+                                     users["VirtualWaffles"],
+                                     "6.png"
+                                     /*
+                                     new SortedList<string, User>
+                                     {
+                                        { users["VirtualWaffles"].DisplayName, users["VirtualWaffles"] },
+                                        { users["HardworkingIdiot"].DisplayName, users["HardworkingIdiot"] },
+                                        { users["ToolboxMoron"].DisplayName, users["ToolboxMoron"] }
+                                     },
+                                     new SortedList<string, Character>
+                                     {
+                                        { characters["ToolboxMoron"]["Luvon Keywynn"].CharacterName, characters["ToolboxMoron"]["Luvon Keywynn"] },
+                                        { characters["HardworkingIdiot"]["Gradius Braveheart"].CharacterName, characters["ToolboxMoron"]["Gradius Braveheart"] }
+                                     }
+                                     */
+                                     )
+                        }
                     }
                 },
                 { "ThatSmartGuy", new Dictionary<string, Campaign>

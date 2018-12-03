@@ -30,7 +30,7 @@ namespace CPSC_SocialNetwork.Campaigns
         public CharacterEntry(Character character)
         {
             InitializeComponent();
-            this.Image.Source = new BitmapImage(new Uri(@"\Images\Characater\" + character.Picture, UriKind.Relative));
+            this.Image.Source = new BitmapImage(new Uri(@"\Images\Character\" + character.Picture, UriKind.Relative));
             this.CharacterName.Text = character.CharacterName;
             this.CharacterDescription.Text = "Level " + character.CharacterLevel + " " + character.CharacterRace + " " + character.CharacterClass;
         }
