@@ -79,7 +79,7 @@ namespace CPSC_SocialNetwork.Database
                 { USERNAME[0], new User(username: USERNAME[0], displayname: DISPLAYNAME[0], picture: "ProfilePicture.png") },
                 { USERNAME[1], new User(username: USERNAME[1], displayname: DISPLAYNAME[1], picture: "4.png") },
                 { USERNAME[2], new User(username: USERNAME[2], displayname: DISPLAYNAME[2], picture: "5.png") },
-                { USERNAME[3], new User(username: USERNAME[3], displayname: DISPLAYNAME[3], picture: "0.png") },
+                { USERNAME[3], new User(username: USERNAME[3], displayname: DISPLAYNAME[3], picture: "1.png") },
                 { USERNAME[4], new User(username: USERNAME[4], displayname: DISPLAYNAME[4], picture: "3.png") },
                 { USERNAME[5], new User(username: USERNAME[5], displayname: DISPLAYNAME[5], picture: "7.png") },
                 { USERNAME[6], new User(username: USERNAME[6], displayname: DISPLAYNAME[6], picture: "6.png") }
@@ -89,7 +89,7 @@ namespace CPSC_SocialNetwork.Database
             {
                 { USERNAME[0], new Dictionary<string, Character>
                     { 
-                        { "Eridan Xanthas", new Character(owner: users[USERNAME[0]], characterName: "Eridan Xanthas", characterRace: "Half-Elf", characterClass: "Magus", characterLevel: 6, picture: "0.png") },
+                        { "Eridan Xanthas", new Character(owner: users[USERNAME[0]], characterName: "Eridan Xanthas", characterRace: "Half-Elf", characterClass: "Magus", characterLevel: 6, picture: "1.png") },
                         { "Soren Riftbane", new Character(owner: users[USERNAME[0]], characterName: "Soren Riftbane", characterRace: "Tiefling (Pit-born)", characterClass: "Inquisitor", characterLevel: 3, picture: "2.png") },
                         { "Gradius Braveheart", new Character(owner: users[USERNAME[0]], characterName: "Gradius Braveheart", characterRace: "Human", characterClass:"Barbarian", characterLevel: 7, picture: "3.png") }
                     }
@@ -135,7 +135,7 @@ namespace CPSC_SocialNetwork.Database
                             name: "Red Hand of Doom", 
                             description: "An old 3e campaign.", 
                             owner: users[USERNAME[0]],
-                            picture: "0.png",
+                            picture: "1.png",
                             players: new SortedList<string, User>
                             {
                                 { users[USERNAME[0]].DisplayName, users[USERNAME[0]] },
@@ -147,7 +147,7 @@ namespace CPSC_SocialNetwork.Database
                                 { characters[USERNAME[1]]["Doralig Cragarm"].CharacterName, characters[USERNAME[1]]["Doralig Cragarm"] }
                             })
                         },
-                        { "Kingmaker", new Campaign(name: "Kingmaker", description: "A politically based campaign with the goal of building a kingdom.", owner: users[USERNAME[0]]) }
+                        { "Kingmaker", new Campaign(name: "Kingmaker", description: "A politically based campaign with the goal of building a kingdom.", owner: users[USERNAME[0]], picture: "11.png") }
                     }
                 },
                 { USERNAME[1], new Dictionary<string, Campaign>
