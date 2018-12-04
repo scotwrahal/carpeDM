@@ -66,7 +66,7 @@
 
                 <Border Grid.Column="0" Background="White" Margin="12,12,92,12"/>
 
-                <Border Grid.Column="1" Background="White" Margin="12,16,12,16" CornerRadius="20">
+                <Border Grid.Column="1" Background="White" Margin="12,16,12,16" CornerRadius="16">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
