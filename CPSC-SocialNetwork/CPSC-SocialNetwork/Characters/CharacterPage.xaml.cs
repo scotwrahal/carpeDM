@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using CPSC_SocialNetwork.Users;
+using CPSC_SocialNetwork.Database;
 
 
 namespace CPSC_SocialNetwork.Characters
@@ -41,6 +42,7 @@ namespace CPSC_SocialNetwork.Characters
         {
             InitializeComponent();
             this.character = character;
+            SocialNetworkDatabase.Add(this);
         }
     }
 }

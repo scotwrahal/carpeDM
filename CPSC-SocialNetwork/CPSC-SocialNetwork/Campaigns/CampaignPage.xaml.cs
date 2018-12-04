@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 
 using CPSC_SocialNetwork.Characters;
 using CPSC_SocialNetwork.Users;
+using CPSC_SocialNetwork.Database;
 
 namespace CPSC_SocialNetwork.Campaigns
 {
@@ -125,7 +126,7 @@ namespace CPSC_SocialNetwork.Campaigns
             foreach (PlayerEntry entry in this.playerEntries)
                 this.PlayerList.Children.Add(entry);
 
-
+            SocialNetworkDatabase.Add(this);
         }
 
 

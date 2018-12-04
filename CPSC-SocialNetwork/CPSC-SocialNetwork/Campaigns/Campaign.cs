@@ -27,10 +27,11 @@ namespace CPSC_SocialNetwork.Campaigns
             set => this.description = value; 
         }
 
-        private readonly string picture;
+        private string picture;
         public string Picture
         {
             get => this.picture;
+            set => this.picture = value;
         }
 
         private readonly User owner;
@@ -89,6 +90,8 @@ namespace CPSC_SocialNetwork.Campaigns
                 this.players = new SortedList<string, User>();
             if (characters == null)
                 this.characters = new SortedList<string, Character>();
+            if (npcs == null)
+                this.npcs = new SortedList<string, CharacterPage>();
             if (entries == null)
                 this.entries = new List<StoryEntry>();
         }
