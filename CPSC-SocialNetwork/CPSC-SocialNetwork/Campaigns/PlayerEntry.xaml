@@ -16,7 +16,6 @@
                     <ColumnDefinition Width="64"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="32"/>
-                    <ColumnDefinition Width="32"/>
                 </Grid.ColumnDefinitions>
 
                 <Image x:Name="Image" Grid.Column="0" Margin="4">
@@ -29,8 +28,7 @@
                     <TextBlock x:Name="Name" FontFamily="Century Gothic" FontSize="18" Grid.Row="0" Margin="4,0,0,0" TextTrimming="CharacterEllipsis" VerticalAlignment="Center"/>
                 </Grid>
 
-                <Image Grid.Column="2" Margin="0,4,0,4" Source="/Images/System/GM.png" Cursor="Hand"/>
-                <Image Grid.Column="3" Margin="0,4,4,4" Source="/Images/System/DM.png" Cursor="Hand"/>
+                <Image Grid.Column="2" Margin="0,4,4,4" Source="/Images/System/DM.png" Cursor="Hand"/>
 
 
             </Grid>

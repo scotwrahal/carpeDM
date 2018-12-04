@@ -286,7 +286,27 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Storyboard x:Key="OnMouseEnterJoin">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF004B60"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#AF004B60"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnMouseLeaveJoin">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border">
+                <EasingColorKeyFrame KeyTime="0" Value="#AF004B60"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FF004B60"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
     </UserControl.Resources>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="border">
+            <BeginStoryboard Storyboard="{StaticResource OnMouseEnterJoin}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="border">
+            <BeginStoryboard x:Name="OnMouseLeaveJoin_BeginStoryboard" Storyboard="{StaticResource OnMouseLeaveJoin}"/>
+        </EventTrigger>
+    </UserControl.Triggers>
 
     <Grid x:Name="Page" Background="#FFFFFF">
         <Grid.RowDefinitions>
@@ -302,6 +322,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="100"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="100"/>
                 </Grid.ColumnDefinitions>
 
                 <Border x:Name="Mask" Grid.Column="0" Background="White" CornerRadius="20"/>
@@ -312,7 +333,6 @@
                     </Image.OpacityMask>
                 </Image>
 
-                
                 <Grid x:Name="InnerGrid" Grid.Column="1" Margin="8,0,0,0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
@@ -342,27 +362,71 @@
                         </Grid>
                     </Grid>
                 </Grid>
-                
+
+                <Grid x:Name="SideGrid" Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Border x:Name="border" Background="#FF004B60" Margin="8" CornerRadius="8" Cursor="Hand">
+                        <Border.Effect>
+                            <DropShadowEffect Direction="270" BlurRadius="10" Color="#FF333333" Opacity="0.5"/>
+                        </Border.Effect>
+                        <TextBlock Text="Join" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"/>
+                    </Border>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Margin="0,4,0,4" Source="/Images/System/GM.png" Cursor="Hand"/>
+                        <Image Grid.Column="1" Margin="0,4,4,4" Source="/Images/System/DM.png" Cursor="Hand"/>
+                    </Grid>
+
+                </Grid>
+
             </Grid>
         </Border>
 
         <TabControl x:Name="Tabs" Margin="0" Grid.Row="1" Style="{DynamicResource TabControlStyle1}">
             <TabItem Header="About" Style="{DynamicResource TabItemStyle1}">
-                <Grid Margin="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="93*"/>
-                        <ColumnDefinition Width="701*"/>
-                    </Grid.ColumnDefinitions>
+                <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="128"/>
+                        <RowDefinition Height="200"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" Margin="8">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Row="0" Text="Version:" FontSize="18" FontFamily="Century Gothic" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Row="1" Text="Created:" FontSize="18" FontFamily="Century Gothic" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Row="2" Text="Time:" FontSize="18" FontFamily="Century Gothic" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Row="3" Text="Tags:" FontSize="18" FontFamily="Century Gothic" VerticalAlignment="Center"/>
+
+                        <TextBlock x:Name="Version" Grid.Row="0" Grid.Column="1" Text="version" FontSize="18" FontFamily="Century Gothic" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="Created" Grid.Row="1" Grid.Column="1" Text="created" FontSize="18" FontFamily="Century Gothic" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="Time" Grid.Row="2" Grid.Column="1" Text="time" FontSize="18" FontFamily="Century Gothic" VerticalAlignment="Center"/>
+                        <StackPanel x:Name="Tags" Grid.Row="3" Grid.Column="1" Margin="-4,0,0,0" VerticalAlignment="Center" Orientation="Horizontal"/>
+
+                    </Grid>
 
                     <Border Grid.Row="1" Background="#F2F2F2" Margin="4" CornerRadius="12" Grid.ColumnSpan="2"/>
                     <TextBlock x:Name="Description" Grid.Row="1" Margin="10,10,10,10" TextWrapping="Wrap" Grid.ColumnSpan="2" FontSize="18"/>
                 </Grid>
             </TabItem>
-            
+
             <TabItem Header="Story" Style="{DynamicResource TabItemStyle1}">
                 <ScrollViewer Margin="0">
                     <StackPanel Name="StoryList"/>

@@ -82,6 +82,9 @@ namespace CPSC_SocialNetwork.Campaigns
 
             //about tab
             this.Description.Text = campaign.Description;
+            this.Tags.Children.Add(new Tag("This is a test of a really long tag"));
+            this.Tags.Children.Add(new Tag("A"));
+            this.Tags.Children.Add(new Tag("Testing"));
 
 
             //story tab

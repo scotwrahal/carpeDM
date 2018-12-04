@@ -77,6 +77,9 @@
     <Compile Include="Campaigns\StoryEntry.xaml.cs">
       <DependentUpon>StoryEntry.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Campaigns\Tag.xaml.cs">
+      <DependentUpon>Tag.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Characters\Character.cs" />
     <Compile Include="Characters\CharacterPage.xaml.cs">
       <DependentUpon>CharacterPage.xaml</DependentUpon>
@@ -119,6 +122,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Campaigns\StoryEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Campaigns\Tag.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
