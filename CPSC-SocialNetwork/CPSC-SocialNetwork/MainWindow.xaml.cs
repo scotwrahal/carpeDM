@@ -33,7 +33,7 @@ namespace CPSC_SocialNetwork
             InitializeComponent();
 
             this.mainUser = SocialNetworkDatabase.Users[SocialNetworkDatabase.USERNAME[0]];
-            this.profile = new ProfilePage(mainUser);
+            this.profile = SocialNetworkDatabase.ProfilePages[mainUser];
 
             Switcher.pageSwitcher = this;
             Switcher.Switch(profile);
