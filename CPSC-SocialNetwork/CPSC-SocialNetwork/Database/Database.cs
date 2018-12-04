@@ -78,7 +78,8 @@ namespace CPSC_SocialNetwork.Database
                 },
                 { USERNAME[2], new Dictionary<string, Character>
                     {
-                        { "Aeyi Oyu", new Character(owner: Users[USERNAME[2]], characterName: "Aeyi Oyu", characterRace: "Elf", characterClass: "Shadowdancer", characterLevel: 7) }
+                        { "Aeyi Oyu", new Character(owner: Users[USERNAME[2]], characterName: "Aeyi Oyu", characterRace: "Elf", characterClass: "Shadowdancer", characterLevel: 7) },
+                        { "Finnan Cobblepot", new Character(owner: Users[USERNAME[2]], characterName: "Finnan Cobblepot", characterRace: "Halfing", characterClass: "Rogue", characterLevel: 2) }
                     }
                 },
                 { USERNAME[3], new Dictionary<string, Character>
@@ -166,7 +167,10 @@ namespace CPSC_SocialNetwork.Database
 
         private static Dictionary<User, ProfilePage> InitializeProfilePages()
         {
-            return new Dictionary<User, ProfilePage>();
+            Dictionary<User, ProfilePage> pages = new Dictionary<User, ProfilePage>();
+            foreach (User user in Users.Values)
+                pages.Add(user, new ProfilePage(user));
+            return pages;
         }
 
 
@@ -242,6 +246,31 @@ namespace CPSC_SocialNetwork.Database
         {
             CampaignPages.Remove(campaign);
             Campaigns[campaign.Owner.Username].Remove(campaign.Name);
+        }
+
+        public static User GetUser(string name)
+        {
+            if (!Users.ContainsKey(name))
+                throw new KeyNotFoundException("Username does not exist in database.");
+            return Users[name];
+        }
+
+        public static Character GetCharacter(string username, string charactername)
+        {
+            if (!Characters.ContainsKey(username))
+                throw new KeyNotFoundException("Username does not exist in database.");
+            if (!Characters[username].ContainsKey(charactername))
+                throw new KeyNotFoundException("Character Name doesn't exist in database.");
+            return Characters[username][charactername];
+        }
+
+        public static Campaign GetCampaign(string username, string campaignname)
+        {
+            if (!Campaigns.ContainsKey(username))
+                throw new KeyNotFoundException("Username does not exist in database.");
+            if (!Campaigns[username].ContainsKey(campaignname))
+                throw new KeyNotFoundException("Campaign Name doesn't exist in database.");
+            return Campaigns[username][campaignname];
         }
     }
 }
