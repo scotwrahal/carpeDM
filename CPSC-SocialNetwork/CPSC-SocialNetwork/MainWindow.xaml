@@ -73,7 +73,7 @@
                             <ColumnDefinition Width="32"/>
                         </Grid.ColumnDefinitions>
                     
-                        <TextBox x:Name="SearchBar" Grid.Column="0" Margin="15,0,0,0" FontFamily="Century Gothic" FontSize="16"/>
+                        <TextBox x:Name="SearchBar" Grid.Column="0" BorderThickness="0" Margin="15,0,0,0" FontFamily="Century Gothic" FontSize="16"/>
                         <Image Grid.Column="1" Source="/Images/System/search.png" Margin="6">
                             <Image.Clip>
                                 <EllipseGeometry Center="10,10" RadiusX="16" RadiusY="16"/>
