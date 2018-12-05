@@ -42,7 +42,6 @@ namespace CPSC_SocialNetwork.Characters
         {
             InitializeComponent();
             this.character = character;
-            SocialNetworkDatabase.Add(this);
         }
     }
 }

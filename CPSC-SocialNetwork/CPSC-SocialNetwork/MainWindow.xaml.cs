@@ -49,8 +49,7 @@ namespace CPSC_SocialNetwork
             foreach(Campaign campaign in SocialNetworkDatabase.Campaigns[SocialNetworkDatabase.USERNAME[0]].Values)
             {
                 CampaignPage page = new CampaignPage(campaign);
-                SidebarButton button = new SidebarButton(type: SidebarButton.ButtonType.Campaign, title: campaign.Name, description: campaign.Description, linkedControl: page);
-                button.MouseLeftButtonDown += SidebarButtonHandler;
+                CampaignSidebarButton button = new CampaignSidebarButton(title: campaign.Name, description: campaign.Description, linkedControl: page, picture: campaign.Picture);
                 this.LeftSidebar.CampaignList.Children.Add(button);
             }
 

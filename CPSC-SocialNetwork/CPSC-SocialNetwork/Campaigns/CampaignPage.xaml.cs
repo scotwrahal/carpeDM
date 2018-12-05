@@ -125,8 +125,6 @@ namespace CPSC_SocialNetwork.Campaigns
 
             foreach (PlayerEntry entry in this.playerEntries)
                 this.PlayerList.Children.Add(entry);
-
-            SocialNetworkDatabase.Add(this);
         }
 
 

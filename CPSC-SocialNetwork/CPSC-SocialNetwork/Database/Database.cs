@@ -20,7 +20,9 @@ namespace CPSC_SocialNetwork.Database
             "ThatSmartGuy",
             "ThatOtherSmartGuy",
             "MrRobotDood",
-            "ABadJoke"
+            "ABadJoke",
+            "MissErection",
+            "UnholyCannoli"
         };
 
         public static readonly string[] DISPLAYNAME =
@@ -31,7 +33,9 @@ namespace CPSC_SocialNetwork.Database
             "Kris Lugtu",
             "Kendrick Ankamah",
             "Claire's Talking Robot",
-            "Not Claire"
+            "Not Claire",
+            "Matt Findlay",
+            "Shelby Hodgson"
         };
 
         public static Dictionary<string, User> Users = InitializeUsers();
@@ -54,7 +58,8 @@ namespace CPSC_SocialNetwork.Database
                 { USERNAME[3], new User(username: USERNAME[3], displayname: DISPLAYNAME[3], picture: "1.png") },
                 { USERNAME[4], new User(username: USERNAME[4], displayname: DISPLAYNAME[4], picture: "3.png") },
                 { USERNAME[5], new User(username: USERNAME[5], displayname: DISPLAYNAME[5], picture: "7.png") },
-                { USERNAME[6], new User(username: USERNAME[6], displayname: DISPLAYNAME[6], picture: "6.png") }
+                { USERNAME[6], new User(username: USERNAME[6], displayname: DISPLAYNAME[6], picture: "6.png") },
+                { USERNAME[7], new User(username: USERNAME[7], displayname: DISPLAYNAME[7], picture: "2.png") },
             };
         }
         
@@ -101,6 +106,11 @@ namespace CPSC_SocialNetwork.Database
                     {
 
                     }
+                },
+                { USERNAME[7], new Dictionary<string, Character>
+                    {
+
+                    }
                 }
             };
         }
@@ -116,7 +126,7 @@ namespace CPSC_SocialNetwork.Database
                             name: "Red Hand of Doom",
                             description: "An old 3e campaign.",
                             owner: Users[USERNAME[0]],
-                            picture: "11.png",
+                            picture: "2.png",
                             players: new SortedList<string, User>
                             {
                                 { Users[USERNAME[0]].DisplayName, Users[USERNAME[0]] },
@@ -160,6 +170,11 @@ namespace CPSC_SocialNetwork.Database
                     {
 
                     }
+                },
+                { USERNAME[7], new Dictionary<string, Campaign>
+                    {
+
+                    }
                 }
             };
         }
@@ -176,13 +191,23 @@ namespace CPSC_SocialNetwork.Database
 
         private static Dictionary<Character, CharacterPage> InitializeCharacterPages()
         {
-            return new Dictionary<Character, CharacterPage>();
+            Dictionary<Character, CharacterPage> pages = new Dictionary<Character, CharacterPage>();
+            foreach (User user in Users.Values)
+                foreach (Character character in Characters[user.Username].Values)
+                    if (character != null)
+                        pages.Add(character, new CharacterPage(character));
+            return pages;
         }
 
 
         private static Dictionary<Campaign, CampaignPage> InitializeCampaignPages()
         {
-            return new Dictionary<Campaign, CampaignPage>();
+            Dictionary<Campaign, CampaignPage> pages = new Dictionary<Campaign, CampaignPage>();
+            foreach (User user in Users.Values)
+                foreach (Campaign campaign in Campaigns[user.Username].Values)
+                    if (campaign != null)
+                        pages.Add(campaign, new CampaignPage(campaign));
+            return pages;
         }
 
 
