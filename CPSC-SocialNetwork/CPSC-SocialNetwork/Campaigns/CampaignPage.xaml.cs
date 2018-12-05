@@ -27,6 +27,7 @@ namespace CPSC_SocialNetwork.Campaigns
         private readonly Campaign campaign;
         public Campaign Campaign { get => this.campaign; }
 
+        /*
         private List<StoryEntry> storyEntries;
         public List<StoryEntry> StoryEntries
         {
@@ -40,7 +41,7 @@ namespace CPSC_SocialNetwork.Campaigns
 
 
         private List<CharacterEntry> characterEntries;
-
+        
         private List<PlayerEntry> playerEntries;
         public List<PlayerEntry> PlayerEntries
         {
@@ -51,6 +52,7 @@ namespace CPSC_SocialNetwork.Campaigns
                 this.PlayerList.DataContext = playerEntries;
             }
         }
+        
 
         private Image picture;
         public Image Picture
@@ -62,6 +64,7 @@ namespace CPSC_SocialNetwork.Campaigns
                 this.Picture.Source = this.picture.Source;
             }
         }
+        */
 
         public CampaignPage()
         {
@@ -81,50 +84,53 @@ namespace CPSC_SocialNetwork.Campaigns
             this.MasterImage.Source = new BitmapImage(new Uri(@"\Images\User\" + campaign.Owner.Picture, UriKind.Relative));
             this.OwnerName.Text = campaign.Owner.DisplayName;
 
+
             //about tab
+            this.Version.Text = campaign.Version;
+            this.Created.Text = campaign.DateCreated;
+            this.Time.Text = campaign.MeetingTime;
+
+            foreach (string tag in campaign.Tags)
+                this.Tags.Children.Add(new Tag(tag));
+
             this.Description.Text = campaign.Description;
 
 
             //story tab
-            storyEntries = new List<StoryEntry>
-            {
-                { new StoryEntry("Test", "This is a test!") },
-                { new StoryEntry("Also a test!", "Another Test for the testings") },
-                { new StoryEntry("This test involves both properties having exceptionally long names to see how that changes the formatting of the output text within the bounds of their designated text areas",
-                                 "As you can see like it said above this text is quite considerably longer than that of previous text boxes. The intent behind this is to show how the text behaves when the input data is long enough to span multiple lines within the text area") },
-                { new StoryEntry("Another test", "more testing") },
-                { new StoryEntry("Another test", "more testing") },
-                { new StoryEntry("Another test", "more testing") },
-                { new StoryEntry("Another test", "more testing") },
-                { new StoryEntry("Another test", "more testing") },
-                { new StoryEntry("Another test", "more testing") },
-                { new StoryEntry("Another test", "more testing") },
-                { new StoryEntry("Another test", "more testing") },
-                { new StoryEntry("Another test", "more testing") },
-                { new StoryEntry("Another test", "more testing") },
-                { new StoryEntry("Another test", "more testing") },
-                { new StoryEntry("Another test", "more testing") },
-                { new StoryEntry("Another test", "more testing") }
-            };
-        
-            foreach(StoryEntry entry in this.storyEntries)
-                this.StoryList.Children.Add(entry);
+            if (campaign.StoryEntries.Count == 0)
+                this.StoryList.Children.Add(new StoryEntry("", "Nothing to display."));
+
+            else
+                foreach (StoryEntry entry in campaign.StoryEntries)
+                    this.StoryList.Children.Add(entry);
 
             //characters tab
+            /*
             characterEntries = new List<CharacterEntry>();
             foreach (Character character in campaign.PlayerCharacters.Values)
                 characterEntries.Add(new CharacterEntry(character));
 
             foreach (CharacterEntry entry in this.characterEntries)
                 this.CharacterList.Children.Add(entry);
+            */
+
+            foreach (Character character in campaign.PlayerCharacters.Values)
+                this.CharacterList.Children.Add(new CharacterEntry(character));
 
             //players tab
+            /*
             playerEntries = new List<PlayerEntry>();
             foreach (User user in campaign.Players.Values)
                 playerEntries.Add(new PlayerEntry(user));
 
             foreach (PlayerEntry entry in this.playerEntries)
                 this.PlayerList.Children.Add(entry);
+            */
+
+            foreach (User user in campaign.Players.Values)
+                this.PlayerList.Children.Add(new PlayerEntry(user));
+
+            SocialNetworkDatabase.Add(this);
         }
 
 

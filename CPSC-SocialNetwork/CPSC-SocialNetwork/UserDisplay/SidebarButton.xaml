@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="CPSC_SocialNetwork.UserDisplay.SidebarButton"
+﻿<UserControl x:Name="userControl" x:Class="CPSC_SocialNetwork.UserDisplay.SidebarButton"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,8 +6,30 @@
              xmlns:local="clr-namespace:CPSC_SocialNetwork.UserDisplay"
              mc:Ignorable="d" 
              d:DesignWidth="240" d:DesignHeight="54">
+    <UserControl.Resources>
+        <Storyboard x:Key="OnMouseEnterButton">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border">
+                <EasingColorKeyFrame KeyTime="0" Value="White"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#AFFFFFFF"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnMouseLeaveButton">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border">
+                <EasingColorKeyFrame KeyTime="0" Value="#AFFFFFFF"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="White"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter">
+            <BeginStoryboard x:Name="OnMouseEnterButton_BeginStoryboard" Storyboard="{StaticResource OnMouseEnterButton}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave">
+            <BeginStoryboard x:Name="OnMouseLeaveButton_BeginStoryboard" Storyboard="{StaticResource OnMouseLeaveButton}"/>
+        </EventTrigger>
+    </UserControl.Triggers>
     <Grid Height="54">
-        <Border Background="White" CornerRadius="8" Margin="0,2,0,4" Cursor="Hand">
+        <Border x:Name="border" Background="#FFFFFFFF" CornerRadius="8" Margin="0,2,0,4" Cursor="Hand">
             <Border.Effect>
                 <DropShadowEffect Color="#FF333333" ShadowDepth="0" Direction="0" Opacity="0.5"/>
             </Border.Effect>
