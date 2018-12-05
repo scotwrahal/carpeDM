@@ -27,6 +27,13 @@ namespace CPSC_SocialNetwork.Campaigns
             set => this.description = value; 
         }
 
+        private string version;
+        public string Version
+        {
+            get => this.version;
+            set => this.version = value;
+        }
+
         private string picture;
         public string Picture
         {
@@ -35,9 +42,23 @@ namespace CPSC_SocialNetwork.Campaigns
         }
 
         private readonly User owner;
-        public User Owner
+        public User Owner { get => this.owner; }
+
+        private readonly string datecreated;
+        public string DateCreated { get => this.datecreated; }
+
+        private string meetingtime;
+        public string MeetingTime
         {
-            get => owner;
+            get => this.meetingtime;
+            set => this.meetingtime = value;
+        }
+
+        private List<string> tags;
+        public List<string> Tags
+        {
+            get => this.tags;
+            set => this.tags = value;
         }
 
         private SortedList<string, User> players;
@@ -70,10 +91,14 @@ namespace CPSC_SocialNetwork.Campaigns
 
 
         public Campaign(
-            string name, 
-            string description, 
-            User owner, 
+            string name,
+            string description,
+            User owner,
+            string version = "",
             string picture = "",
+            string date = "December 10th, 2018",
+            string meeting = "Friday Evenings - 6pm - Weekly",
+            List<string> tags = null,
             SortedList<string, User> players = null, 
             SortedList<string, Character> characters = null, 
             List<StoryEntry> entries = null)
@@ -81,11 +106,17 @@ namespace CPSC_SocialNetwork.Campaigns
             this.name = name;
             this.description = description;
             this.owner = owner;
+            this.version = version;
             this.picture = picture;
+            this.datecreated = date;
+            this.meetingtime = meeting;
+            this.tags = tags;
             this.players = players;
             this.characters = characters;
             this.entries = entries;
 
+            if (tags == null)
+                this.tags = new List<string>();
             if (players == null)
                 this.players = new SortedList<string, User>();
             if (characters == null)
