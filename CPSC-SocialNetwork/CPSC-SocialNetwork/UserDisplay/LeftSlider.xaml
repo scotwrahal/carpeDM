@@ -187,7 +187,7 @@
                            FontFamily="Century Gothic" Foreground="#FF4C4C4C">
                     <TextBlock.LayoutTransform>
                         <TransformGroup>
-                            <RotateTransform Angle="90"/>
+                            <RotateTransform Angle="270"/>
                         </TransformGroup>
                     </TextBlock.LayoutTransform>
                 </TextBlock>
@@ -199,7 +199,7 @@
                            FontFamily="Century Gothic" Foreground="#FF4C4C4C">
                     <TextBlock.LayoutTransform>
                         <TransformGroup>
-                            <RotateTransform Angle="90"/>
+                            <RotateTransform Angle="270"/>
                         </TransformGroup>
                     </TextBlock.LayoutTransform>
                 </TextBlock>

@@ -1,12 +1,12 @@
-﻿<UserControl x:Class="CPSC_SocialNetwork.Campaigns.CampaignSidebarButton"
+﻿<UserControl x:Class="CPSC_SocialNetwork.Characters.CharacterSidebarButton"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:CPSC_SocialNetwork.Campaigns"
+             xmlns:local="clr-namespace:CPSC_SocialNetwork.Characters"
              mc:Ignorable="d" 
              d:DesignHeight="54" d:DesignWidth="240"
-             MouseDown="CampaignSidebarButton_Click">
+             MouseDown="CharacterSidebarButton_Click">
     <UserControl.Resources>
         <Storyboard x:Key="OnMouseEnterButton">
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="Border">
@@ -30,7 +30,7 @@
         </EventTrigger>
     </UserControl.Triggers>
     <Grid Height="54">
-        <Border x:Name="Border" Background="White" CornerRadius="8" Margin="0,2,0,4" Cursor="Hand">
+        <Border x:Name="Border" Background="#FFFFFFFF" CornerRadius="8" Margin="0,2,0,4" Cursor="Hand">
             <Border.Effect>
                 <DropShadowEffect Color="#FF333333" ShadowDepth="0" Direction="0" Opacity="0.5"/>
             </Border.Effect>
@@ -39,11 +39,10 @@
                     <ColumnDefinition Width="48"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Border x:Name="Mask" Grid.Column="0" Background="White" CornerRadius="6"/>
-                <Image Name="CampaignImage" Grid.Column="0" Margin="6">
-                    <Image.OpacityMask>
-                        <VisualBrush Visual="{Binding ElementName=Mask}"/>
-                    </Image.OpacityMask>
+                <Image Name="CharacterImage" Grid.Column="0" Margin="6">
+                    <Image.Clip>
+                        <EllipseGeometry Center="18,18" RadiusX="18" RadiusY="18"/>
+                    </Image.Clip>
                 </Image>
                 <Grid Grid.Column="1">
                     <Grid.RowDefinitions>

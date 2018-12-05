@@ -99,7 +99,7 @@
 
                 <!--#region Middle Tab Label-->
                 <Grid Grid.Row="1" Name="MiddleTab" Background="#CCCCCC">
-                    <TextBlock Text="Chat" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF4C4C4C"/>
+                    <TextBlock Text="Chats" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FF4C4C4C"/>
                 </Grid>
                 <!--#endregion-->
 

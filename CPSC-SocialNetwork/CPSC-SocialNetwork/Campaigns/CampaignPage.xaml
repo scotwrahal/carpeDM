@@ -358,7 +358,8 @@
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <TextBlock x:Name="OwnerName" Grid.Row="0" Margin="6,0,0,0" VerticalAlignment="Bottom" FontSize="16" TextTrimming="CharacterEllipsis"/>
+                            <TextBlock Grid.Row="0" Margin="6,4,0,0" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" Text="Dungeon Master:" FontFamily="Century Gothic"/>
+                            <TextBlock x:Name="OwnerName" Grid.Row="1" Margin="6,0,0,4" VerticalAlignment="Center" FontSize="16" TextTrimming="CharacterEllipsis" FontFamily="Century Gothic"/>
                         </Grid>
                     </Grid>
                 </Grid>

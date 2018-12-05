@@ -13,9 +13,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CPSC_SocialNetwork.Campaigns
+namespace CPSC_SocialNetwork.Characters
 {
-    public partial class CampaignSidebarButton : UserControl
+    /// <summary>
+    /// Interaction logic for CharacterSidebarButton.xaml
+    /// </summary>
+    public partial class CharacterSidebarButton : UserControl
     {
         private UserControl link;
         public UserControl Link
@@ -30,7 +33,7 @@ namespace CPSC_SocialNetwork.Campaigns
             set
             {
                 picture = value;
-                this.CampaignImage.Source = this.picture.Source;
+                this.CharacterImage.Source = this.CharacterImage.Source;
             }
         }
 
@@ -42,23 +45,23 @@ namespace CPSC_SocialNetwork.Campaigns
         }
 
 
-        public CampaignSidebarButton()
+        public CharacterSidebarButton()
         {
             InitializeComponent();
         }
 
-        public CampaignSidebarButton(string title, UserControl linkedControl, string description = "", string picture = "")
+        public CharacterSidebarButton(string title, UserControl linkedControl, string description = "", string picture = "")
         {
             InitializeComponent();
             Title.Text = title;
             Description.Text = description;
             link = linkedControl;
-            this.CampaignImage.Source = new BitmapImage(new Uri(@"\Images\Campaign\" + picture, UriKind.Relative));
+            this.CharacterImage.Source = new BitmapImage(new Uri(@"\Images\Character\" + picture, UriKind.Relative));
         }
 
-        private void CampaignSidebarButton_Click(object sender, MouseButtonEventArgs e)
+        private void CharacterSidebarButton_Click(object sender, MouseButtonEventArgs e)
         {
-            CampaignSidebarButton Sender = (CampaignSidebarButton)sender;
+            CharacterSidebarButton Sender = (CharacterSidebarButton)sender;
             Switcher.Switch(Sender.Link);
         }
     }

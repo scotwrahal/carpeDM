@@ -94,7 +94,7 @@ namespace CPSC_SocialNetwork.Campaigns
             string name,
             string description,
             User owner,
-            string version = "",
+            string version = "D&D 5th Edition",
             string picture = "",
             string date = "December 10th, 2018",
             string meeting = "Friday Evenings - 6pm - Weekly",

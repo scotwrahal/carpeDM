@@ -84,12 +84,18 @@
     <Compile Include="Characters\CharacterPage.xaml.cs">
       <DependentUpon>CharacterPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Characters\CharacterSidebarButton.xaml.cs">
+      <DependentUpon>CharacterSidebarButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Database\Database.cs" />
     <Compile Include="UserDisplay\ChatWindowDirect.xaml.cs">
       <DependentUpon>ChatWindowDirect.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserDisplay\ChatWindowGroup.xaml.cs">
       <DependentUpon>ChatWindowGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Users\GroupSidebarButton.xaml.cs">
+      <DependentUpon>GroupSidebarButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="Users\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
@@ -105,6 +111,9 @@
       <DependentUpon>SidebarButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="Users\User.cs" />
+    <Compile Include="Users\UserSidebarButton.xaml.cs">
+      <DependentUpon>UserSidebarButton.xaml</DependentUpon>
+    </Compile>
     <Page Include="Campaigns\CampaignPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -133,6 +142,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Characters\CharacterSidebarButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserDisplay\ChatWindowDirect.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -157,6 +170,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Users\GroupSidebarButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Users\ProfilePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -166,6 +183,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserDisplay\SidebarButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Users\UserSidebarButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
