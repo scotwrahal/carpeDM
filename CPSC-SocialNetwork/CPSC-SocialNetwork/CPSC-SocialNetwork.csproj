@@ -87,6 +87,7 @@
     <Compile Include="Characters\CharacterSidebarButton.xaml.cs">
       <DependentUpon>CharacterSidebarButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ChatManager.cs" />
     <Compile Include="Database\Database.cs" />
     <Compile Include="UserDisplay\ChatWindowDirect.xaml.cs">
       <DependentUpon>ChatWindowDirect.xaml</DependentUpon>
@@ -147,8 +148,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserDisplay\ChatWindowDirect.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UserDisplay\ChatWindowGroup.xaml">
       <SubType>Designer</SubType>
@@ -286,6 +287,13 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\System\default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\System\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\System\minimize.png" />
+    <Resource Include="Images\System\maximize.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -13,15 +13,15 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using CPSC_SocialNetwork;
+using CPSC_SocialNetwork.UserDisplay;
+
 namespace CPSC_SocialNetwork.Users
 {
     public partial class UserSidebarButton : UserControl
     {
-        private UserControl link;
-        public UserControl Link
-        {
-            get { return link; }
-        }
+        private readonly ChatWindowDirect link;
+        public ChatWindowDirect Link { get => this.link; }
 
         private Image picture;
         public Image Picture
@@ -47,12 +47,19 @@ namespace CPSC_SocialNetwork.Users
             InitializeComponent();
         }
 
-        public UserSidebarButton(string title, UserControl linkedControl, string picture = "")
+        public UserSidebarButton(string title, ChatWindowDirect linkedControl, string picture = "")
         {
             InitializeComponent();
             Title.Text = title;
             link = linkedControl;
             this.UserImage.Source = new BitmapImage(new Uri(@"\Images\User\" + picture, UriKind.Relative));
+        }
+
+        private void UserControl_Click(object sender, MouseButtonEventArgs e)
+        {
+            this.link.OpenWindow.Visibility = Visibility.Visible;
+            this.link.ClosedWindow.Visibility = Visibility.Hidden;
+            ChatManager.Load(this.link);
         }
     }
 }

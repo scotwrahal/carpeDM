@@ -35,8 +35,11 @@ namespace CPSC_SocialNetwork
             this.mainUser = SocialNetworkDatabase.Users[SocialNetworkDatabase.USERNAME[0]];
             this.profile = SocialNetworkDatabase.ProfilePages[mainUser];
 
+            ChatManager.chatmanager = this;
+
             Switcher.pageSwitcher = this;
             Switcher.Switch(profile);
+            
 
             foreach(Character character in SocialNetworkDatabase.Characters[SocialNetworkDatabase.USERNAME[0]].Values)
             {
@@ -65,7 +68,7 @@ namespace CPSC_SocialNetwork
                     UserSidebarButton button = new UserSidebarButton(
                         title: friend.DisplayName, 
                         picture: friend.Picture, 
-                        linkedControl: SocialNetworkDatabase.ProfilePages[friend]);
+                        linkedControl: new ChatWindowDirect(friend));
                     this.RightSidebar.FriendList.Children.Add(button);
                 }
             }
@@ -91,6 +94,21 @@ namespace CPSC_SocialNetwork
         {
             this.CurrentPage.Children.Remove(nextPage);
             this.CurrentPage.Children.Add(nextPage);
+        }
+
+
+        public void OpenChatWindow(UserControl chat)
+        {
+            if (!this.ChatLayout.Children.Contains(chat))
+                this.ChatLayout.Children.Add(chat);
+            if (ChatLayout.Children.Count >= 4)
+                this.ChatLayout.Children.RemoveAt(0);
+        }
+
+
+        public void CloseChatWindow(UserControl chat)
+        {
+            this.ChatLayout.Children.Remove(chat);
         }
 
 

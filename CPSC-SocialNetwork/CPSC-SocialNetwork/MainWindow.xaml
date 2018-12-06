@@ -49,9 +49,13 @@
         </ControlTemplate>
     </Window.Resources>
 
-    <DockPanel LastChildFill="True">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="64"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <!--#region Top Menu-->
-        <Border DockPanel.Dock="Top" Height="64" Background="#003B4C" Panel.ZIndex="5">
+        <Border Grid.Row="0" Height="64" Background="#003B4C" Panel.ZIndex="5">
             <Border.Effect>
                 <DropShadowEffect Direction="270" Color="#FF333333" BlurRadius="10" Opacity="0.5"/>
             </Border.Effect>
@@ -107,34 +111,30 @@
         </Border>
         <!--#endregion-->
 
-        <!--#region Bottom Tabs-->
-        <Grid DockPanel.Dock="Bottom" Height="8" Background="#003B4C">
-            <!--#region Grid Dimensions-->
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="240"/>
-                <ColumnDefinition Width="*"  />
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="240"/>
             </Grid.ColumnDefinitions>
+            <!--#region Left Sidebar-->
+            <Grid Grid.Column="0" Width="240">
+                <userDisplay:LeftSlider x:Name="LeftSidebar" Panel.ZIndex="4"/>
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region Right Sidebar-->
+            <Grid Grid.Column="2" Width="240">
+                <userDisplay:RightSlider x:Name="RightSidebar" Panel.ZIndex="4"/>
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region Current Page-->
+            <Grid x:Name="CurrentPage" Grid.Column="1" Background="White" Panel.ZIndex="1">
+
+            </Grid>
+            <StackPanel x:Name="ChatLayout" Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="320" Panel.ZIndex="3"/>
             <!--#endregion-->
         </Grid>
-        <!--#endregion-->
-
-        <!--#region Left Sidebar-->
-        <Grid DockPanel.Dock="Left" Width="240">
-            <userDisplay:LeftSlider x:Name="LeftSidebar" Grid.Row="0" Panel.ZIndex="4"/>
-        </Grid>
-        <!--#endregion-->
-
-        <!--#region Right Sidebar-->
-        <Grid DockPanel.Dock="Right" Width="240">
-            <userDisplay:RightSlider x:Name="RightSidebar" Grid.Row="0" Panel.ZIndex="4"/>
-        </Grid>
-        <!--#endregion-->
-
-        <!--#region Current Page-->
-        <Grid x:Name="CurrentPage" Background="White" Panel.ZIndex="1">
-
-        </Grid>
-        <!--#endregion-->
-    </DockPanel>
+    </Grid>
 </Window>

@@ -13,16 +13,65 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using CPSC_SocialNetwork;
+using CPSC_SocialNetwork.Users;
+
 namespace CPSC_SocialNetwork.UserDisplay
 {
-    /// <summary>
-    /// Interaction logic for ChatWindowDirect.xaml
-    /// </summary>
     public partial class ChatWindowDirect : UserControl
     {
+        private string name;
+        public string DisplayName
+        {
+            get => this.name;
+            set
+            {
+                this.name = value;
+                this.Name.Text = this.name;
+                this.ClosedWindowName.Text = this.name;
+            }
+        }
+
+        private Image picture;
+        public Image Picture
+        {
+            get => this.picture;
+            set
+            {
+                this.picture = value;
+                this.Image.Source = picture.Source;
+                this.ClosedWindowImage.Source = picture.Source;
+            }
+        }
+
         public ChatWindowDirect()
         {
             InitializeComponent();
+        }
+
+        public ChatWindowDirect(User user)
+        {
+            InitializeComponent();
+            this.DisplayName = user.DisplayName;
+            this.Image.Source = new BitmapImage(new Uri(@"\Images\User\" + user.Picture, UriKind.Relative));
+            this.ClosedWindowImage.Source = new BitmapImage(new Uri(@"\Images\User\" + user.Picture, UriKind.Relative));
+        }
+        
+        private void MaximizeButton_Click(object sender, MouseButtonEventArgs e)
+        {
+            this.ClosedWindow.Visibility = Visibility.Hidden;
+            this.OpenWindow.Visibility = Visibility.Visible;
+        }
+
+        private void MinimizeButton_Click(object sender, MouseButtonEventArgs e)
+        {
+            this.ClosedWindow.Visibility = Visibility.Visible;
+            this.OpenWindow.Visibility = Visibility.Hidden;
+        }
+
+        private void CloseButton_Click(object sender, MouseButtonEventArgs e)
+        {
+            ChatManager.Delete(this);
         }
     }
 }
