@@ -100,7 +100,16 @@ namespace CPSC_SocialNetwork
         public void OpenChatWindow(UserControl chat)
         {
             if (!this.ChatLayout.Children.Contains(chat))
+            {
                 this.ChatLayout.Children.Add(chat);
+            }
+            else
+            {
+                int index = this.ChatLayout.Children.IndexOf(chat);
+                this.ChatLayout.Children.Remove(chat);
+                ChatLayout.Children.Insert(index, chat);
+            }
+                
             if (ChatLayout.Children.Count >= 4)
                 this.ChatLayout.Children.RemoveAt(0);
         }
