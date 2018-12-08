@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CPSC_SocialNetwork.Users"
              mc:Ignorable="d" 
-             d:DesignHeight="54" d:DesignWidth="240">
+             d:DesignHeight="54" d:DesignWidth="240"
+             MouseDown="GroupSidebarButton_Click">
     <UserControl.Resources>
         <Storyboard x:Key="OnMouseEnterButton">
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="Border">
@@ -38,7 +39,7 @@
                     <ColumnDefinition Width="48"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Border x:Name="Mask" Grid.Column="0" Background="White" CornerRadius="6"/>
+                <Border x:Name="Mask" Grid.Column="0" Background="White" CornerRadius="6" Margin="6"/>
                 <Image Name="GroupImage" Grid.Column="0" Margin="6">
                     <Image.OpacityMask>
                         <VisualBrush Visual="{Binding ElementName=Mask}"/>

@@ -95,6 +95,9 @@
     <Compile Include="UserDisplay\ChatWindowGroup.xaml.cs">
       <DependentUpon>ChatWindowGroup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserDisplay\ProfilePageButton.xaml.cs">
+      <DependentUpon>ProfilePageButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Users\GroupSidebarButton.xaml.cs">
       <DependentUpon>GroupSidebarButton.xaml</DependentUpon>
     </Compile>
@@ -171,6 +174,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UserDisplay\ProfilePageButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Users\GroupSidebarButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

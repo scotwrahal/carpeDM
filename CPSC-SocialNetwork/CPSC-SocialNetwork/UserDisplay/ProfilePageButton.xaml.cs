@@ -15,15 +15,10 @@ using System.Windows.Shapes;
 
 using CPSC_SocialNetwork.Users;
 using CPSC_SocialNetwork.Database;
-using CPSC_SocialNetwork.UserDisplay;
 
-
-namespace CPSC_SocialNetwork.Campaigns
+namespace CPSC_SocialNetwork.UserDisplay
 {
-    /// <summary>
-    /// Interaction logic for PlayerEntry.xaml
-    /// </summary>
-    public partial class PlayerEntry : UserControl
+    public partial class ProfilePageButton : UserControl
     {
         private User user;
         public User User
@@ -32,30 +27,43 @@ namespace CPSC_SocialNetwork.Campaigns
             set => this.user = value;
         }
 
-        public PlayerEntry()
+        private string name;
+        public string DisplayName
         {
-            InitializeComponent();
-
-            this.Image.Source = new BitmapImage(new Uri(@"\Images\System\default.png", UriKind.Relative));
-            this.Name.Text = "Display Name";
+            get => this.name;
+            set
+            {
+                this.name = value;
+                this.MainUserName.Text = this.name;
+            }
         }
 
-        public PlayerEntry(User user)
+        private Image picture;
+        public Image Picture
+        {
+            get => this.picture;
+            set
+            {
+                this.picture = value;
+                this.Image.Source = this.picture.Source;
+            }
+        }
+
+        public ProfilePageButton()
+        {
+            InitializeComponent();
+        }
+        public ProfilePageButton(User user)
         {
             InitializeComponent();
             this.user = user;
+            this.DisplayName = user.DisplayName;
             this.Image.Source = new BitmapImage(new Uri(@"\Images\User\" + user.Picture, UriKind.Relative));
-            this.Name.Text = user.DisplayName;
         }
 
-        private void PlayerEntry_Click(object sender, MouseButtonEventArgs e)
+        private void ProfilePageButton_Click(object sender, MouseButtonEventArgs e)
         {
             Switcher.Switch(SocialNetworkDatabase.ProfilePages[this.user]);
-        }
-
-        private void DMIcon_Click(object sender, MouseButtonEventArgs e)
-        {
-            ChatManager.Load(new ChatWindowDirect(this.user));
         }
     }
 }

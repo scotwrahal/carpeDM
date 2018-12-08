@@ -35,11 +35,14 @@ namespace CPSC_SocialNetwork
             this.mainUser = SocialNetworkDatabase.Users[SocialNetworkDatabase.USERNAME[0]];
             this.profile = SocialNetworkDatabase.ProfilePages[mainUser];
 
+            this.ProfilePageButton.User = mainUser;
+            this.ProfilePageButton.Image.Source = new BitmapImage(new Uri(@"\Images\User\" + mainUser.Picture, UriKind.Relative));
+            this.ProfilePageButton.DisplayName = mainUser.DisplayName;
+
             ChatManager.chatmanager = this;
 
             Switcher.pageSwitcher = this;
             Switcher.Switch(profile);
-            
 
             foreach(Character character in SocialNetworkDatabase.Characters[SocialNetworkDatabase.USERNAME[0]].Values)
             {
@@ -78,17 +81,11 @@ namespace CPSC_SocialNetwork
                 GroupSidebarButton button = new GroupSidebarButton(
                     title: "Chat - " + campaign.Name, 
                     picture: campaign.Picture, 
-                    linkedControl: SocialNetworkDatabase.CampaignPages[campaign]);
+                    linkedControl: new ChatWindowGroup(campaign));
                 this.RightSidebar.GroupList.Children.Add(button);
             }
         }
 
-
-        private void SidebarButtonHandler(object sender, MouseButtonEventArgs e)
-        {
-            SidebarButton Sender = (SidebarButton)sender;
-            this.Navigate(Sender.Link);
-        }
 
         public void Navigate(UserControl nextPage)
         {

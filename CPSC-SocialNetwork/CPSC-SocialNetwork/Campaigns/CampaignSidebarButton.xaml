@@ -39,7 +39,7 @@
                     <ColumnDefinition Width="48"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Border x:Name="Mask" Grid.Column="0" Background="White" CornerRadius="6"/>
+                <Border x:Name="Mask" Grid.Column="0" Background="White" CornerRadius="6" Margin="6"/>
                 <Image Name="CampaignImage" Grid.Column="0" Margin="6">
                     <Image.OpacityMask>
                         <VisualBrush Visual="{Binding ElementName=Mask}"/>

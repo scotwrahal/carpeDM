@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using CPSC_SocialNetwork.UserDisplay;
+
 namespace CPSC_SocialNetwork.Users
 {
     /// <summary>
@@ -20,11 +22,8 @@ namespace CPSC_SocialNetwork.Users
     /// </summary>
     public partial class GroupSidebarButton : UserControl
     {
-        private UserControl link;
-        public UserControl Link
-        {
-            get { return link; }
-        }
+        private readonly ChatWindowGroup link;
+        public ChatWindowGroup Link { get => this.link; }
 
         private Image picture;
         public Image Picture
@@ -50,12 +49,19 @@ namespace CPSC_SocialNetwork.Users
             InitializeComponent();
         }
 
-        public GroupSidebarButton(string title, UserControl linkedControl, string picture = "")
+        public GroupSidebarButton(string title, ChatWindowGroup linkedControl, string picture = "")
         {
             InitializeComponent();
             Title.Text = title;
             link = linkedControl;
             this.GroupImage.Source = new BitmapImage(new Uri(@"\Images\Campaign\" + picture, UriKind.Relative));
+        }
+
+        private void GroupSidebarButton_Click(object sender, MouseButtonEventArgs e)
+        {
+            this.link.ClosedWindow.Visibility = Visibility.Hidden;
+            this.link.OpenWindow.Visibility = Visibility.Visible;
+            ChatManager.Load(this.link);
         }
     }
 }

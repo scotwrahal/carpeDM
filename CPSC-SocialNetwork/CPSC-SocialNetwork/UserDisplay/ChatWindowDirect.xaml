@@ -79,6 +79,9 @@
             </Grid>
         </Border>
         <Border x:Name ="ClosedWindow" Background="#CCCCCC" Grid.Row="0" CornerRadius="12,12,0,0" Visibility="Hidden" VerticalAlignment="Bottom">
+            <Border.Effect>
+                <DropShadowEffect Color="#FF333333" Opacity="0.75" ShadowDepth="0"/>
+            </Border.Effect>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="24"/>
