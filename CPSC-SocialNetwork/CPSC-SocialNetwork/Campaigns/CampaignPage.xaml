@@ -472,7 +472,19 @@
 
             <TabItem Header="Characters" Style="{DynamicResource TabItemStyle1}">
                 <ScrollViewer Margin="0">
-                    <StackPanel Name="CharacterList"/>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="18"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="18"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="Player Characters" FontSize="18" FontFamily="Century Gothic"  VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="ExtraBlack" />
+                        <StackPanel Grid.Row="1" Name="PCharacterList"/>
+                        <TextBlock Grid.Row="2" Text="Non-Player Characters" FontSize="18" FontFamily="Century Gothic" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="ExtraBlack"/>
+                        <StackPanel Grid.Row="1" Name="NPCharacterList"/>
+                    </Grid>
+                    
                 </ScrollViewer>
             </TabItem>
 

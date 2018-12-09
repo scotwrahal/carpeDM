@@ -63,7 +63,7 @@ namespace CPSC_SocialNetwork.Database
             };
         }
         
-
+        // Character Database
         private static Dictionary<string, Dictionary<string, Character>> InitializeCharacters()
         {
             return new Dictionary<string, Dictionary<string, Character>>
