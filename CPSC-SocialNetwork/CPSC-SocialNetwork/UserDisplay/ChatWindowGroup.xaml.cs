@@ -61,6 +61,7 @@ namespace CPSC_SocialNetwork.UserDisplay
         {
             this.ClosedWindow.Visibility = Visibility.Hidden;
             this.OpenWindow.Visibility = Visibility.Visible;
+            Keyboard.Focus(Message);
         }
 
         private void MinimizeButton_Click(object sender, MouseButtonEventArgs e)
@@ -72,6 +73,27 @@ namespace CPSC_SocialNetwork.UserDisplay
         private void CloseButton_Click(object sender, MouseButtonEventArgs e)
         {
             ChatManager.Delete(this);
+        }
+
+        private void SendButton_Click(object sender, MouseButtonEventArgs e)
+        {
+            WriteMessage();
+        }
+
+        private void Message_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                WriteMessage();
+        }
+
+        private void WriteMessage()
+        {
+            if (Message.Text.Length > 0)
+            {
+                Messages.Children.Add(new Message(Message.Text));
+                Message.Text = "";
+                Scroller.ScrollToEnd();
+            }
         }
     }
 }

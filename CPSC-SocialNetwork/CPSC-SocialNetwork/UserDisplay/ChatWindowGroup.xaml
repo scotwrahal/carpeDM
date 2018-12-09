@@ -59,9 +59,10 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="36"/>
                     </Grid.RowDefinitions>
-                    <ScrollViewer Grid.Row="0">
-
+                    <ScrollViewer x:Name="Scroller" Grid.Row="0">
+                        <StackPanel x:Name="Messages"/>
                     </ScrollViewer>
+
                     <Grid Background="#CCCCCC" Grid.Row="1">
                         <Border Background="White" Margin="8" CornerRadius="10">
                             <Grid>
@@ -70,12 +71,17 @@
                                     <ColumnDefinition Width="50"/>
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Column="0" Margin="10,0,0,0" BorderThickness="0"/>
-                                <TextBlock Grid.Column="1" Text="Send" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <Grid Grid.Column="0" Margin="10,-3,0,0">
+                                    <TextBox x:Name="Message" Grid.Column="0" BorderThickness="0" VerticalAlignment="Top" FontSize="11" KeyDown="Message_KeyDown"/>
+                                </Grid>
+                                <Border x:Name="border" Grid.Column="1" Margin="-2" BorderBrush="#CCCCCC" BorderThickness="2" CornerRadius="0,10,10,0" Background="#F2F2F2" Cursor="Hand" MouseDown="SendButton_Click">
+                                    <TextBlock Text="Send" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,2,0"/>
+                                </Border>
 
                             </Grid>
                         </Border>
                     </Grid>
+
                 </Grid>
             </Grid>
         </Border>

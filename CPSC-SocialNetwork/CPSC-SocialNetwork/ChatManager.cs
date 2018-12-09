@@ -13,7 +13,7 @@ namespace CPSC_SocialNetwork
 
         public static void Load(UserControl chat)
         {
-            chatmanager.OpenChatWindow(chat);
+            chatmanager.OpenChatWindow(chat);            
         }
 
         public static void Delete(UserControl chat)

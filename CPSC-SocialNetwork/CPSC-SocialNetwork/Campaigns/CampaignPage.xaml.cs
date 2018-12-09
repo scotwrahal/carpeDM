@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using CPSC_SocialNetwork.Characters;
 using CPSC_SocialNetwork.Users;
 using CPSC_SocialNetwork.Database;
+using CPSC_SocialNetwork.UserDisplay;
 
 namespace CPSC_SocialNetwork.Campaigns
 {
@@ -140,6 +141,16 @@ namespace CPSC_SocialNetwork.Campaigns
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void DM_Click(object sender, MouseButtonEventArgs e)
+        {
+            ChatManager.Load(new ChatWindowDirect(this.campaign.Owner));
+        }
+
+        private void GM_Click(object sender, MouseButtonEventArgs e)
+        {
+            ChatManager.Load(new ChatWindowGroup(this.campaign));
         }
     }
 }
