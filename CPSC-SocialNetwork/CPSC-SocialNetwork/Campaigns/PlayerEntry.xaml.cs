@@ -50,8 +50,9 @@ namespace CPSC_SocialNetwork.Campaigns
 
         private void PlayerEntry_Click(object sender, MouseButtonEventArgs e)
         {
-            Switcher.Switch(SocialNetworkDatabase.ProfilePages[this.user]);
-        }
+            if(!(e.OriginalSource is Image))
+                Switcher.Switch(SocialNetworkDatabase.ProfilePages[this.user]);
+        }       
 
         private void DMIcon_Click(object sender, MouseButtonEventArgs e)
         {
