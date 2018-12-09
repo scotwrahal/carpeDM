@@ -309,5 +309,8 @@
     <Resource Include="Images\System\minimize.png" />
     <Resource Include="Images\System\maximize.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\System\Logo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

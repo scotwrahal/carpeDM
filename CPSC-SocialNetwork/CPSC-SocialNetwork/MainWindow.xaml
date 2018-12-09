@@ -36,7 +36,7 @@
                     <ColumnDefinition Width="44"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Image x:Name="Image" Grid.Column="0" Source="this doesnt work like every other image so i dont know how to change this inside the cs">
+                <Image x:Name="Image" Grid.Column="0">
                     <Image.Effect>
                         <DropShadowEffect ShadowDepth="0"/>
                     </Image.Effect>
@@ -68,7 +68,15 @@
                 </Grid.ColumnDefinitions>
                 <!--#endregion-->
 
-                <Border Grid.Column="0" Background="White" Margin="12,12,92,12"/>
+                <Grid Grid.Column="0" Margin="20,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="/Images/System/Logo.png"/>
+                    <TextBlock Grid.Column="1" Text="CompenDM" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="40" Margin="-5,0,0,0"/>
+                </Grid>
 
                 <Border Grid.Column="1" Background="White" Margin="12,16,12,16" CornerRadius="16">
                     <Grid>

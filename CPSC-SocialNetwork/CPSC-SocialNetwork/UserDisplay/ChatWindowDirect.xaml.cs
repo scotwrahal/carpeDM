@@ -67,6 +67,7 @@ namespace CPSC_SocialNetwork.UserDisplay
         {
             this.ClosedWindow.Visibility = Visibility.Hidden;
             this.OpenWindow.Visibility = Visibility.Visible;
+            Keyboard.Focus(Message);
         }
 
         private void MinimizeButton_Click(object sender, MouseButtonEventArgs e)
