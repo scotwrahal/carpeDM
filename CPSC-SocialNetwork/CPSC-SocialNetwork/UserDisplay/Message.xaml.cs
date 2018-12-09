@@ -22,9 +22,12 @@ namespace CPSC_SocialNetwork.UserDisplay
     /// </summary>
     public partial class Message : UserControl
     {
-        public Message()
+        public Message(string text)
         {
             InitializeComponent();
+            this.MessageImage.Source = new BitmapImage(new Uri(@"\Images\User\" + "ProfilePicture.png", UriKind.Relative));
+            this.Author.Text = "Micah Peacock";
+            this.Text.Text = text;
         }
 
         public Message(User user, string text)
