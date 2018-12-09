@@ -12,12 +12,20 @@
                 <EasingColorKeyFrame KeyTime="0" Value="White"/>
                 <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#AFFFFFFF"/>
             </ColorAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="border">
+                <EasingThicknessKeyFrame KeyTime="0" Value="0,2,0,4"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.1" Value="-2,0,-2,2"/>
+            </ThicknessAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="OnMouseLeaveButton">
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border">
                 <EasingColorKeyFrame KeyTime="0" Value="#AFFFFFFF"/>
                 <EasingColorKeyFrame KeyTime="0:0:0.1" Value="White"/>
             </ColorAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="border">
+                <EasingThicknessKeyFrame KeyTime="0" Value="-2,0,-2,2"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.1" Value="0,2,0,4"/>
+            </ThicknessAnimationUsingKeyFrames>
         </Storyboard>
     </UserControl.Resources>
     <UserControl.Triggers>
@@ -29,7 +37,11 @@
         </EventTrigger>
     </UserControl.Triggers>
     <Grid Height="54">
-        <Border x:Name="border" Background="#FFFFFFFF" CornerRadius="8" Margin="0,2,0,4" Cursor="Hand">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Border x:Name="border" Background="#FFFFFFFF" CornerRadius="8" Margin="0,2,0,4" Cursor="Hand" Grid.ColumnSpan="2">
             <Border.Effect>
                 <DropShadowEffect Color="#FF333333" ShadowDepth="0" Direction="0" Opacity="0.5"/>
             </Border.Effect>

@@ -95,9 +95,7 @@
                     </Grid.ColumnDefinitions>
                     <!--#endregion-->
 
-                    <Button x:Name="ProfilePageButton" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,10,0,10" Background="Transparent" Click="ProfilePageButton_Click" Width="172" Height="44" Template="{DynamicResource ProfilePageButtonTemplate}">
-
-                    </Button>
+                    <userDisplay:ProfilePageButton x:Name="ProfilePageButton" Margin="10" Grid.Row="0"/>
 
                     <Button x:Name="NotificationButton" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8" Background="White" Template="{DynamicResource NotificationButtonTemplate}">
 

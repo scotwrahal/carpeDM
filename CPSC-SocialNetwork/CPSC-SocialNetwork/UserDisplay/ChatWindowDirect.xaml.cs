@@ -20,6 +20,9 @@ namespace CPSC_SocialNetwork.UserDisplay
 {
     public partial class ChatWindowDirect : UserControl
     {
+        private User user;
+        private User friend;
+        /*
         private string name;
         public string DisplayName
         {
@@ -42,8 +45,8 @@ namespace CPSC_SocialNetwork.UserDisplay
                 this.Image.Source = picture.Source;
                 this.ClosedWindowImage.Source = picture.Source;
             }
-        }
-
+        }        
+        */
         public ChatWindowDirect()
         {
             InitializeComponent();
@@ -52,7 +55,10 @@ namespace CPSC_SocialNetwork.UserDisplay
         public ChatWindowDirect(User user)
         {
             InitializeComponent();
-            this.DisplayName = user.DisplayName;
+            //this.DisplayName = user.DisplayName;
+            this.user = user;
+            this.Name.Text = user.DisplayName;
+            this.ClosedWindowName.Text = user.DisplayName;
             this.Image.Source = new BitmapImage(new Uri(@"\Images\User\" + user.Picture, UriKind.Relative));
             this.ClosedWindowImage.Source = new BitmapImage(new Uri(@"\Images\User\" + user.Picture, UriKind.Relative));
         }
@@ -73,5 +79,38 @@ namespace CPSC_SocialNetwork.UserDisplay
         {
             ChatManager.Delete(this);
         }
+
+        private void SendButton_Click(object sender, MouseButtonEventArgs e)
+        {
+            WriteMessage();
+        }
+
+        private void Message_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                WriteMessage();
+        }
+
+        private void WriteMessage()
+        {
+            if (Message.Text.Length > 0)
+            {
+                Messages.Children.Add(new Message(Message.Text));
+                Message.Text = "";
+                Scroller.ScrollToEnd();
+            }
+        }
+
+        /*
+        private void WriteMessage()
+        {
+            if (Message.Text.Length > 0)
+            {
+                Messages.Children.Add(new Message(this.user, Message.Text));
+                Message.Text = "";
+                Scroller.ScrollToEnd();
+            }
+        }
+        */
     }
 }

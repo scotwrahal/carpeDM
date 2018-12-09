@@ -19,6 +19,18 @@
                 <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FFF2F2F2"/>
             </ColorAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="OnMouseEnterImage">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="image">
+                <EasingThicknessKeyFrame KeyTime="0" Value="0,4,4,4"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.1" Value="-4,0,0,0"/>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnMouseLeaveImage">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="image">
+                <EasingThicknessKeyFrame KeyTime="0" Value="-4,0,0,0"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.1" Value="0,4,4,4"/>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
     </UserControl.Resources>
     <UserControl.Triggers>
         <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="border">
@@ -27,14 +39,20 @@
         <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="border">
             <BeginStoryboard x:Name="OnMouseLeaveButton_BeginStoryboard" Storyboard="{StaticResource OnMouseLeaveButton}"/>
         </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="image">
+            <BeginStoryboard x:Name="OnMouseEnterImage_BeginStoryboard" Storyboard="{StaticResource OnMouseEnterImage}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="image">
+            <BeginStoryboard x:Name="OnMouseLeaveImage_BeginStoryboard" Storyboard="{StaticResource OnMouseLeaveImage}"/>
+        </EventTrigger>
     </UserControl.Triggers>
-    
+
     <Border Background="Transparent">
-        <Border x:Name="border" Background="#F2F2F2" Margin="8" CornerRadius="12" Cursor="Hand">
+        <Border x:Name="border" Background="#F2F2F2" Margin="8" CornerRadius="12" Cursor="Hand" PreviewMouseDown="PlayerEntry_Click">
             <Border.Effect>
                 <DropShadowEffect Direction="270" Color="#FF333333" ShadowDepth="1" Opacity="0.5"/>
             </Border.Effect>
-            
+
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="64"/>
@@ -52,9 +70,7 @@
                     <TextBlock x:Name="Name" FontFamily="Century Gothic" FontSize="18" Grid.Row="0" Margin="4,0,0,0" TextTrimming="CharacterEllipsis" VerticalAlignment="Center"/>
                 </Grid>
 
-                <Image Grid.Column="2" Margin="0,4,4,4" Source="/Images/System/DM.png" Cursor="Hand"/>
-
-
+                <Image x:Name="image" Grid.Column="2" Margin="0,4,4,4" Source="/Images/System/DM.png" Cursor="Hand" PreviewMouseDown="DMIcon_Click" Panel.ZIndex="3"/>
             </Grid>
         </Border>
     </Border>

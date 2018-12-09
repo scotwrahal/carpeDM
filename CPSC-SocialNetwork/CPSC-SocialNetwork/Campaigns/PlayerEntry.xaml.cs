@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using CPSC_SocialNetwork.Users;
+using CPSC_SocialNetwork.Database;
+using CPSC_SocialNetwork.UserDisplay;
 
 
 namespace CPSC_SocialNetwork.Campaigns
@@ -23,6 +25,13 @@ namespace CPSC_SocialNetwork.Campaigns
     /// </summary>
     public partial class PlayerEntry : UserControl
     {
+        private User user;
+        public User User
+        {
+            get => this.user;
+            set => this.user = value;
+        }
+
         public PlayerEntry()
         {
             InitializeComponent();
@@ -34,9 +43,20 @@ namespace CPSC_SocialNetwork.Campaigns
         public PlayerEntry(User user)
         {
             InitializeComponent();
-            
+            this.user = user;
             this.Image.Source = new BitmapImage(new Uri(@"\Images\User\" + user.Picture, UriKind.Relative));
             this.Name.Text = user.DisplayName;
+        }
+
+        private void PlayerEntry_Click(object sender, MouseButtonEventArgs e)
+        {
+            if(!(e.OriginalSource is Image))
+                Switcher.Switch(SocialNetworkDatabase.ProfilePages[this.user]);
+        }       
+
+        private void DMIcon_Click(object sender, MouseButtonEventArgs e)
+        {
+            ChatManager.Load(new ChatWindowDirect(this.user));
         }
     }
 }

@@ -5,8 +5,118 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CPSC_SocialNetwork.UserDisplay"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             d:DesignHeight="320" d:DesignWidth="240">
+    <Grid Width="240">
+        <Border x:Name="OpenWindow" Background="White" CornerRadius="12,12,0,0" BorderBrush="#FFCCCCCC">
+            <Border.Effect>
+                <DropShadowEffect Color="#FF333333" Opacity="0.75" ShadowDepth="0"/>
+            </Border.Effect>
+            <Grid x:Name="ChatWindow">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="24"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Border Background="#CCCCCC" Grid.Row="0" CornerRadius="12,12,0,0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="24"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="24"/>
+                            <ColumnDefinition Width="24"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border x:Name="Mask" Background="#FFCCCCCC" CornerRadius="10,2,2,2" Margin="2"/>
+                        <Image x:Name="Image" Grid.Column="0" Margin="2" Source="/Images/Campaign/1.png">
+                            <Image.OpacityMask>
+                                <VisualBrush Visual="{Binding ElementName=Mask}"/>
+                            </Image.OpacityMask>
+                        </Image>
+
+                        <TextBlock x:Name="Name" Grid.Column="1" Text="Campaign Name" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="12" Foreground="#FF4C4C4C" Margin="4,0,4,0"/>
+
+                        <Grid x:Name="MinimizeButton" Grid.Column="2">
+                            <Ellipse Margin="4" Fill="#FF4C4C4C" MouseDown="MinimizeButton_Click">
+                                <Ellipse.Effect>
+                                    <DropShadowEffect BlurRadius="2" Direction="90" Opacity="0.75" ShadowDepth="0"/>
+                                </Ellipse.Effect>
+                            </Ellipse>
+                            <Image Margin="8" Source="/CPSC-SocialNetwork;component/Images/System/minimize.png" Panel.ZIndex="3" IsHitTestVisible="False"/>
+                        </Grid>
+
+                        <Grid x:Name="CloseButton" Grid.Column="3">
+                            <Ellipse Margin="4" Fill="#FF333333" MouseDown="CloseButton_Click">
+                                <Ellipse.Effect>
+                                    <DropShadowEffect BlurRadius="2" Direction="90" Opacity="0.75" ShadowDepth="0"/>
+                                </Ellipse.Effect>
+                            </Ellipse>
+                            <Image Margin="8" Source="/CPSC-SocialNetwork;component/Images/System/close.png" Panel.ZIndex="3" IsHitTestVisible="False"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+
+                <Grid Grid.Row="1" x:Name="ChatBox">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="36"/>
+                    </Grid.RowDefinitions>
+                    <ScrollViewer Grid.Row="0">
+
+                    </ScrollViewer>
+                    <Grid Background="#CCCCCC" Grid.Row="1">
+                        <Border Background="White" Margin="8" CornerRadius="10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="50"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBox Grid.Column="0" Margin="10,0,0,0" BorderThickness="0"/>
+                                <TextBlock Grid.Column="1" Text="Send" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+        <Border x:Name ="ClosedWindow" Background="#CCCCCC" Grid.Row="0" CornerRadius="12,12,0,0" Visibility="Hidden" VerticalAlignment="Bottom">
+            <Border.Effect>
+                <DropShadowEffect Color="#FF333333" Opacity="0.75" ShadowDepth="0"/>
+            </Border.Effect>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="24"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="24"/>
+                    <ColumnDefinition Width="24"/>
+                </Grid.ColumnDefinitions>
+
+                <Border x:Name="ClosedMask" Background="#FFCCCCCC" CornerRadius="10,2,2,2" Margin="2"/>
+                <Image x:Name="ClosedWindowImage" Grid.Column="0" Margin="2" Source="/Images/User/1.png">
+                    <Image.OpacityMask>
+                        <VisualBrush Visual="{Binding ElementName=ClosedMask}"/>
+                    </Image.OpacityMask>
+                </Image>
+
+                <TextBlock x:Name="ClosedWindowName" Grid.Column="1" Text="Friends name" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="12" Foreground="#FF4C4C4C" Margin="4,0,4,0"/>
+
+                <Grid x:Name="MaximizeButton" Grid.Column="2" >
+                    <Ellipse Margin="4" Fill="#FF4C4C4C" MouseDown="MaximizeButton_Click">
+                        <Ellipse.Effect>
+                            <DropShadowEffect BlurRadius="2" Direction="90" Opacity="0.75" ShadowDepth="0"/>
+                        </Ellipse.Effect>
+                    </Ellipse>
+                    <Image Margin="8" Source="/CPSC-SocialNetwork;component/Images/System/maximize.png" Panel.ZIndex="3" IsHitTestVisible="False"/>
+                </Grid>
+                <Grid x:Name="ClosedWindowCloseButton" Grid.Column="3">
+                    <Ellipse Margin="4" Fill="#FF333333" MouseDown="CloseButton_Click">
+                        <Ellipse.Effect>
+                            <DropShadowEffect BlurRadius="2" Direction="90" Opacity="0.75" ShadowDepth="0"/>
+                        </Ellipse.Effect>
+                    </Ellipse>
+                    <Image Margin="8" Source="/CPSC-SocialNetwork;component/Images/System/close.png" Panel.ZIndex="3" IsHitTestVisible="False"/>
+                </Grid>
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>

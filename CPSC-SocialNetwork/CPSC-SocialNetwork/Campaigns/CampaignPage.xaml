@@ -298,6 +298,30 @@
                 <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FF004B60"/>
             </ColorAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="OnMouseEnterImage">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="image">
+                <EasingThicknessKeyFrame KeyTime="0" Value="0,4,4,4"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.1" Value="-2,2,2,2"/>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnMouseLeaveImage">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="image">
+                <EasingThicknessKeyFrame KeyTime="0" Value="-2,2,2,2"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.1" Value="0,4,4,4"/>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnMouseEnterImage1">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="image1">
+                <EasingThicknessKeyFrame KeyTime="0" Value="0,4"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.1" Value="-2,2,2,2"/>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnMouseLeaveImage1">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="image1">
+                <EasingThicknessKeyFrame KeyTime="0" Value="-2,2,2,2"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.1" Value="0,4"/>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
     </UserControl.Resources>
     <UserControl.Triggers>
         <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="border">
@@ -305,6 +329,18 @@
         </EventTrigger>
         <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="border">
             <BeginStoryboard x:Name="OnMouseLeaveJoin_BeginStoryboard" Storyboard="{StaticResource OnMouseLeaveJoin}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="image">
+            <BeginStoryboard x:Name="OnMouseEnterImage_BeginStoryboard" Storyboard="{StaticResource OnMouseEnterImage}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="image">
+            <BeginStoryboard x:Name="OnMouseLeaveImage_BeginStoryboard" Storyboard="{StaticResource OnMouseLeaveImage}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="image1">
+            <BeginStoryboard x:Name="OnMouseEnterImage_BeginStoryboard1" Storyboard="{StaticResource OnMouseEnterImage1}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="image1">
+            <BeginStoryboard x:Name="OnMouseLeaveImage_BeginStoryboard1" Storyboard="{StaticResource OnMouseLeaveImage1}"/>
         </EventTrigger>
     </UserControl.Triggers>
 
@@ -382,8 +418,8 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Image Grid.Column="0" Margin="0,4,0,4" Source="/Images/System/GM.png" Cursor="Hand"/>
-                        <Image Grid.Column="1" Margin="0,4,4,4" Source="/Images/System/DM.png" Cursor="Hand"/>
+                        <Image x:Name="image1" Grid.Column="0" Margin="0,4,0,4" Source="/Images/System/GM.png" Cursor="Hand"/>
+                        <Image x:Name="image" Grid.Column="1" Margin="0,4,4,4" Source="/Images/System/DM.png" Cursor="Hand"/>
                     </Grid>
 
                 </Grid>

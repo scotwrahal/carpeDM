@@ -13,12 +13,20 @@
                 <EasingColorKeyFrame KeyTime="0" Value="White"/>
                 <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#AFFFFFFF"/>
             </ColorAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="Border">
+                <EasingThicknessKeyFrame KeyTime="0" Value="0,2,0,4"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.1" Value="-2,0,-2,2"/>
+            </ThicknessAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="OnMouseLeaveButton">
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="Border">
                 <EasingColorKeyFrame KeyTime="0" Value="#AFFFFFFF"/>
                 <EasingColorKeyFrame KeyTime="0:0:0.1" Value="White"/>
             </ColorAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="Border">
+                <EasingThicknessKeyFrame KeyTime="0" Value="-2,0,-2,2"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.1" Value="0,2,0,4"/>
+            </ThicknessAnimationUsingKeyFrames>
         </Storyboard>
     </UserControl.Resources>
     <UserControl.Triggers>
@@ -39,7 +47,7 @@
                     <ColumnDefinition Width="48"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Border x:Name="Mask" Grid.Column="0" Background="White" CornerRadius="6"/>
+                <Border x:Name="Mask" Grid.Column="0" Background="White" CornerRadius="6" Margin="6"/>
                 <Image Name="CampaignImage" Grid.Column="0" Margin="6">
                     <Image.OpacityMask>
                         <VisualBrush Visual="{Binding ElementName=Mask}"/>
