@@ -97,7 +97,7 @@ namespace CPSC_SocialNetwork.Campaigns
             string version = "D&D 5th Edition",
             string picture = "",
             string date = "December 10th, 2018",
-            string meeting = "Friday Evenings - 6pm - Weekly",
+            string meeting = "No meeting time specified",
             List<string> tags = null,
             SortedList<string, User> players = null, 
             SortedList<string, Character> characters = null, 

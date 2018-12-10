@@ -156,6 +156,7 @@ namespace CPSC_SocialNetwork.Database
                             description: "Delve deep into an ancient city filled with wonder and peril. Fight unearthed monsters and discover the secrets of a lost civilization. Be courageous and intelligent to piece together the Legend of the Five Tomes.",
                             owner: Users[USERNAME[2]],
                             picture: "10.png",
+                            meeting: "Sunday, 4pm - 6pm, Weekly",
                             players: new SortedList<string, User>
                             {
                                 { Users[USERNAME[0]].DisplayName, Users[USERNAME[0]] },
@@ -177,6 +178,20 @@ namespace CPSC_SocialNetwork.Database
                             tags: new List<string>
                             {
                                 "Ancient","City","Mystery","Horror","Ruins","Dungeon"
+                            },
+                            entries: new List<StoryEntry>
+                            {
+                                new StoryEntry("Background", "The Legend of the Five Tomes is a story older than the wisest of the village but lives on past down through each generation. " +
+                                                              "It tells of a great and vast civilization of old whose remains still buzz with life beneath the depths of an ancient forest. " +
+                                                              "Within a sprawling labyrinth of collapsed structures and roads long since travelled rumors tell of five tomes of untold knowledge " +
+                                                              "and power."),
+                                new StoryEntry("November 25th", "The party of brave adventurers, having heard of the legendary city, decide to embark to the ancient forest to the east. They gather " +
+                                                               "the gear they require and hone their skills before setting out from the village."),
+                                new StoryEntry("December 2nd", "At the roots of a mighty tree the party found the remains of a mystic portal. Unable to open it they decided to search the remains of " +
+                                                               "what seemed to be the adventurers that came before them. On one of the bodies was a map with confusing markings and strange imagery that " +
+                                                               "seemed to be leading toward the lake to the north.")
+                                          
+
                             }
                             )
                         }
