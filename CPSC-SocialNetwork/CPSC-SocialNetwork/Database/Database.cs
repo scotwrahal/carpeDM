@@ -70,31 +70,29 @@ namespace CPSC_SocialNetwork.Database
             {
                 { USERNAME[0], new Dictionary<string, Character>
                     {
-                        { "Eridan Xanthas", new Character(owner: Users[USERNAME[0]], characterName: "Eridan Xanthas", characterRace: "Half-Elf", characterClass: "Magus", characterLevel: 6, picture: "1.png") },
-                        { "Soren Riftbane", new Character(owner: Users[USERNAME[0]], characterName: "Soren Riftbane", characterRace: "Tiefling (Pit-born)", characterClass: "Inquisitor", characterLevel: 13, picture: "2.png") },
+                        { "Soren Riftbane", new Character(owner: Users[USERNAME[0]], characterName: "Soren Riftbane", characterRace: "Tiefling (Pit-born)", characterClass: "Inquisitor", characterLevel: 13, picture: "8.png") },
                         { "Gradius Braveheart", new Character(owner: Users[USERNAME[0]], characterName: "Gradius Braveheart", characterRace: "Human", characterClass:"Barbarian", characterLevel: 7, picture: "3.png") }
                     }
                 },
                 { USERNAME[1], new Dictionary<string, Character>
                     {
-                        { "Doralig Cragarm", new Character(owner: Users[USERNAME[1]], characterName: "Doralig Cragarm", characterRace: "Dwarf", characterClass: "Druid", characterLevel: 16) },
-                        { "Luvon Keywynn", new Character(owner: Users[USERNAME[1]], characterName: "Luvon Keywynn", characterRace: "Elf", characterClass: "Ranger", characterLevel: 7) }
+                        { "Doralig Cragarm", new Character(owner: Users[USERNAME[1]], characterName: "Doralig Cragarm", characterRace: "Dwarf", characterClass: "Druid", characterLevel: 7, picture: "5.png") },
+                        { "Luvon Keywynn", new Character(owner: Users[USERNAME[1]], characterName: "Luvon Keywynn", characterRace: "Elf", characterClass: "Ranger", characterLevel: 7, picture: "7.png") }
                     }
                 },
                 { USERNAME[2], new Dictionary<string, Character>
                     {
-                        { "Aeyi Oyu", new Character(owner: Users[USERNAME[2]], characterName: "Aeyi Oyu", characterRace: "Elf", characterClass: "Shadowdancer", characterLevel: 7) },
-                        { "Finnan Cobblepot", new Character(owner: Users[USERNAME[2]], characterName: "Finnan Cobblepot", characterRace: "Halfing", characterClass: "Rogue", characterLevel: 2) }
+                        { "Aeyi Oyu", new Character(owner: Users[USERNAME[2]], characterName: "Aeyi Oyu", characterRace: "Elf", characterClass: "Shadowdancer", characterLevel: 7, picture: "4.png") },
                     }
                 },
                 { USERNAME[3], new Dictionary<string, Character>
                     {
-
+                        { "Eridan Xanthas", new Character(owner: Users[USERNAME[0]], characterName: "Eridan Xanthas", characterRace: "Half-Elf", characterClass: "Magus", characterLevel: 6, picture: "6.png") },
                     }
                 },
                 { USERNAME[4], new Dictionary<string, Character>
                     {
-
+                        { "Finnan Cobblepot", new Character(owner: Users[USERNAME[2]], characterName: "Finnan Cobblepot", characterRace: "Halfing", characterClass: "Rogue", characterLevel: 2, picture: "9.png") }
                     }
                 },
                 { USERNAME[5], new Dictionary<string, Character>
@@ -129,16 +127,55 @@ namespace CPSC_SocialNetwork.Database
                             picture: "2.png",
                             players: new SortedList<string, User>
                             {
-                                { Users[USERNAME[0]].DisplayName, Users[USERNAME[0]] },
+                                { Users[USERNAME[3]].DisplayName, Users[USERNAME[3]] },
                                 { Users[USERNAME[1]].DisplayName, Users[USERNAME[1]] },
                                 { Users[USERNAME[2]].DisplayName, Users[USERNAME[2]] }
                             },
                             characters: new SortedList<string, Character>
                             {
-                                { Characters[USERNAME[1]]["Doralig Cragarm"].CharacterName, Characters[USERNAME[1]]["Doralig Cragarm"] }
-                            })
+                                { Characters[USERNAME[0]]["Gradius Braveheart"].CharacterName, Characters[USERNAME[0]]["Gradius Braveheart"] },
+                                { Characters[USERNAME[1]]["Doralig Cragarm"].CharacterName, Characters[USERNAME[1]]["Doralig Cragarm"] },
+                                { Characters[USERNAME[2]]["Aeyi Oyu"].CharacterName, Characters[USERNAME[2]]["Aeyi Oyu"] }
+                            },
+                            tags: new List<string>
+                            {
+                                "Goblins","Fighting","Fantasy","War"
+                            }
+                            )
                         },
-                        { "Kingmaker", new Campaign(name: "Kingmaker", description: "A politically based campaign with the goal of building a kingdom.", owner: Users[USERNAME[0]]) }
+
+                        { "Kingmaker", new Campaign(
+                            name: "Kingmaker",
+                            description: "A politically based campaign with the goal of building a kingdom.",
+                            owner: Users[USERNAME[0]],
+                            picture: "1.png")
+                        },
+
+                        { "Legend of the Five Tomes", new Campaign(
+                            name: "Legend of the Five Tomes",
+                            description: "Delve deep into an ancient city filled with wonder and peril. Fight unearthed monsters and discover the secrets of a lost civilization. Be courageous and intelligent to piece together the Legend of the Five Tomes.",
+                            owner: Users[USERNAME[2]],
+                            picture: "10.png",
+                            players: new SortedList<string, User>
+                            {
+                                { Users[USERNAME[0]].DisplayName, Users[USERNAME[0]] },
+                                { Users[USERNAME[1]].DisplayName, Users[USERNAME[1]] },
+                                { Users[USERNAME[3]].DisplayName, Users[USERNAME[3]] },
+                                { Users[USERNAME[4]].DisplayName, Users[USERNAME[4]] }
+                            },
+                            characters: new SortedList<string, Character>
+                            {
+                                { Characters[USERNAME[0]]["Soren Riftbane"].CharacterName, Characters[USERNAME[0]]["Soren Riftbane"] },
+                                { Characters[USERNAME[1]]["Luvon Keywynn"].CharacterName, Characters[USERNAME[1]]["Luvon Keywynn"] },
+                                { Characters[USERNAME[3]]["Eridan Xanthas"].CharacterName, Characters[USERNAME[3]]["Eridan Xanthas"] },
+                                { Characters[USERNAME[4]]["Finnan Cobblepot"].CharacterName, Characters[USERNAME[4]]["Finnan Cobblepot"] }
+                            },
+                            tags: new List<string>
+                            {
+                                "Ancient","City","Mystery","Horror","Ruins","Dungeon"
+                            }
+                            )
+                        }
                     }
                 },
                 { USERNAME[1], new Dictionary<string, Campaign>

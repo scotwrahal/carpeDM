@@ -6,6 +6,28 @@
              xmlns:local="clr-namespace:CPSC_SocialNetwork.UserDisplay"
              mc:Ignorable="d" 
              d:DesignHeight="320" d:DesignWidth="240">
+    <UserControl.Resources>
+        <Storyboard x:Key="OnMouseEnterSend">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border">
+                <EasingColorKeyFrame KeyTime="0" Value="#F2F2F2"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="White"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnMouseLeaveSend">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border">
+                <EasingColorKeyFrame KeyTime="0" Value="White"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#F2F2F2"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="border">
+            <BeginStoryboard Storyboard="{StaticResource OnMouseEnterSend}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="border">
+            <BeginStoryboard x:Name="OnMouseLeaveSend_BeginStoryboard" Storyboard="{StaticResource OnMouseLeaveSend}"/>
+        </EventTrigger>
+    </UserControl.Triggers>
     <Grid Width="240">
         <Border x:Name="OpenWindow" Background="White" CornerRadius="12,12,0,0" BorderBrush="#FFCCCCCC">
             <Border.Effect>
