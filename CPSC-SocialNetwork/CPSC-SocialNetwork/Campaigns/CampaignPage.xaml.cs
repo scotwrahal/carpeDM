@@ -150,6 +150,7 @@ namespace CPSC_SocialNetwork.Campaigns
 
         private void DM_Click(object sender, MouseButtonEventArgs e)
         {
+            if (this.campaign.Owner.DisplayName != "Micah Peacock")
             ChatManager.Load(ChatManager.Get(this.campaign.Owner));
         }
 

@@ -100,8 +100,6 @@ namespace CPSC_SocialNetwork.UserDisplay
                 Messages.Children.Add(new Message(user, "ok"));
                 Message.Text = "";
                 Scroller.ScrollToEnd();
-
-                
             }
         }
     }
