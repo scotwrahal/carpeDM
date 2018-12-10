@@ -317,7 +317,7 @@
                         <RowDefinition Height="64"/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock x:Name="CharacterName" Grid.Row="0" VerticalAlignment="Center" FontSize="20" TextTrimming="CharacterEllipsis"/>
+                    <TextBlock x:Name="CharacterName" Text="Character Name Here" Grid.Row="0" VerticalAlignment="Center" FontSize="20" TextTrimming="CharacterEllipsis"/>
 
                     <Grid Grid.Row="1">
                         <Grid.ColumnDefinitions>
@@ -331,13 +331,7 @@
                             </Image.Clip>
                         </Image>
 
-                        <Grid Grid.Column="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock x:Name="OwnerName" Grid.Row="0" Margin="6,0,0,0" VerticalAlignment="Bottom" FontSize="16" TextTrimming="CharacterEllipsis"/>
-                        </Grid>
+                        <TextBlock x:Name="OwnerName" Grid.Column="1" Text="Characters Owner Here" Grid.Row="0" Margin="6,0,0,0" VerticalAlignment="Center" FontSize="25" TextTrimming="CharacterEllipsis"/>
                     </Grid>
                 </Grid>
 
@@ -345,11 +339,17 @@
         </Border>
 
         <TabControl x:Name="Tabs" Margin="0" Grid.Row="1" Style="{DynamicResource TabControlStyle1}">
-            <TabItem Header="About" Style="{DynamicResource TabItemStyle1}"/>
+            <TabItem Header="About" Style="{DynamicResource TabItemStyle1}">
+                <TextBlock Text="Under Development" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"/>
+            </TabItem>
 
-            <TabItem Header="Story" Style="{DynamicResource TabItemStyle1}"/>
+            <TabItem Header="Story" Style="{DynamicResource TabItemStyle1}">
+                <TextBlock Text="Under Development" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"/>
+            </TabItem>
 
-            <TabItem Header="Extras" Style="{DynamicResource TabItemStyle1}"/>
+            <TabItem Header="Extras" Style="{DynamicResource TabItemStyle1}">
+                <TextBlock Text="Under Development" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"/>
+            </TabItem>
         </TabControl>
     </Grid>
 </UserControl>

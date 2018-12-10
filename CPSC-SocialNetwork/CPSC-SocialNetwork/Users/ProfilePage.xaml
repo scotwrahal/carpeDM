@@ -304,27 +304,37 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Image x:Name="ProfileImage" Grid.Column="0" Source="/Images/User/2.png">
+                <Image x:Name="ProfileImage" Grid.Column="0" Source="/Images/User/ProfilePicture.png">
                     <Image.Clip>
                         <EllipseGeometry Center="48,48" RadiusX="48" RadiusY="48"/>
                     </Image.Clip>
                 </Image>
 
-                <TextBlock x:Name="ProfileName" Grid.Column="1" Margin="8,0,0,0" FontFamily="Century Gothic" FontSize="28" VerticalAlignment="Center"/>
+                <TextBlock x:Name="ProfileName" Text="Micah Peacock" Grid.Column="1" Margin="8,0,0,0" FontFamily="Century Gothic" FontSize="28" VerticalAlignment="Center"/>
 
             </Grid>
         </Border>
 
         <TabControl x:Name="Tabs" Margin="0" Grid.Row="1" Style="{DynamicResource TabControlStyle1}">
-            <TabItem Header="Feed" Style="{DynamicResource TabItemStyle1}"/>
+            <TabItem Header="Feed" Style="{DynamicResource TabItemStyle1}">
+                <TextBlock Text="Under Development" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"/>
+            </TabItem>
 
-            <TabItem Header="About" Style="{DynamicResource TabItemStyle1}"/>
+            <TabItem Header="About" Style="{DynamicResource TabItemStyle1}">
+                <TextBlock Text="Under Development" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"/>
+            </TabItem>
 
-            <TabItem Header="Characters" Style="{DynamicResource TabItemStyle1}"/>
+            <TabItem Header="Characters" Style="{DynamicResource TabItemStyle1}">
+                <TextBlock Text="Under Development" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"/>
+            </TabItem>
 
-            <TabItem Header="Campaigns" Style="{DynamicResource TabItemStyle1}"/>
+            <TabItem Header="Campaigns" Style="{DynamicResource TabItemStyle1}">
+                <TextBlock Text="Under Development" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"/>
+            </TabItem>
 
-            <TabItem Header="Friends" Style="{DynamicResource TabItemStyle1}"/>
+            <TabItem Header="Friends" Style="{DynamicResource TabItemStyle1}">
+                <TextBlock Text="Under Development" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"/>
+            </TabItem>
         </TabControl>
     </Grid>
 </UserControl>
