@@ -11,13 +11,61 @@
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border">
                 <EasingColorKeyFrame KeyTime="0" Value="#F2F2F2"/>
                 <EasingColorKeyFrame KeyTime="0:0:0.1" Value="White"/>
-            </ColorAnimationUsingKeyFrames>            
+            </ColorAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="OnMouseLeaveSend">
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border">
                 <EasingColorKeyFrame KeyTime="0" Value="White"/>
                 <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#F2F2F2"/>
             </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnMouseEnterMaxClose">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="ellipse">
+                <EasingThicknessKeyFrame KeyTime="0" Value="4"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.1" Value="2"/>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnMouseLeaveMaxClose">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="ellipse">
+                <EasingThicknessKeyFrame KeyTime="0" Value="2"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.1" Value="4"/>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnMouseEnterMaxMin">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="ellipse1">
+                <EasingThicknessKeyFrame KeyTime="0" Value="4"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.1" Value="2"/>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnMouseLeaveMaxMin">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="ellipse1">
+                <EasingThicknessKeyFrame KeyTime="0" Value="2"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.1" Value="4"/>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnMouseEnterMinMax">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="ellipse2">
+                <EasingThicknessKeyFrame KeyTime="0" Value="4"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.1" Value="2"/>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnMouseLeaveMinMax">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="ellipse2">
+                <EasingThicknessKeyFrame KeyTime="0" Value="2"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.1" Value="4"/>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnMouseEnterMinClose">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="ellipse3">
+                <EasingThicknessKeyFrame KeyTime="0" Value="4"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.1" Value="2"/>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnMouseLeaveMinClose">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="ellipse3">
+                <EasingThicknessKeyFrame KeyTime="0" Value="2"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.1" Value="4"/>
+            </ThicknessAnimationUsingKeyFrames>
         </Storyboard>
     </UserControl.Resources>
     <UserControl.Triggers>
@@ -26,6 +74,30 @@
         </EventTrigger>
         <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="border">
             <BeginStoryboard x:Name="OnMouseLeaveSend_BeginStoryboard" Storyboard="{StaticResource OnMouseLeaveSend}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="ellipse">
+            <BeginStoryboard x:Name="OnMouseEnterMaxClose_BeginStoryboard" Storyboard="{StaticResource OnMouseEnterMaxClose}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="ellipse">
+            <BeginStoryboard x:Name="OnMouseLeaveMaxClose_BeginStoryboard" Storyboard="{StaticResource OnMouseLeaveMaxClose}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="ellipse1">
+            <BeginStoryboard x:Name="OnMouseEnterMaxMin_BeginStoryboard" Storyboard="{StaticResource OnMouseEnterMaxMin}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="ellipse1">
+            <BeginStoryboard x:Name="OnMouseLeaveMaxMin_BeginStoryboard" Storyboard="{StaticResource OnMouseLeaveMaxMin}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="ellipse2">
+            <BeginStoryboard x:Name="OnMouseEnterMinMax_BeginStoryboard" Storyboard="{StaticResource OnMouseEnterMinMax}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="ellipse2">
+            <BeginStoryboard x:Name="OnMouseLeaveMinMax_BeginStoryboard" Storyboard="{StaticResource OnMouseLeaveMinMax}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="ellipse3">
+            <BeginStoryboard x:Name="OnMouseEnterMinClose_BeginStoryboard" Storyboard="{StaticResource OnMouseEnterMinClose}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="ellipse3">
+            <BeginStoryboard x:Name="OnMouseLeaveMinClose_BeginStoryboard" Storyboard="{StaticResource OnMouseLeaveMinClose}"/>
         </EventTrigger>
     </UserControl.Triggers>
     <Grid Width="240">
@@ -56,7 +128,7 @@
                         <TextBlock x:Name="Name" Grid.Column="1" Text="Friends name" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="12" Foreground="#FF4C4C4C" Margin="4,0,4,0"/>
 
                         <Grid x:Name="MinimizeButton" Grid.Column="2">
-                            <Ellipse Margin="4" Fill="#FF4C4C4C" MouseDown="MinimizeButton_Click">
+                            <Ellipse x:Name="ellipse1" Margin="4" Fill="#FF4C4C4C" MouseDown="MinimizeButton_Click" Cursor="Hand">
                                 <Ellipse.Effect>
                                     <DropShadowEffect BlurRadius="2" Direction="90" Opacity="0.75" ShadowDepth="0"/>
                                 </Ellipse.Effect>
@@ -65,7 +137,7 @@
                         </Grid>
 
                         <Grid x:Name="CloseButton" Grid.Column="3">
-                            <Ellipse Margin="4" Fill="#FF333333" MouseDown="CloseButton_Click">
+                            <Ellipse x:Name="ellipse" Margin="4" Fill="#FF333333" MouseDown="CloseButton_Click" Cursor="Hand">
                                 <Ellipse.Effect>
                                     <DropShadowEffect BlurRadius="2" Direction="90" Opacity="0.75" ShadowDepth="0"/>
                                 </Ellipse.Effect>
@@ -83,7 +155,7 @@
                     <ScrollViewer x:Name="Scroller" Grid.Row="0">
                         <StackPanel x:Name="Messages"/>
                     </ScrollViewer>
-                    
+
                     <Grid Background="#CCCCCC" Grid.Row="1">
                         <Border Background="White" Margin="8" CornerRadius="10">
                             <Grid>
@@ -126,7 +198,7 @@
                 <TextBlock x:Name="ClosedWindowName" Grid.Column="1" Text="Friends name" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="12" Foreground="#FF4C4C4C" Margin="4,0,4,0"/>
 
                 <Grid x:Name="MaximizeButton" Grid.Column="2" >
-                    <Ellipse Margin="4" Fill="#FF4C4C4C" MouseDown="MaximizeButton_Click">
+                    <Ellipse x:Name="ellipse2" Margin="4" Fill="#FF4C4C4C" MouseDown="MaximizeButton_Click" Cursor="Hand">
                         <Ellipse.Effect>
                             <DropShadowEffect BlurRadius="2" Direction="90" Opacity="0.75" ShadowDepth="0"/>
                         </Ellipse.Effect>
@@ -134,7 +206,7 @@
                     <Image Margin="8" Source="/CPSC-SocialNetwork;component/Images/System/maximize.png" Panel.ZIndex="3" IsHitTestVisible="False"/>
                 </Grid>
                 <Grid x:Name="ClosedWindowCloseButton" Grid.Column="3">
-                    <Ellipse Margin="4" Fill="#FF333333" MouseDown="CloseButton_Click">
+                    <Ellipse x:Name="ellipse3" Margin="4" Fill="#FF333333" MouseDown="CloseButton_Click" Cursor="Hand">
                         <Ellipse.Effect>
                             <DropShadowEffect BlurRadius="2" Direction="90" Opacity="0.75" ShadowDepth="0"/>
                         </Ellipse.Effect>

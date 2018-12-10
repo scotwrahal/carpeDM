@@ -52,7 +52,8 @@ namespace CPSC_SocialNetwork.Users
         public GroupSidebarButton(Campaign campaign)
         {
             InitializeComponent();
-            Title.Text = "Chat - " + campaign.Name;
+            Title.Text = campaign.Name;
+            Border.ToolTip = "Click to chat with the players of " + campaign.Name;
             link = ChatManager.Get(campaign);
             this.GroupImage.Source = new BitmapImage(new Uri(@"\Images\Campaign\" + campaign.Picture, UriKind.Relative));
         }

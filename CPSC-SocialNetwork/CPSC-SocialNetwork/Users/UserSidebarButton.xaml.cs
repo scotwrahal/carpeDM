@@ -51,6 +51,7 @@ namespace CPSC_SocialNetwork.Users
         {
             InitializeComponent();
             Title.Text = friend.DisplayName;
+            Border.ToolTip = "Click to chat with " + friend.DisplayName;
             link = ChatManager.Get(friend);
             this.UserImage.Source = new BitmapImage(new Uri(@"\Images\User\" + friend.Picture, UriKind.Relative));
         }
