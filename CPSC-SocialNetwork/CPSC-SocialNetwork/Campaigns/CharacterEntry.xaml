@@ -35,7 +35,7 @@
                 <DropShadowEffect Direction="270" Color="#FF333333" ShadowDepth="1" Opacity="0.5"/>
             </Border.Effect>
 
-            <Grid>
+            <Grid MouseDown="Button_MouseDown">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="64"/>
                     <ColumnDefinition Width="*"/>

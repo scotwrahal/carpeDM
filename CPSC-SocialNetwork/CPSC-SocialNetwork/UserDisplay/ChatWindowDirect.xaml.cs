@@ -97,21 +97,10 @@ namespace CPSC_SocialNetwork.UserDisplay
             if (Message.Text.Length > 0)
             {
                 Messages.Children.Add(new Message(Message.Text));
+                Messages.Children.Add(new Message(user, "ok"));
                 Message.Text = "";
                 Scroller.ScrollToEnd();
             }
         }
-
-        /*
-        private void WriteMessage()
-        {
-            if (Message.Text.Length > 0)
-            {
-                Messages.Children.Add(new Message(this.user, Message.Text));
-                Message.Text = "";
-                Scroller.ScrollToEnd();
-            }
-        }
-        */
     }
 }
