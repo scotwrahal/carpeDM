@@ -30,12 +30,12 @@
         </EventTrigger>
     </UserControl.Triggers>
     <Border Background="Transparent">
-        <Border x:Name="border" Background="#F2F2F2" Margin="8" CornerRadius="12" Cursor="Hand">
+        <Border x:Name="border" Background="#F2F2F2" Margin="8" CornerRadius="12" Cursor="Hand" MouseDown="Button_MouseDown">
             <Border.Effect>
                 <DropShadowEffect Direction="270" Color="#FF333333" ShadowDepth="1" Opacity="0.5"/>
             </Border.Effect>
 
-            <Grid MouseDown="Button_MouseDown">
+            <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="64"/>
                     <ColumnDefinition Width="*"/>
