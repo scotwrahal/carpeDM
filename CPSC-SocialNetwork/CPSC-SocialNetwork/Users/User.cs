@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using CPSC_SocialNetwork.Characters;
 using CPSC_SocialNetwork.Campaigns;
+using CPSC_SocialNetwork.UserDisplay;
 
 namespace CPSC_SocialNetwork.Users
 {
@@ -46,6 +47,14 @@ namespace CPSC_SocialNetwork.Users
             set => this.campaigns = value; 
         }
 
+        private ChatWindowDirect chat;
+        public ChatWindowDirect Chat
+        {
+            get => this.chat;
+            set => this.chat = value;
+        }
+
+
 
         public User(string username = "User123", string displayname = "Unnamed User", string picture = "", Dictionary<string, Character> characters = null, Dictionary<string, Campaign> campaigns = null)
         {
@@ -54,6 +63,7 @@ namespace CPSC_SocialNetwork.Users
             this.picture = picture;
             this.characters = characters;
             this.campaigns = campaigns;
+            this.chat = null;
         }
     }
 }
