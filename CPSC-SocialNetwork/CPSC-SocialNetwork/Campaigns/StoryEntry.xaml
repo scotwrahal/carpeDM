@@ -13,7 +13,7 @@
                 <RowDefinition Height="3*"/>
             </Grid.RowDefinitions>
             <Border Grid.Row="1" Background="#f2f2f2" CornerRadius="12" Margin="10,0,10,10">
-                <TextBlock x:Name="TextBox" Margin="10" TextWrapping="Wrap"/>
+                <TextBlock x:Name="TextBox" Margin="10" FontFamily="Century Gothic" FontSize="14" TextWrapping="Wrap"/>
             </Border>
             <TextBlock x:Name="TitleBox" TextDecorations="Underline" FontFamily="Century Gothic" FontSize="16" Grid.Row="0" Margin="20,10,0,0" TextTrimming="WordEllipsis"/>
         </Grid>
