@@ -122,5 +122,18 @@ namespace CPSC_SocialNetwork
         {
             Application.Current.Shutdown();
         }
+
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Navigate(new Search());
+        }
+
+        private void SearchBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                this.Navigate(new Search());
+        }
+
     }
 }

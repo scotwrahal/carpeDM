@@ -137,6 +137,9 @@ namespace CPSC_SocialNetwork.Campaigns
 
             foreach (User user in campaign.Players.Values)
                 this.PlayerList.Children.Add(new PlayerEntry(user));
+
+            //extras tab
+            ExtrasTab.Children.Add(new ExtrasPage());
         }
 
 

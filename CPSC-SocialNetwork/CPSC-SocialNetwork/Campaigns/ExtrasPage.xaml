@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="CPSC_SocialNetwork.Campaigns.ExtrasPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CPSC_SocialNetwork.Campaigns"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White" Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="10"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Here is a map of the game area." FontFamily="Century Gothic" FontSize="16"/>
+            <Image Grid.Row="1" Source="/Images/System/map.jpg" HorizontalAlignment="Left" Margin="20,0,0,0" MaxHeight="400" Cursor="Cross"/>
+        </Grid>
+
+        <Border Grid.Row="1" BorderBrush="#CCCCCC" BorderThickness="0,2,0,0" Margin="10,0,10,0"/>
+
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Here is a link to the player handbook for this version." FontFamily="Century Gothic" FontSize="16"/>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="18"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="http://dnd.wizards.com/products/tabletop-games/rpg-products/rpg_playershandbook" Foreground="Blue" Margin="20,0,0,0" Cursor="Hand"/>
+                <Image Grid.Row="1" Source="/Images/System/handbook.jpg" HorizontalAlignment="Left" Margin="20,0,0,0" MaxHeight="400" Cursor="Hand"/>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</UserControl>
