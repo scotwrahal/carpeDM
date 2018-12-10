@@ -170,6 +170,10 @@ namespace CPSC_SocialNetwork.Database
                                 { Characters[USERNAME[3]]["Eridan Xanthas"].CharacterName, Characters[USERNAME[3]]["Eridan Xanthas"] },
                                 { Characters[USERNAME[4]]["Finnan Cobblepot"].CharacterName, Characters[USERNAME[4]]["Finnan Cobblepot"] }
                             },
+                            npcs: new SortedList<string, Character>
+                            {
+                                {"Ulag the Wise", new Character(null, "Ulag the Wise", "Halfling", "Diviner", 9, "100.png") }
+                            },
                             tags: new List<string>
                             {
                                 "Ancient","City","Mystery","Horror","Ruins","Dungeon"

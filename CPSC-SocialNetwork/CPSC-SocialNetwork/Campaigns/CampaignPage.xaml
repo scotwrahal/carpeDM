@@ -493,7 +493,7 @@
                         <Border Grid.Row="2" BorderThickness="0,0,0,1" BorderBrush="#CCCCCC" Margin="10,0,10,0">
                             <TextBlock Text="Non-Player Characters" FontSize="18" FontFamily="Century Gothic" Margin="20,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="SemiBold" />
                         </Border>
-                        <StackPanel Grid.Row="1" Name="NPCharacterList"/>
+                        <StackPanel Grid.Row="3" Name="NPCharacterList"/>
                     </Grid>
 
                 </ScrollViewer>

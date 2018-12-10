@@ -118,10 +118,12 @@ namespace CPSC_SocialNetwork.Campaigns
             foreach (Character character in campaign.PlayerCharacters.Values)
             {
                 this.PCharacterList.Children.Add(new CharacterEntry(character));
+            }
+
+            foreach (Character character in campaign.NonPlayerCharacters.Values)
+            {
                 this.NPCharacterList.Children.Add(new CharacterEntry(character));
             }
-                
-                
 
             //players tab
             /*

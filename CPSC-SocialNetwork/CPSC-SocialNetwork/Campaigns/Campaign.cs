@@ -75,8 +75,8 @@ namespace CPSC_SocialNetwork.Campaigns
             set => this.characters = value;
         }
 
-        private SortedList<string, CharacterPage> npcs;
-        public SortedList<string, CharacterPage> NonPlayerCharacters
+        private SortedList<string, Character> npcs;
+        public SortedList<string, Character> NonPlayerCharacters
         {
             get => this.npcs;
             set => this.npcs = value;
@@ -101,6 +101,7 @@ namespace CPSC_SocialNetwork.Campaigns
             List<string> tags = null,
             SortedList<string, User> players = null, 
             SortedList<string, Character> characters = null, 
+            SortedList<string, Character> npcs = null,
             List<StoryEntry> entries = null)
         {
             this.name = name;
@@ -113,6 +114,7 @@ namespace CPSC_SocialNetwork.Campaigns
             this.tags = tags;
             this.players = players;
             this.characters = characters;
+            this.npcs = npcs;
             this.entries = entries;
 
             if (tags == null)
@@ -122,7 +124,7 @@ namespace CPSC_SocialNetwork.Campaigns
             if (characters == null)
                 this.characters = new SortedList<string, Character>();
             if (npcs == null)
-                this.npcs = new SortedList<string, CharacterPage>();
+                this.npcs = new SortedList<string, Character>();
             if (entries == null)
                 this.entries = new List<StoryEntry>();
         }
