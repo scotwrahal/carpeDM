@@ -291,12 +291,19 @@
                 <EasingColorKeyFrame KeyTime="0" Value="#FF004B60"/>
                 <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#AF004B60"/>
             </ColorAnimationUsingKeyFrames>
+            <StringAnimationUsingKeyFrames Storyboard.TargetProperty="(TextBlock.Text)" Storyboard.TargetName="textBlock">
+                <DiscreteStringKeyFrame KeyTime="0:0:0.1" Value="Leave"/>
+            </StringAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="OnMouseLeaveJoin">
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border">
                 <EasingColorKeyFrame KeyTime="0" Value="#AF004B60"/>
                 <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FF004B60"/>
             </ColorAnimationUsingKeyFrames>
+            <StringAnimationUsingKeyFrames Storyboard.TargetProperty="(TextBlock.Text)" Storyboard.TargetName="textBlock">
+                <DiscreteStringKeyFrame KeyTime="0" Value="Leave"/>
+                <DiscreteStringKeyFrame KeyTime="0:0:0.1" Value="Member"/>
+            </StringAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="OnMouseEnterImage">
             <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="image">
@@ -410,7 +417,7 @@
                         <Border.Effect>
                             <DropShadowEffect Direction="270" BlurRadius="10" Color="#FF333333" Opacity="0.5"/>
                         </Border.Effect>
-                        <TextBlock Text="Join" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"/>
+                        <TextBlock x:Name="textBlock" Text="Member" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"/>
                     </Border>
 
                     <Grid Grid.Row="1">
@@ -474,17 +481,21 @@
                 <ScrollViewer Margin="0">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="18"/>
+                            <RowDefinition Height="20"/>
                             <RowDefinition Height="*"/>
-                            <RowDefinition Height="18"/>
+                            <RowDefinition Height="20"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" Text="Player Characters" FontSize="18" FontFamily="Century Gothic"  VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="ExtraBlack" />
+                        <Border Grid.Row="0" BorderThickness="0,0,0,1" BorderBrush="#CCCCCC" Margin="10,0,10,0">
+                            <TextBlock Text="Player Characters" FontSize="18" FontFamily="Century Gothic" Margin="20,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="SemiBold" />
+                        </Border>
                         <StackPanel Grid.Row="1" Name="PCharacterList"/>
-                        <TextBlock Grid.Row="2" Text="Non-Player Characters" FontSize="18" FontFamily="Century Gothic" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="ExtraBlack"/>
+                        <Border Grid.Row="2" BorderThickness="0,0,0,1" BorderBrush="#CCCCCC" Margin="10,0,10,0">
+                            <TextBlock Text="Non-Player Characters" FontSize="18" FontFamily="Century Gothic" Margin="20,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="SemiBold" />
+                        </Border>
                         <StackPanel Grid.Row="1" Name="NPCharacterList"/>
                     </Grid>
-                    
+
                 </ScrollViewer>
             </TabItem>
 
