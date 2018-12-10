@@ -226,7 +226,8 @@ namespace CPSC_SocialNetwork.Database
                             description: "Delve deep into an ancient city filled with wonder and peril. Fight unearthed monsters and discover the secrets of a lost civilization. Be courageous and intelligent to piece together the Legend of the Five Tomes.",
                             owner: Users[USERNAME[2]],
                             picture: "10.png",
-                            meeting: "Sunday, 4pm - 6pm, Weekly",
+                            date: "Novermber 12th, 2018",
+                            meeting: "4pm to 6pm - Sundays - Weekly",
                             players: new SortedList<string, User>
                             {
                                 { Users[USERNAME[0]].DisplayName, Users[USERNAME[0]] },
