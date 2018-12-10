@@ -57,8 +57,6 @@ namespace CPSC_SocialNetwork.Users
 
         private void UserControl_Click(object sender, MouseButtonEventArgs e)
         {
-            this.link.OpenWindow.Visibility = Visibility.Visible;
-            this.link.ClosedWindow.Visibility = Visibility.Hidden;
             ChatManager.Load(this.link);
         }
     }
