@@ -59,8 +59,6 @@ namespace CPSC_SocialNetwork.Users
 
         private void GroupSidebarButton_Click(object sender, MouseButtonEventArgs e)
         {
-            this.link.ClosedWindow.Visibility = Visibility.Hidden;
-            this.link.OpenWindow.Visibility = Visibility.Visible;
             ChatManager.Load(this.link);
         }
     }

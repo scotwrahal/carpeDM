@@ -101,7 +101,7 @@ namespace CPSC_SocialNetwork
                 ChatLayout.Children.Insert(index, chat);
             }
                 
-            if (ChatLayout.Children.Count >= 4)
+            if (ChatLayout.Children.Count >= 5)
                 this.ChatLayout.Children.RemoveAt(0);
         }
 
