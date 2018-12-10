@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using CPSC_SocialNetwork.Campaigns;
 using CPSC_SocialNetwork.UserDisplay;
 
 namespace CPSC_SocialNetwork.Users
@@ -49,12 +49,12 @@ namespace CPSC_SocialNetwork.Users
             InitializeComponent();
         }
 
-        public GroupSidebarButton(string title, ChatWindowGroup linkedControl, string picture = "")
+        public GroupSidebarButton(Campaign campaign)
         {
             InitializeComponent();
-            Title.Text = title;
-            link = linkedControl;
-            this.GroupImage.Source = new BitmapImage(new Uri(@"\Images\Campaign\" + picture, UriKind.Relative));
+            Title.Text = "Chat - " + campaign.Name;
+            link = ChatManager.Get(campaign);
+            this.GroupImage.Source = new BitmapImage(new Uri(@"\Images\Campaign\" + campaign.Picture, UriKind.Relative));
         }
 
         private void GroupSidebarButton_Click(object sender, MouseButtonEventArgs e)

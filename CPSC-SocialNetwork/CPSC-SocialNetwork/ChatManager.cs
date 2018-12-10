@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CPSC_SocialNetwork.Campaigns;
+using CPSC_SocialNetwork.UserDisplay;
+using CPSC_SocialNetwork.Users;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +18,27 @@ namespace CPSC_SocialNetwork
         {
             chatmanager.OpenChatWindow(chat);            
         }
+
+        public static ChatWindowDirect Get(User user)
+        {
+            if (user.Chat == null)
+            {
+               user.Chat = new ChatWindowDirect(user);
+            }
+
+            return user.Chat;
+        }
+
+        public static ChatWindowGroup Get(Campaign user)
+        {
+            if (user.Chat == null)
+            {
+                user.Chat = new ChatWindowGroup(user);
+            }
+
+            return user.Chat;
+        }
+
 
         public static void Delete(UserControl chat)
         {

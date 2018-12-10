@@ -68,20 +68,14 @@ namespace CPSC_SocialNetwork
             {
                 if(friend.Username != this.mainUser.Username)
                 {
-                    UserSidebarButton button = new UserSidebarButton(
-                        title: friend.DisplayName, 
-                        picture: friend.Picture, 
-                        linkedControl: new ChatWindowDirect(friend));
+                    UserSidebarButton button = new UserSidebarButton(friend);
                     this.RightSidebar.FriendList.Children.Add(button);
                 }
             }
 
             foreach(Campaign campaign in SocialNetworkDatabase.Campaigns[SocialNetworkDatabase.USERNAME[0]].Values)
             {
-                GroupSidebarButton button = new GroupSidebarButton(
-                    title: "Chat - " + campaign.Name, 
-                    picture: campaign.Picture, 
-                    linkedControl: new ChatWindowGroup(campaign));
+                GroupSidebarButton button = new GroupSidebarButton(campaign);
                 this.RightSidebar.GroupList.Children.Add(button);
             }
         }

@@ -50,13 +50,13 @@ namespace CPSC_SocialNetwork.Campaigns
 
         private void PlayerEntry_Click(object sender, MouseButtonEventArgs e)
         {
-            if(!(e.OriginalSource is Image))
+            if (!(e.OriginalSource is Image))
                 Switcher.Switch(SocialNetworkDatabase.ProfilePages[this.user]);
-        }       
+        }
 
         private void DMIcon_Click(object sender, MouseButtonEventArgs e)
         {
-            ChatManager.Load(new ChatWindowDirect(this.user));
+            ChatManager.Load(ChatManager.Get(this.user));
         }
     }
 }

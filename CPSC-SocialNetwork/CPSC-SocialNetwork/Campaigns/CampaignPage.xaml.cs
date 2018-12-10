@@ -147,12 +147,12 @@ namespace CPSC_SocialNetwork.Campaigns
 
         private void DM_Click(object sender, MouseButtonEventArgs e)
         {
-            ChatManager.Load(new ChatWindowDirect(this.campaign.Owner));
+            ChatManager.Load(ChatManager.Get(this.campaign.Owner));
         }
 
         private void GM_Click(object sender, MouseButtonEventArgs e)
         {
-            ChatManager.Load(new ChatWindowGroup(this.campaign));
+            ChatManager.Load(ChatManager.Get(this.campaign));
         }
     }
 }
