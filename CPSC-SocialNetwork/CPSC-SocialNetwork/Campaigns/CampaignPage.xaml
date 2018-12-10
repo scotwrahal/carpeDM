@@ -505,7 +505,11 @@
                 </ScrollViewer>
             </TabItem>
 
-            <TabItem Header="Extras" Style="{DynamicResource TabItemStyle1}"/>
+            <TabItem Header="Extras" Style="{DynamicResource TabItemStyle1}">
+                <ScrollViewer>
+                    <StackPanel x:Name="ExtrasTab"/>
+                </ScrollViewer>
+            </TabItem>
         </TabControl>
     </Grid>
 </UserControl>
