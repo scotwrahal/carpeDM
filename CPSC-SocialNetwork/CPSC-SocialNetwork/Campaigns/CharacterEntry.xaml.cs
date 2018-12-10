@@ -44,7 +44,7 @@ namespace CPSC_SocialNetwork.Campaigns
 
         private void Button_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            Switcher.Switch(SocialNetworkDatabase.CharacterPages[this.character]);
+            Switcher.Switch(SocialNetworkDatabase.CharacterPages[SocialNetworkDatabase.GetCharacter("HardworkingIdiot", "Soren Riftbane")]);
         }
     }
 }
