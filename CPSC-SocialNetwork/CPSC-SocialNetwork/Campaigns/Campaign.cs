@@ -8,6 +8,7 @@ using CPSC_SocialNetwork.Users;
 using CPSC_SocialNetwork.Characters;
 
 using CPSC_SocialNetwork.Database;
+using CPSC_SocialNetwork.UserDisplay;
 
 namespace CPSC_SocialNetwork.Campaigns
 {
@@ -39,6 +40,13 @@ namespace CPSC_SocialNetwork.Campaigns
         {
             get => this.picture;
             set => this.picture = value;
+        }
+
+        private ChatWindowGroup chat;
+        public ChatWindowGroup Chat
+        {
+            get => this.chat;
+            set => this.chat = value;
         }
 
         private readonly User owner;
@@ -116,6 +124,7 @@ namespace CPSC_SocialNetwork.Campaigns
             this.characters = characters;
             this.npcs = npcs;
             this.entries = entries;
+            this.chat = null;
 
             if (tags == null)
                 this.tags = new List<string>();

@@ -47,12 +47,12 @@ namespace CPSC_SocialNetwork.Users
             InitializeComponent();
         }
 
-        public UserSidebarButton(string title, ChatWindowDirect linkedControl, string picture = "")
+        public UserSidebarButton(User friend)
         {
             InitializeComponent();
-            Title.Text = title;
-            link = linkedControl;
-            this.UserImage.Source = new BitmapImage(new Uri(@"\Images\User\" + picture, UriKind.Relative));
+            Title.Text = friend.DisplayName;
+            link = ChatManager.Get(friend);
+            this.UserImage.Source = new BitmapImage(new Uri(@"\Images\User\" + friend.Picture, UriKind.Relative));
         }
 
         private void UserControl_Click(object sender, MouseButtonEventArgs e)
